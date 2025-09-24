@@ -2,41 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Tatugold Design System - Sofisticação em ouro, cinza e preto */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Elegant gray background */
+    --background: 210 20% 96%;
+    --foreground: 224 9% 15%;
 
+    /* Card and surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 9% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 9% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Gold primary - Luxurious gold tones */
+    --primary: 45 100% 51%;
+    --primary-foreground: 224 9% 15%;
+    --primary-glow: 45 100% 65%;
+    --primary-dark: 35 80% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Sophisticated dark tones */
+    --secondary: 224 9% 15%;
+    --secondary-foreground: 210 20% 96%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Subtle grays */
+    --muted: 210 15% 92%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Warm gold accent */
+    --accent: 45 100% 51%;
+    --accent-foreground: 224 9% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 45 100% 51%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 50%, hsl(var(--primary-dark)) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(224 15% 20%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-elegant: 0 20px 60px -20px hsl(224 9% 15% / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +122,76 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-gold {
+    @apply bg-primary text-primary-foreground shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-glow)] transition-[var(--transition-smooth)] transform hover:scale-105;
+    background: var(--gradient-gold);
+  }
+
+  .btn-elegant {
+    @apply bg-secondary text-secondary-foreground border border-border hover:bg-secondary/90 shadow-[var(--shadow-elegant)] transition-[var(--transition-smooth)] hover:scale-105;
+  }
+
+  .btn-outline-gold {
+    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground transition-[var(--transition-smooth)] hover:scale-105;
+  }
+
+  /* Text styles */
+  .text-gold-gradient {
+    background: var(--gradient-gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Card variants */
+  .card-elegant {
+    @apply bg-card border border-border shadow-[var(--shadow-elegant)] transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-glow)] hover:scale-105;
+  }
+
+  /* Animations */
+  .hover-lift {
+    @apply transition-[var(--transition-smooth)] hover:translate-y-[-8px] hover:shadow-[var(--shadow-elegant)];
+  }
+
+  .fade-in-up {
+    @apply animate-[fadeInUp_0.8s_ease-out_forwards];
+  }
+}
+
+@layer utilities {
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
