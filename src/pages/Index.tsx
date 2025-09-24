@@ -6,7 +6,6 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
-import ChatBot from '@/components/ChatBot';
 
 const Index = () => {
   return (
@@ -19,7 +18,6 @@ const Index = () => {
       <ContactSection />
       <Footer />
       <WhatsAppFloat />
-      <ChatBot />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { MessageCircle } from 'lucide-react';
 
 const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Olá, quero fazer uma avaliação gratuita com a Tatugold.");
+    const message = encodeURIComponent("Olá, gostaria de fazer uma avaliação gratuita com a Tatugold.");
     const phoneNumber = "5511972801984"; // Format: country code + number
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
