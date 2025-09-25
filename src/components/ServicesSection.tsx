@@ -1,52 +1,59 @@
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { 
-  DollarSign, 
-  Gem, 
-  Search, 
-  RefreshCw, 
-  TrendingUp, 
-  Sparkles 
+import {
+  DollarSign,
+  Gem,
+  Search,
+  RefreshCw,
+  TrendingUp,
+  Sparkles
 } from 'lucide-react';
 
 const ServicesSection = () => {
+  const whatsappNumber = "5511972801984"; // número já formatado para o link
+
   const services = [
     {
       icon: DollarSign,
       title: "Compra de Ouro",
       description: "Avaliação justa e pagamento imediato",
-      popular: true
+      popular: true,
+      message: "Olá, tenho interesse na Compra de Ouro. Gostaria de saber mais sobre avaliação justa e pagamento imediato."
     },
     {
       icon: Gem,
       title: "Joias Personalizadas",
       description: "Criações exclusivas sob medida",
-      popular: true
+      popular: true,
+      message: "Olá, gostaria de saber mais sobre Joias Personalizadas e como funcionam as criações sob medida."
     },
     {
       icon: Search,
       title: "Avaliação Gratuita",
-      description: "Descubra o valor real das suas peças"
+      description: "Descubra o valor real das suas peças",
+      message: "Olá, quero fazer uma Avaliação Gratuita das minhas peças. Como funciona?"
     },
     {
       icon: RefreshCw,
       title: "Resgate de Penhor",
-      description: "Recupere suas joias com facilidade"
+      description: "Recupere suas joias com facilidade",
+      message: "Olá, tenho interesse em Resgate de Penhor. Como posso recuperar minhas joias?"
     },
     {
       icon: TrendingUp,
       title: "Melhor Oferta",
-      description: "Garantimos o melhor preço do mercado"
+      description: "Garantimos o melhor preço do mercado",
+      message: "Olá, gostaria de saber mais sobre a Melhor Oferta que vocês garantem no mercado."
     },
     {
       icon: Sparkles,
       title: "Transformação",
-      description: "Transforme peças antigas em novas criações"
+      description: "Transforme peças antigas em novas criações",
+      message: "Olá, quero transformar minhas peças antigas em novas criações. Como funciona esse serviço?"
     }
   ];
 
   return (
-    <section className="py-24 px-6 bg-card">
+    <section id="service" className="py-24 px-6 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
@@ -67,20 +74,25 @@ const ServicesSection = () => {
                   </span>
                 </div>
               )}
-              
+
               <service.icon className="w-12 h-12 text-primary mb-6" />
-              
+
               <h3 className="text-2xl font-semibold mb-4 text-secondary">
                 {service.title}
               </h3>
-              
+
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {service.description}
               </p>
-              
-              <Button variant="outline" className="btn-outline-gold w-full">
+
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.message)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-gold w-full inline-block text-center py-2 px-4 border border-gold rounded text-gold hover:bg-gold hover:text-white transition-colors duration-200"
+              >
                 Saiba mais
-              </Button>
+              </a>
             </Card>
           ))}
         </div>

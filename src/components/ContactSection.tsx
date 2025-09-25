@@ -1,10 +1,10 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import GoldSimulator from './GoldSimulator';
-import { 
-  MapPin, 
-  Phone, 
-  Instagram, 
+import {
+  MapPin,
+  Phone,
+  Instagram,
   Clock,
   Navigation
 } from 'lucide-react';
@@ -24,7 +24,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-gradient-subtle">
+    <section id="contact" className="py-24 px-6 bg-gradient-subtle">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
@@ -49,7 +49,7 @@ const ContactSection = () => {
                   </p>
                 </div>
               </div>
-              
+
               <Button onClick={handleGoogleMaps} className="btn-gold w-full mb-4">
                 <Navigation className="w-4 h-4 mr-2" />
                 Ver no Google Maps
@@ -94,10 +94,10 @@ const ContactSection = () => {
           {/* Gold Simulator & Features */}
           <div className="space-y-6">
             <GoldSimulator />
-            
+
             <Card className="card-elegant p-8">
               <h3 className="text-2xl font-semibold text-secondary mb-6">Por que escolher a Tatugold?</h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -108,7 +108,7 @@ const ContactSection = () => {
                     <p className="text-muted-foreground text-sm">Duas décadas servindo o Tatuapé com excelência</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary font-bold">💰</span>
@@ -118,7 +118,7 @@ const ContactSection = () => {
                     <p className="text-muted-foreground text-sm">Avaliação justa e pagamento imediato</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary font-bold">💎</span>
@@ -128,7 +128,7 @@ const ContactSection = () => {
                     <p className="text-muted-foreground text-sm">Joias personalizadas feitas especialmente para você</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary font-bold">🏆</span>

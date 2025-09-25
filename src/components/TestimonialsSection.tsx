@@ -52,12 +52,12 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="card-elegant p-8 hover-lift">
               <div className="flex items-start space-x-4">
-                <img 
-                  src={testimonial.image} 
+                <img
+                  src={testimonial.image}
                   alt={testimonial.name}
                   className="w-16 h-16 rounded-full object-cover"
                 />
-                
+
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-4">
                     <div>
@@ -68,24 +68,22 @@ const TestimonialsSection = () => {
                         {testimonial.location}
                       </p>
                     </div>
-                    
+
                     <div className="flex space-x-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="relative">
                     <Quote className="w-6 h-6 text-primary absolute -top-2 -left-2" />
                     <blockquote className="text-muted-foreground italic pl-6 mb-4">
                       "{testimonial.text}"
                     </blockquote>
                   </div>
-                  
-                  <Button variant="outline" size="sm" className="btn-outline-gold">
-                    Ver história completa
-                  </Button>
+
+
                 </div>
               </div>
             </Card>

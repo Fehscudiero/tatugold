@@ -59,7 +59,7 @@ const CatalogSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-gradient-subtle">
+    <section id="catalog" className="py-24 px-6 bg-gradient-subtle">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
@@ -74,8 +74,8 @@ const CatalogSection = () => {
           {categories.map((category, index) => (
             <Card key={index} className="card-elegant overflow-hidden hover-lift group">
               <div className="relative">
-                <img 
-                  src={category.image} 
+                <img
+                  src={category.image}
                   alt={category.title}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -86,16 +86,16 @@ const CatalogSection = () => {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-3 text-secondary">
                   {category.title}
                 </h3>
-                
+
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {category.description}
                 </p>
-                
+
                 <Button variant="outline" className="btn-outline-gold w-full group">
                   <Eye className="w-4 h-4 mr-2" />
                   Ver mais

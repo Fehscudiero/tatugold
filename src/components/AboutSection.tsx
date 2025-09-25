@@ -10,15 +10,15 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-gradient-subtle">
+    <section id="about" className="py-24 px-6 bg-gradient-subtle">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
             Sobre a <span className="text-gold-gradient">Tatugold</span>
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Há duas décadas no coração do Tatuapé, a Tatugold é referência em compra de ouro e criação de joias personalizadas. 
-            Com tradição, transparência e pagamento imediato, transformamos peças antigas em novas possibilidades.
+            Há duas décadas de tradição, a Tatugold é referência em compra de ouro e criação de joias personalizadas.
+            Com transparência e pagamento imediato, transformamos peças antigas em novas possibilidades.
           </p>
         </div>
 
@@ -35,9 +35,7 @@ const AboutSection = () => {
         <div className="text-center space-y-6">
           <blockquote className="text-2xl md:text-3xl font-light text-secondary italic">
             "O ouro muda, mas a história permanece."
-          </blockquote>
-          <blockquote className="text-xl md:text-2xl font-light text-muted-foreground italic">
-            "Cada peça, uma tatuagem na memória."
+
           </blockquote>
         </div>
       </div>

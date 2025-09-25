@@ -2,11 +2,11 @@ import { Heart } from 'lucide-react';
 
 const Footer = () => {
   const quickLinks = [
+    { name: "Sobre Nós", href: "#about" },
     { name: "Catálogo", href: "#catalog" },
     { name: "Avaliação", href: "#services" },
-    { name: "Sobre Nós", href: "#about" },
     { name: "Contato", href: "#contact" },
-    { name: "Política de Privacidade", href: "#privacy" }
+    { name: "Serviços", href: "#service" }
   ];
 
   const features = [
@@ -35,11 +35,8 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4 text-gold-gradient">Tatugold</h3>
             <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
-              Há 20 anos transformando ouro em histórias e criando joias que marcam momentos especiais. 
+              Há 20 anos transformando ouro em histórias e criando joias que marcam momentos especiais.
               Sua joia, sua identidade.
-            </p>
-            <p className="text-sm text-secondary-foreground/60">
-              Rua Soriano de Souza, 190 - Tatuapé, São Paulo
             </p>
           </div>
 
@@ -49,8 +46,15 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const section = document.getElementById(link.href.replace("#", ""));
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                     className="text-secondary-foreground/80 hover:text-primary transition-colors duration-200"
                   >
                     {link.name}
@@ -81,9 +85,9 @@ const Footer = () => {
         <div className="border-t border-secondary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-secondary-foreground/60 text-sm">
-              © 2024 Tatugold. Todos os direitos reservados.
+              © 2025 Tatugold. Todos os direitos reservados.
             </div>
-            
+
             <div className="flex items-center space-x-2 text-secondary-foreground/80">
               <span>Feito com</span>
               <Heart className="w-4 h-4 text-red-500 fill-current" />
