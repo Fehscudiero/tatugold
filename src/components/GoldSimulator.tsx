@@ -16,6 +16,8 @@ import {
 } from '@/components/ui/dialog';
 import tatugoldLogo from '@/assets/tatugold-logo.png';
 
+
+
 const GoldSimulator = () => {
   const [weight, setWeight] = useState('');
   const [goldType, setGoldType] = useState('');
@@ -73,7 +75,7 @@ const GoldSimulator = () => {
   const whatsappMessage = `Olá! Simulei ${weight}g de ouro ${goldType} e o valor estimado foi de ${formattedValue}. Gostaria de conversar sobre isso.`;
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-background">
+    <section id="gold-simulator" className="py-16 px-4 sm:px-6 bg-background">
       <Card className="max-w-md sm:max-w-2xl mx-auto p-6 sm:p-8 rounded-xl shadow-lg border border-muted">
         {/* Título */}
         <div className="text-center mb-6">

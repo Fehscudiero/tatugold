@@ -48,28 +48,29 @@ const HeroSection = () => {
 
         {/* Botão com diamante flutuante e brilho */}
         <a
-          href="#simulador"
+          href="#gold-simulator"
           onClick={(e) => {
             e.preventDefault();
-            const section = document.getElementById("simulador");
+            const section = document.getElementById("gold-simulator");
             if (section) {
               section.scrollIntoView({ behavior: "smooth" });
             }
           }}
-          className="btn-luxury bg-yellow-500 text-black shadow-xl hover:shadow-yellow-400 transition-all duration-300 flex items-center justify-center gap-3 rounded-full px-6 py-3 hover:scale-105 active:scale-95"
+          className="relative inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold shadow-lg hover:shadow-yellow-400 transition-all duration-300 hover:scale-105 active:scale-95"
         >
-          <img
-            src={iconeImage}
-            alt="Simular valor da peça"
-            className="w-12 h-12 sparkle opacity-100"
-          />
-          <span className="text-base md:text-lg font-semibold opacity-100">Simule agora o valor da sua peça</span>
-          <img
-            src={iconeImage}
-            alt="Simular valor da peça"
-            className="w-12 h-12 sparkle opacity-100"
-          />
+          {/* Diamante flutuante */}
+          <div className="absolute -left-5 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-yellow-600 rounded-full shadow-md flex items-center justify-center transition-transform duration-300 hover:scale-110">
+            <img
+              src={iconeImage}
+              alt="Diamante"
+              className="w-7 h-7"
+            />
+          </div>
+
+          <span className="text-base md:text-lg tracking-wide">Simule o valor da sua joia</span>
+          <span className="absolute inset-0 rounded-full bg-white opacity-5 blur-sm pointer-events-none" />
         </a>
+
 
 
       </div>
