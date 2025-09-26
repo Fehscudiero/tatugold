@@ -100,7 +100,6 @@ const ContactSection = () => {
                 data-aos-delay="100"
               >
                 <FaInstagram className="w-8 h-8 text-pink-500 mx-auto mb-4 animate-bounce" />
-
                 <h3 className="font-semibold text-secondary dark:text-white mb-2">Instagram</h3>
                 <p className="text-muted-foreground mb-4">@tatugold.joias</p>
                 <Button
