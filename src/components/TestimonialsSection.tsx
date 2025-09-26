@@ -1,93 +1,99 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Star, Quote } from 'lucide-react';
-import mariaImage from '@/assets/client-maria.jpg';
-import robertoImage from '@/assets/client-roberto.jpg';
+import { useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+const testimonials = [
+  {
+    text: "Fui atendido com total transparência. Explicaram cada detalhe do processo e me passaram muita confiança!",
+    name: "Diego Ribeiro Negreiros da Silva"
+  },
+  {
+    text: "O atendimento foi impecável. Me senti respeitada e bem orientada do início ao fim.",
+    name: "Camila Rodrigues"
+  },
+  {
+    text: "Preço justo, sem enrolação. Recebi uma avaliação clara e honesta, exatamente como esperava.",
+    name: "Carlos Henrique"
+  },
+  {
+    text: "A equipe demonstrou profissionalismo em cada etapa. Tudo foi feito com seriedade e respeito.",
+    name: "Luciana Ferreira"
+  },
+  {
+    text: "Me surpreendi com a agilidade e clareza. Não precisei perguntar nada — tudo foi explicado com precisão.",
+    name: "Marcos Vinícius"
+  },
+  {
+    text: "Ambiente acolhedor, atendimento humano e direto. Dá pra ver que trabalham com ética.",
+    name: "Patrícia Lima"
+  },
+  {
+    text: "Transformaram minha joia antiga com muito cuidado e bom gosto. O resultado ficou incrível.",
+    name: "Renato Oliveira"
+  },
+  {
+    text: "Recebi o valor na hora, sem burocracia. Atendimento rápido e confiável.",
+    name: "Fernanda Souza"
+  },
+  {
+    text: "A loja transmite segurança desde o primeiro contato. Dá pra confiar de olhos fechados.",
+    name: "João Pedro de Almeida"
+  }
+];
 
 const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      name: "Maria Santos",
-      location: "Vila Formosa",
-      rating: 5,
-      text: "Você nem imagina como estou feliz com minha joia personalizada. Atendimento impecável!",
-      image: mariaImage
-    },
-    {
-      name: "Roberto Silva",
-      location: "Tatuapé",
-      rating: 5,
-      text: "Qualidade total e atendimento de primeira. Tatugold é referência para toda família.",
-      image: robertoImage
-    },
-    {
-      name: "Ana Costa",
-      location: "Vila Carrão",
-      rating: 5,
-      text: "Vendi meu ouro com total confiança. Preço justo e pagamento na hora. Recomendo!",
-      image: mariaImage
-    },
-    {
-      name: "Carlos Oliveira",
-      location: "Penha",
-      rating: 5,
-      text: "Transformaram uma joia antiga da família em algo moderno e lindo. Trabalho excepcional!",
-      image: robertoImage
-    }
-  ];
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
 
   return (
-    <section className="py-24 px-6 bg-card">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
-            O que nossos <span className="text-gold-gradient">clientes</span> dizem
+    <section className="bg-background py-24 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Título fixo */}
+        <div className="text-left" data-aos="fade-right">
+          <h4 className="uppercase text-sm tracking-wide text-muted-foreground mb-2 font-bold">
+            DEPOIMENTOS
+          </h4>
+          <h2 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
+            Leia Depoimentos De Clientes
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Histórias reais de quem confia na Tatugold
+          <p className="text-muted-foreground mt-4 text-base max-w-md">
+            Histórias reais que refletem confiança, qualidade e atendimento personalizado.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="card-elegant p-8 hover-lift">
-              <div className="flex items-start space-x-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover"
-                />
-
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <h3 className="font-semibold text-secondary text-lg">
-                        {testimonial.name}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        {testimonial.location}
-                      </p>
-                    </div>
-
-                    <div className="flex space-x-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                      ))}
-                    </div>
+        {/* Depoimento rotativo */}
+        <div
+          className="bg-primary text-primary-foreground rounded-xl p-8 shadow-xl transition-all duration-500"
+          data-aos="fade-left"
+        >
+          <Swiper
+            modules={[Autoplay]}
+            slidesPerView={1}
+            autoplay={{
+              delay: 6000,
+              disableOnInteraction: false
+            }}
+            loop={true}
+            aria-label="Depoimentos de clientes"
+          >
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col justify-center items-start">
+                  <p className="text-lg leading-relaxed italic font-bold text-card-foreground mb-4">
+                    “{item.text}”
+                  </p>
+                  <div className="font-bold text-card-foreground text-base">
+                    {item.name}
                   </div>
-
-                  <div className="relative">
-                    <Quote className="w-6 h-6 text-primary absolute -top-2 -left-2" />
-                    <blockquote className="text-muted-foreground italic pl-6 mb-4">
-                      "{testimonial.text}"
-                    </blockquote>
-                  </div>
-
-
+                  <div className="text-muted-foreground font-semibold text-sm">CLIENTE</div>
                 </div>
-              </div>
-            </Card>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
