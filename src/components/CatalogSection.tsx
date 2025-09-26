@@ -77,7 +77,7 @@ const CatalogSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gold-gradient">
-            O que Compramos
+            O que Compramos ?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Compramos ouro, joias, relógios e metais preciosos com avaliação justa e pagamento imediato.
