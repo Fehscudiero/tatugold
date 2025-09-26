@@ -141,6 +141,19 @@
 
 @layer components {
 
+  .animate-layered-reveal {
+    animation: layeredReveal 1s ease-out forwards;
+  }
+
+  .animate-slide-blur {
+    animation: slideBlur 0.8s ease-out forwards;
+  }
+
+  .animate-tilt-in {
+    animation: tiltIn 0.6s ease-out forwards;
+  }
+
+
   /* Button variants */
   .btn-gold {
     @apply bg-primary text-primary-foreground shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-glow)] transition-[var(--transition-smooth)] transform hover:scale-105;
@@ -204,4 +217,67 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+}
+
+@keyframes layeredReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) rotateX(15deg);
+    filter: blur(6px);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02) rotateX(5deg);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideBlur {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+    filter: blur(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes tiltIn {
+  0% {
+    opacity: 0;
+    transform: rotateX(20deg) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
 }

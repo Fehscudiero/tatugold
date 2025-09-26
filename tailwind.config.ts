@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -64,26 +69,65 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        layeredReveal: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.95) rotateX(15deg)",
+            filter: "blur(6px)",
           },
-          to: {
-            height: "var(--radix-accordion-content-height)",
+          "50%": {
+            opacity: "0.5",
+            transform: "scale(1.02) rotateX(5deg)",
+            filter: "blur(2px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1) rotateX(0deg)",
+            filter: "blur(0)",
           },
         },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
+        slideBlur: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-40px)",
+            filter: "blur(8px)",
           },
-          to: {
-            height: "0",
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+            filter: "blur(0)",
           },
+        },
+        tiltIn: {
+          "0%": {
+            opacity: "0",
+            transform: "rotateX(20deg) scale(0.9)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "rotateX(0deg) scale(1)",
+          },
+        },
+        accordionDown: {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        accordionUp: {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        fadeInUp: "fadeInUp 0.8s ease-out forwards",
+        layeredReveal: "layeredReveal 1s ease-out forwards",
+        slideBlur: "slideBlur 0.8s ease-out forwards",
+        tiltIn: "tiltIn 0.6s ease-out forwards",
+        accordionDown: "accordionDown 0.2s ease-out",
+        accordionUp: "accordionUp 0.2s ease-out",
       },
     },
   },

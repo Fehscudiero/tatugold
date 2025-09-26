@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import {
   DollarSign,
@@ -9,20 +9,10 @@ import {
   Sparkles
 } from 'lucide-react';
 import lunetaImage from '@/assets/luneta.png';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const whatsappNumber = "5511972801984";
-
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-      easing: 'ease-out',
-    });
-  }, []);
 
   const services = [
     {
@@ -84,9 +74,6 @@ const ServicesSection = () => {
               className="card-elegant p-8 relative overflow-hidden hover-lift group"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-              data-aos-duration="800"
             >
               {/* Imagem de fundo com degradê no hover */}
               {hoveredIndex === index && (
