@@ -1,9 +1,9 @@
-import { MessageCircle } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Olá, gostaria de fazer uma avaliação gratuita com a Tatugold.");
-    const phoneNumber = "5511972801984"; // Format: country code + number
+    const phoneNumber = "5511972801984";
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
@@ -11,10 +11,10 @@ const WhatsAppFloat = () => {
     <div className="fixed bottom-6 right-6 z-50">
       <button
         onClick={handleWhatsAppClick}
-        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 animate-pulse"
+        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
         aria-label="Contato via WhatsApp"
       >
-        <MessageCircle size={24} />
+        <FaWhatsapp size={36} className="pulse-scale opacity-100" />
       </button>
     </div>
   );
