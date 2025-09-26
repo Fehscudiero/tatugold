@@ -1,4 +1,5 @@
 import { Heart } from 'lucide-react';
+import tatugoldLogo from '@/assets/tatugold-logo.png';
 
 const Footer = () => {
   const quickLinks = [
@@ -31,19 +32,28 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
+        {/* Logo centralizado */}
+        <div className="flex justify-center mb-10">
+          <img
+            src={tatugoldLogo}
+            alt="Tatugold - Mais que ouro. É identidade."
+            className="w-[180px] md:w-[220px] h-auto"
+          />
+        </div>
+
+        {/* Grid de conteúdo */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-12 text-center lg:text-left">
+          {/* Institucional */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-gold-gradient">Tatugold</h3>
-            <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
+            <p className="text-secondary-foreground/80 leading-relaxed text-sm">
               Há 20 anos transformando ouro em histórias e criando joias que marcam momentos especiais.
               Sua joia, sua identidade.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Links rápidos */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-primary">Links Rápidos</h4>
+            <h4 className="text-xl font-semibold mb-6 text-primary">Links Rápidos</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -56,7 +66,7 @@ const Footer = () => {
                         section.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="text-secondary-foreground/80 hover:text-primary transition-colors duration-200"
+                    className="text-secondary-foreground/80 hover:text-primary transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </a>
@@ -65,14 +75,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Features */}
+          {/* Serviços */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-primary">Nossos Serviços</h4>
+            <h4 className="text-xl font-semibold mb-6 text-primary">Nossos Serviços</h4>
             <div className="space-y-4">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-3">
+                <div key={index} className="flex items-start space-x-3 justify-center lg:justify-start">
                   <span className="text-2xl">{feature.icon}</span>
-                  <div>
+                  <div className="text-left">
                     <h5 className="font-medium text-secondary-foreground">{feature.title}</h5>
                     <p className="text-sm text-secondary-foreground/70">{feature.description}</p>
                   </div>
@@ -82,14 +92,14 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* Rodapé inferior */}
         <div className="border-t border-secondary-foreground/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
             <div className="text-secondary-foreground/60 text-sm">
               © 2025 Tatugold. Todos os direitos reservados.
             </div>
 
-            <div className="flex items-center space-x-2 text-secondary-foreground/80">
+            <div className="flex items-center space-x-2 text-secondary-foreground/80 text-sm">
               <span>Feito com</span>
               <Heart className="w-4 h-4 text-red-500 fill-current" />
               <span>para nossos clientes.</span>

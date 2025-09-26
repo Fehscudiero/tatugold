@@ -16,7 +16,7 @@ const Index = () => {
       <ServicesSection />
       <CatalogSection />
       <TestimonialsSection />
-      <GoldSimulator /> {/* ← posicionado antes do contato */}
+      <GoldSimulator />
       <ContactSection />
       <Footer />
       <WhatsAppFloat />
