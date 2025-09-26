@@ -5,6 +5,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calculator, TrendingUp } from 'lucide-react';
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose
+} from '@/components/ui/dialog';
+import tatugoldLogo from '@/assets/tatugold-logo.png';
 
 const GoldSimulator = () => {
   const [weight, setWeight] = useState('');
@@ -53,6 +63,15 @@ const GoldSimulator = () => {
     }
   };
 
+  const formattedValue = estimatedValue.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+  const whatsappMessage = `Olá! Simulei ${weight}g de ouro ${goldType} e o valor estimado foi de ${formattedValue}. Gostaria de conversar sobre isso.`;
+
   return (
     <Card className="card-elegant p-8">
       <div className="text-center mb-6">
@@ -96,35 +115,68 @@ const GoldSimulator = () => {
               <SelectValue placeholder="Selecione o tipo" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="24k">Ouro 24k (999)</SelectItem>
-              <SelectItem value="18k">Ouro 18k (750)</SelectItem>
-              <SelectItem value="14k">Ouro 14k (585)</SelectItem>
-              <SelectItem value="10k">Ouro 10k (416)</SelectItem>
+              <SelectItem value="24k">Ouro 24k </SelectItem>
+              <SelectItem value="18k">Ouro 18k </SelectItem>
+              <SelectItem value="14k">Ouro 14k </SelectItem>
+              <SelectItem value="10k">Ouro 10k </SelectItem>
               <SelectItem value="dental">Ouro Dental</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
-        <Button
-          onClick={calculateValue}
-          className="btn-gold w-full"
-          disabled={!weight || !goldType || !cotacao24k}
-        >
-          <TrendingUp className="w-4 h-4 mr-2" />
-          Calcular Valor
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              onClick={calculateValue}
+              className="btn-gold w-full"
+              disabled={!weight || !goldType || !cotacao24k}
+            >
+              <TrendingUp className="w-4 h-4 mr-2" />
+              Calcular Valor
+            </Button>
+          </DialogTrigger>
 
-        {estimatedValue > 0 && (
-          <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 text-center">
-            <p className="text-sm text-muted-foreground mb-2">Valor estimado:</p>
-            <p className="text-3xl font-bold text-primary">
-              R$ {estimatedValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          <DialogContent className="max-w-md mx-auto text-center">
+            <DialogHeader className="flex flex-col items-center justify-center">
+              <img
+                src={tatugoldLogo}
+                alt="Logo Tatugold"
+                className="w-48 md:w-64 h-auto mb-4 mx-auto drop-shadow-lg transition-all duration-500 ease-in-out"
+              />
+
+              <DialogTitle className="text-4xl font-bold text-primary">
+                Valor Estimado
+              </DialogTitle>
+              <DialogDescription className="text-muted-foreground text-sm">
+                Cotação atual: R$ {cotacao24k?.toFixed(2)} <br />
+                Atualizado em: {cotacaoDate}
+              </DialogDescription>
+            </DialogHeader>
+
+            <p className="text-3xl font-bold text-secondary mt-4 mb-2">
+              {formattedValue}
             </p>
-            <p className="text-xs text-muted-foreground mt-2">
+
+            <p className="text-xs text-muted-foreground font-bold mb-4">
               *Valor aproximado com base na cotação atual. Avaliação final será feita presencialmente.
             </p>
-          </div>
-        )}
+
+            <a
+              href={`https://wa.me/5511972801984?text=${encodeURIComponent(whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition"
+            >
+              Falar com a TATUGOLD
+            </a>
+
+            <DialogClose asChild>
+              <Button variant="ghost" className="mt-4 w-full">
+                Fechar
+              </Button>
+            </DialogClose>
+          </DialogContent>
+        </Dialog>
       </div>
     </Card>
   );
