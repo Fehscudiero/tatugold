@@ -53,8 +53,8 @@ const TestimonialsSection = () => {
     <section className="bg-background py-24 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Título fixo */}
-        <div className="text-left" data-aos="fade-right">
-          <h4 className="uppercase text-sm tracking-wide text-muted-foreground mb-2 font-bold">
+        <div className="text-left" data-aos="fade-right " >
+          <h4 className="uppercase  text-sm tracking-wide text-muted-foreground mb-2 font-bold">
             DEPOIMENTOS
           </h4>
           <h2 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">

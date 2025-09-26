@@ -73,112 +73,108 @@ const GoldSimulator = () => {
   const whatsappMessage = `Olá! Simulei ${weight}g de ouro ${goldType} e o valor estimado foi de ${formattedValue}. Gostaria de conversar sobre isso.`;
 
   return (
-    <Card className="card-elegant p-8">
-      <div className="text-center mb-6">
-        <Calculator className="w-12 h-12 text-primary mx-auto mb-4" />
-        <h3 className="text-2xl font-semibold text-secondary mb-2">
-          Simulador de Avaliação
-        </h3>
-        {error ? (
-          <p className="text-red-500 text-sm">
-            Erro ao carregar cotação. Tente novamente mais tarde.
-          </p>
-        ) : (
-          <p className="text-muted-foreground">
-            Cotação do ouro 24k: <strong>R$ {cotacao24k?.toFixed(2) || 'Carregando...'}</strong><br />
-            Atualizado em: {cotacaoDate}
-          </p>
-        )}
-      </div>
-
-      <div className="space-y-6">
-        <div>
-          <Label htmlFor="weight" className="text-sm font-medium text-secondary">
-            Peso (gramas)
-          </Label>
-          <Input
-            id="weight"
-            type="number"
-            placeholder="Ex: 10.5"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-            className="mt-2"
-          />
+    <section className="py-16 px-4 sm:px-6 bg-background">
+      <Card className="max-w-md sm:max-w-2xl mx-auto p-6 sm:p-8 rounded-xl shadow-lg border border-muted">
+        {/* Título */}
+        <div className="text-center mb-6">
+          <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
+          <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">Simulador de Avaliação</h2>
+          {error ? (
+            <p className="text-red-500 text-sm">Erro ao carregar cotação. Tente novamente mais tarde.</p>
+          ) : (
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Cotação do ouro 24k: <strong>R$ {cotacao24k?.toFixed(2) || 'Carregando...'}</strong><br />
+              Atualizado em: {cotacaoDate}
+            </p>
+          )}
         </div>
 
-        <div>
-          <Label htmlFor="gold-type" className="text-sm font-medium text-secondary">
-            Tipo de Ouro
-          </Label>
-          <Select value={goldType} onValueChange={setGoldType}>
-            <SelectTrigger className="mt-2">
-              <SelectValue placeholder="Selecione o tipo" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="24k">Ouro 24k </SelectItem>
-              <SelectItem value="18k">Ouro 18k </SelectItem>
-              <SelectItem value="14k">Ouro 14k </SelectItem>
-              <SelectItem value="10k">Ouro 10k </SelectItem>
-              <SelectItem value="dental">Ouro Dental</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+        {/* Formulário */}
+        <div className="space-y-5">
+          <div>
+            <Label htmlFor="weight" className="text-sm font-medium text-secondary">
+              Peso (gramas)
+            </Label>
+            <Input
+              id="weight"
+              type="number"
+              placeholder="Ex: 10.5"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              className="mt-2"
+            />
+          </div>
 
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button
-              onClick={calculateValue}
-              className="btn-gold w-full"
-              disabled={!weight || !goldType || !cotacao24k}
-            >
-              <TrendingUp className="w-4 h-4 mr-2" />
-              Calcular Valor
-            </Button>
-          </DialogTrigger>
+          <div>
+            <Label htmlFor="gold-type" className="text-sm font-medium text-secondary">
+              Tipo de Ouro
+            </Label>
+            <Select value={goldType} onValueChange={setGoldType}>
+              <SelectTrigger className="mt-2">
+                <SelectValue placeholder="Selecione o tipo" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="24k">Ouro 24k</SelectItem>
+                <SelectItem value="18k">Ouro 18k</SelectItem>
+                <SelectItem value="14k">Ouro 14k</SelectItem>
+                <SelectItem value="10k">Ouro 10k</SelectItem>
+                <SelectItem value="dental">Ouro Dental</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-          <DialogContent className="max-w-md mx-auto text-center">
-            <DialogHeader className="flex flex-col items-center justify-center">
-              <img
-                src={tatugoldLogo}
-                alt="Logo Tatugold"
-                className="w-48 md:w-64 h-auto mb-4 mx-auto drop-shadow-lg transition-all duration-500 ease-in-out"
-              />
-
-              <DialogTitle className="text-4xl font-bold text-primary">
-                Valor Estimado
-              </DialogTitle>
-              <DialogDescription className="text-muted-foreground text-sm">
-                Cotação atual: R$ {cotacao24k?.toFixed(2)} <br />
-                Atualizado em: {cotacaoDate}
-              </DialogDescription>
-            </DialogHeader>
-
-            <p className="text-3xl font-bold text-secondary mt-4 mb-2">
-              {formattedValue}
-            </p>
-
-            <p className="text-xs text-muted-foreground font-bold mb-4">
-              *Valor aproximado com base na cotação atual. Avaliação final será feita presencialmente.
-            </p>
-
-            <a
-              href={`https://wa.me/5511972801984?text=${encodeURIComponent(whatsappMessage)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition"
-            >
-              Falar com a TATUGOLD
-            </a>
-
-            <DialogClose asChild>
-              <Button variant="ghost" className="mt-4 w-full">
-                Fechar
+          {/* Botão + Modal */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                onClick={calculateValue}
+                className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
+                disabled={!weight || !goldType || !cotacao24k}
+              >
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Calcular Valor
               </Button>
-            </DialogClose>
-          </DialogContent>
-        </Dialog>
-      </div>
-    </Card>
+            </DialogTrigger>
+
+            <DialogContent className="max-w-sm sm:max-w-md mx-auto text-center">
+              <DialogHeader className="flex flex-col items-center justify-center">
+                <img
+                  src={tatugoldLogo}
+                  alt="Logo Tatugold"
+                  className="w-40 sm:w-48 h-auto mb-4 mx-auto drop-shadow-lg"
+                />
+                <DialogTitle className="text-3xl font-bold text-primary">Valor Estimado</DialogTitle>
+                <DialogDescription className="text-muted-foreground text-sm">
+                  Cotação atual: R$ {cotacao24k?.toFixed(2)} <br />
+                  Atualizado em: {cotacaoDate}
+                </DialogDescription>
+              </DialogHeader>
+
+              <p className="text-2xl font-bold text-secondary mt-4 mb-2">{formattedValue}</p>
+
+              <p className="text-xs text-muted-foreground font-bold mb-4">
+                *Valor aproximado com base na cotação atual. Avaliação final será feita presencialmente.
+              </p>
+
+              <a
+                href={`https://wa.me/5511972801984?text=${encodeURIComponent(whatsappMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition"
+              >
+                Falar com a TATUGOLD
+              </a>
+
+              <DialogClose asChild>
+                <Button variant="ghost" className="mt-4 w-full">
+                  Fechar
+                </Button>
+              </DialogClose>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </Card>
+    </section>
   );
 };
 
