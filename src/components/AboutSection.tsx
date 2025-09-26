@@ -31,13 +31,6 @@ const AboutSection = () => {
             </Card>
           ))}
         </div>
-
-        <div className="text-center space-y-6">
-          <blockquote className="text-2xl md:text-3xl font-light text-secondary italic">
-            "O ouro muda, mas a história permanece."
-
-          </blockquote>
-        </div>
       </div>
     </section>
   );
