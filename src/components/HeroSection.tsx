@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import heroImage from '@/assets/hero-jewelry.jpg';
-import tatugoldLogo from '@/assets/tatugold-logo.png';
+import iconeImage from '@/assets/icone.png';
+import logoImage from '@/assets/tatugold-logo.png';
 import { ChevronDown } from 'lucide-react';
 
 const HeroSection = () => {
@@ -25,17 +26,18 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 ease-out will-change-transform"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black" />
+
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto animate-fade-in">
-        {/* Logo com reflexo e brilho */}
+        {/* Logo fixo com brilho ao hover */}
         <div className="flex items-center justify-center mb-6 md:mb-12">
           <img
-            src={tatugoldLogo}
+            src={logoImage}
             alt="Tatugold - Mais que ouro. É identidade."
-            className="w-[280px] md:w-[600px] h-auto animate-pulse hover:brightness-125 transition duration-500"
+            className="w-[280px] md:w-[600px] h-auto hover:brightness-125 transition duration-500"
           />
         </div>
 
@@ -44,7 +46,7 @@ const HeroSection = () => {
           Transformamos histórias em joias. Conheça nossa coleção.
         </p>
 
-        {/* Botão com diamante flutuante */}
+        {/* Botão com diamante flutuante e brilho */}
         <a
           href="#simulador"
           onClick={(e) => {
@@ -54,15 +56,22 @@ const HeroSection = () => {
               section.scrollIntoView({ behavior: "smooth" });
             }
           }}
-          className="inline-block mt-4 px-6 py-3 bg-yellow-500 text-black font-semibold rounded-full shadow-xl hover:shadow-yellow-300 transition-all duration-300 flex items-center justify-center gap-2 animate-float"
+          className="btn-luxury bg-yellow-500 text-black shadow-xl hover:shadow-yellow-400 transition-all duration-300 flex items-center justify-center gap-3 rounded-full px-6 py-3 hover:scale-105 active:scale-95"
         >
           <img
-            src={tatugoldLogo}
+            src={iconeImage}
             alt="Simular valor da peça"
-            className="w-6 h-6 hover:animate-pulse"
+            className="w-12 h-12 sparkle opacity-100"
           />
-          <span>Simule agora o valor da sua peça</span>
+          <span className="text-base md:text-lg font-semibold opacity-100">Simule agora o valor da sua peça</span>
+          <img
+            src={iconeImage}
+            alt="Simular valor da peça"
+            className="w-12 h-12 sparkle opacity-100"
+          />
         </a>
+
+
       </div>
 
       {/* Scroll indicator com aura */}
