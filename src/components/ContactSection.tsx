@@ -1,12 +1,8 @@
 import { useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import {
-  MapPin,
-  Phone,
-  Instagram,
-  Clock
-} from 'lucide-react';
+import { MapPin, Phone, Clock } from 'lucide-react';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -61,7 +57,7 @@ const ContactSection = () => {
           </div>
         </Card>
 
-        {/* Mapa centralizado */}
+        {/* Mapa */}
         <div
           className="rounded-xl overflow-hidden shadow-lg border border-muted mb-16 max-w-6xl mx-auto"
           data-aos="zoom-in"
@@ -77,7 +73,7 @@ const ContactSection = () => {
           />
         </div>
 
-        {/* Grid centralizada com contatos + benefícios */}
+        {/* Contatos + Benefícios */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
           {/* Contatos */}
           <div className="space-y-10">
@@ -86,15 +82,15 @@ const ContactSection = () => {
                 className="card-elegant p-6 text-center rounded-xl shadow-xl hover:shadow-2xl transition"
                 data-aos="fade-up"
               >
-                <Phone className="w-8 h-8 text-primary mx-auto mb-4 animate-bounce" />
-                <h3 className="font-semibold text-secondary dark:text-white mb-2">Telefone</h3>
+                <FaWhatsapp className="w-8 h-8 text-green-500 mx-auto mb-4 animate-bounce" />
+                <h3 className="font-semibold text-secondary dark:text-white mb-2">WhatsApp</h3>
                 <p className="text-muted-foreground mb-4">(11) 97280-1984</p>
                 <Button
                   onClick={handleWhatsApp}
                   size="sm"
                   className="btn-outline-gold w-full hover:scale-[1.02] transition"
                 >
-                  WhatsApp
+                  Enviar Mensagem
                 </Button>
               </Card>
 
@@ -103,7 +99,8 @@ const ContactSection = () => {
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <Instagram className="w-8 h-8 text-primary mx-auto mb-4 animate-spin-slow" />
+                <FaInstagram className="w-8 h-8 text-pink-500 mx-auto mb-4 animate-bounce" />
+
                 <h3 className="font-semibold text-secondary dark:text-white mb-2">Instagram</h3>
                 <p className="text-muted-foreground mb-4">@tatugold.joias</p>
                 <Button
