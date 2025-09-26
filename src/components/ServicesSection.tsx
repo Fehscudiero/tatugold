@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import {
   DollarSign,
@@ -7,9 +8,21 @@ import {
   TrendingUp,
   Sparkles
 } from 'lucide-react';
+import lunetaImage from '@/assets/luneta.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ServicesSection = () => {
-  const whatsappNumber = "5511972801984"; // número já formatado para o link
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const whatsappNumber = "5511972801984";
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out',
+    });
+  }, []);
 
   const services = [
     {
@@ -66,33 +79,53 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="card-elegant p-8 relative overflow-hidden hover-lift">
+            <Card
+              key={index}
+              className="card-elegant p-8 relative overflow-hidden hover-lift group"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
+              data-aos-duration="800"
+            >
+              {/* Imagem de fundo com degradê no hover */}
+              {hoveredIndex === index && (
+                <div
+                  className="absolute inset-0 z-0 transition-all duration-1000 ease-out opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100"
+                  style={{
+                    backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.8), rgba(255,215,0,0.3)), url(${lunetaImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
+              )}
+
               {service.popular && (
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-4 z-10">
                   <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                     Popular
                   </span>
                 </div>
               )}
 
-              <service.icon className="w-12 h-12 text-primary mb-6" />
-
-              <h3 className="text-2xl font-semibold mb-4 text-secondary">
-                {service.title}
-              </h3>
-
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {service.description}
-              </p>
-
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.message)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-gold w-full inline-block text-center py-2 px-4 border border-gold rounded text-gold hover:bg-gold hover:text-white transition-colors duration-200"
-              >
-                Saiba mais
-              </a>
+              {/* Conteúdo com texto preto */}
+              <div className="relative z-10 text-black">
+                <service.icon className="w-12 h-12 text-primary mb-6" />
+                <h3 className="text-2xl font-semibold mb-4">
+                  {service.title}
+                </h3>
+                <p className="mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.message)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline-gold w-full inline-block text-center py-2 px-4 border border-gold rounded text-gold hover:bg-gold hover:text-white transition-colors duration-200"
+                >
+                  Saiba mais
+                </a>
+              </div>
             </Card>
           ))}
         </div>
