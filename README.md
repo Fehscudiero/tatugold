@@ -16,19 +16,3 @@ Site desenvolvido por Felipe para a joalheria Tatugold, com foco em experiência
 
 ---
 
-## 💻 Como rodar o projeto localmente
-
-Certifique-se de ter o Node.js instalado. Recomendo usar [nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
-
-# Acesse a pasta do projeto
-cd tatugold
-
-# Instale as dependências
-npm install
-
-# Inicie o servidor de desenvolvimento
-npm run dev
