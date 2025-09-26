@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Tatugold Design System - Sofisticação em ouro, cinza e preto */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+
 
 @layer base {
   :root {
@@ -122,16 +126,21 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Cabin', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Cabin', serif;
   }
 }
 
 @layer components {
+
   /* Button variants */
   .btn-gold {
     @apply bg-primary text-primary-foreground shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-glow)] transition-[var(--transition-smooth)] transform hover:scale-105;
@@ -190,6 +199,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

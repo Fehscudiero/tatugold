@@ -8,9 +8,19 @@ import correntesImage from '@/assets/category-correntes.png';
 import aliancaImage from '@/assets/category-alianca.png';
 import joiasImage from '@/assets/category-joias.png';
 import platinaImage from '@/assets/category-platina.png';
-
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CatalogSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: 'ease-out',
+    });
+  }, []);
+
   const categories = [
     {
       title: "Correntes",
@@ -63,7 +73,7 @@ const CatalogSection = () => {
   ];
 
   return (
-    <section id="catalog" className="py-24 px-6 bg-black text-white">
+    <section id="catalog" className="py-24 px-6 bg-[#f5f5f5] text-secondary">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gold-gradient">
@@ -76,11 +86,15 @@ const CatalogSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {categories.map((category, index) => (
-            <Card key={index} className="bg-white text-black shadow-xl rounded-lg overflow-hidden">
+            <Card
+              key={index}
+              data-aos="fade-up"
+              className="bg-white text-black shadow-xl rounded-lg overflow-visible"
+            >
               <img
                 src={category.image}
                 alt={category.title}
-                className="w-full h-64 object-cover"
+                className="w-full h-64 object-cover block"
               />
               <div className="p-6 text-center">
                 <h3 className="text-2xl font-bold mb-2 text-secondary">
