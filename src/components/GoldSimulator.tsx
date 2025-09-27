@@ -7,7 +7,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Calculator, TrendingUp } from 'lucide-react';
 import {
   Dialog,
-  DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -23,6 +22,7 @@ const GoldSimulator = () => {
   const [cotacao24k, setCotacao24k] = useState<number | null>(null);
   const [cotacaoDate, setCotacaoDate] = useState<string>('');
   const [error, setError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const purityFactors = {
     '24k': 1.0,
@@ -55,13 +55,14 @@ const GoldSimulator = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
+  const handleCalculate = () => {
     if (weight && goldType && cotacao24k) {
       const fator = purityFactors[goldType as keyof typeof purityFactors];
       const valor = parseFloat(weight) * cotacao24k * fator;
       setEstimatedValue(valor);
+      setIsModalOpen(true);
     }
-  }, [weight, goldType, cotacao24k]);
+  };
 
   const formattedValue = estimatedValue.toLocaleString('pt-BR', {
     style: 'currency',
@@ -121,17 +122,16 @@ const GoldSimulator = () => {
             </Select>
           </div>
 
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
-                disabled={!weight || !goldType || !cotacao24k}
-              >
-                <TrendingUp className="w-4 h-4 mr-2" />
-                Calcular Valor
-              </Button>
-            </DialogTrigger>
+          <Button
+            onClick={handleCalculate}
+            className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
+            disabled={!weight || !goldType || !cotacao24k}
+          >
+            <TrendingUp className="w-4 h-4 mr-2" />
+            Calcular Valor
+          </Button>
 
+          <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
             <DialogContent className="z-[9999] max-w-sm sm:max-w-md mx-auto text-center">
               <DialogHeader className="flex flex-col items-center justify-center">
                 <img
