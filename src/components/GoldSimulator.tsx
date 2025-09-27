@@ -16,8 +16,6 @@ import {
 } from '@/components/ui/dialog';
 import tatugoldLogo from '@/assets/tatugold-logo.png';
 
-
-
 const GoldSimulator = () => {
   const [weight, setWeight] = useState('');
   const [goldType, setGoldType] = useState('');
@@ -53,17 +51,17 @@ const GoldSimulator = () => {
 
   useEffect(() => {
     fetchCotacao();
-    const interval = setInterval(fetchCotacao, 600000); // 10 minutos
+    const interval = setInterval(fetchCotacao, 600000);
     return () => clearInterval(interval);
   }, []);
 
-  const calculateValue = () => {
+  useEffect(() => {
     if (weight && goldType && cotacao24k) {
       const fator = purityFactors[goldType as keyof typeof purityFactors];
       const valor = parseFloat(weight) * cotacao24k * fator;
       setEstimatedValue(valor);
     }
-  };
+  }, [weight, goldType, cotacao24k]);
 
   const formattedValue = estimatedValue.toLocaleString('pt-BR', {
     style: 'currency',
@@ -77,7 +75,6 @@ const GoldSimulator = () => {
   return (
     <section id="gold-simulator" className="py-16 px-4 sm:px-6 bg-background">
       <Card className="max-w-md sm:max-w-2xl mx-auto p-6 sm:p-8 rounded-xl shadow-lg border border-muted">
-        {/* Título */}
         <div className="text-center mb-6">
           <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
           <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">Simulador de Avaliação</h2>
@@ -91,7 +88,6 @@ const GoldSimulator = () => {
           )}
         </div>
 
-        {/* Formulário */}
         <div className="space-y-5">
           <div>
             <Label htmlFor="weight" className="text-sm font-medium text-secondary">
@@ -125,11 +121,9 @@ const GoldSimulator = () => {
             </Select>
           </div>
 
-          {/* Botão + Modal */}
           <Dialog>
             <DialogTrigger asChild>
               <Button
-                onClick={calculateValue}
                 className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
                 disabled={!weight || !goldType || !cotacao24k}
               >
@@ -138,7 +132,7 @@ const GoldSimulator = () => {
               </Button>
             </DialogTrigger>
 
-            <DialogContent className="max-w-sm sm:max-w-md mx-auto text-center">
+            <DialogContent className="z-[9999] max-w-sm sm:max-w-md mx-auto text-center">
               <DialogHeader className="flex flex-col items-center justify-center">
                 <img
                   src={tatugoldLogo}
