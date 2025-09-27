@@ -76,7 +76,7 @@ const GoldSimulator = () => {
   return (
     <>
       <section id="gold-simulator" className="py-16 px-4 sm:px-6 bg-background">
-        <Card className="max-w-md sm:max-w-2xl mx-auto p-6 sm:p-8 rounded-xl shadow-lg border border-muted">
+        <Card className="max-w-md sm:max-w-2xl mx-auto p-6 sm:p-8 rounded-xl shadow-lg border border-muted overflow-visible">
           <div className="text-center mb-6">
             <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
             <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">Simulador de Avaliação</h2>
@@ -113,7 +113,7 @@ const GoldSimulator = () => {
                 <SelectTrigger className="mt-2">
                   <SelectValue placeholder="Selecione o tipo" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="max-h-[200px] overflow-y-auto z-50 sm:absolute sm:left-0 sm:right-0 sm:mx-auto sm:w-[90%]">
                   <SelectItem value="24k">Ouro 24k</SelectItem>
                   <SelectItem value="18k">Ouro 18k</SelectItem>
                   <SelectItem value="14k">Ouro 14k</SelectItem>
