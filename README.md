@@ -1,6 +1,6 @@
 # Tatugold — Site Institucional
 
-Site desenvolvido por Felipe para a joalheria Tatugold, com foco em experiência fluida, integração com WhatsApp e navegação elegante. Criado com React, Vite, Tailwind CSS e ShadCN UI.
+Site desenvolvido por Felipe para a joalheria Tatugold, com foco em experiência fluida, integração com WhatsApp e navegação elegante. 
 
 ---
 
