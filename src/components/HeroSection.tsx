@@ -43,7 +43,7 @@ const HeroSection = () => {
 
         {/* Institutional text com efeito de escrita */}
         <p className="text-lg md:text-3xl mb-6 md:mb-8 font-light text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-300 animate-text-glow">
-          Transformamos histórias em joias. Conheça nossa coleção.
+          Vendendo ouro? Aqui você recebe mais. Avaliação gratuita e pagamento na hora.
         </p>
 
         {/* Botão com diamante flutuante e brilho */}
