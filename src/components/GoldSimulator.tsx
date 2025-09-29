@@ -51,7 +51,7 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="pt-4 pb-12 px-4 sm:px-6 bg-background"
+        className="flex justify-center items-start min-h-[80vh] pt-4 pb-4 px-4 sm:px-6 bg-background"
       >
         <Card className="max-w-md sm:max-w-2xl w-full p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
           <div className="text-center mb-6">
@@ -92,7 +92,11 @@ const GoldSimulator = () => {
                 <SelectTrigger className="mt-2">
                   <SelectValue placeholder="Selecione o tipo" />
                 </SelectTrigger>
-                <SelectContent className="max-h-[250px] overflow-y-auto z-50 w-full sm:w-[90%] sm:mx-auto sm:absolute left-0 right-0 bg-background rounded-lg shadow-lg border border-muted">
+                <SelectContent
+                  side="top"
+                  align="center"
+                  className="max-h-[250px] overflow-y-auto z-[9999] w-full sm:w-[90%] sm:mx-auto bg-background rounded-lg shadow-lg border border-muted"
+                >
                   <SelectItem value="24k">Ouro 24k</SelectItem>
                   <SelectItem value="18k">Ouro 18k</SelectItem>
                   <SelectItem value="14k">Ouro 14k</SelectItem>
