@@ -95,6 +95,7 @@ const GoldSimulator = () => {
                 <SelectContent
                   side="top"
                   align="center"
+                  position="popper"
                   className="max-h-[250px] overflow-y-auto z-[9999] w-full sm:w-[90%] sm:mx-auto bg-background rounded-lg shadow-lg border border-muted"
                 >
                   <SelectItem value="24k">Ouro 24k</SelectItem>
