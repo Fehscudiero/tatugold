@@ -60,12 +60,16 @@ const GoldSimulator = () => {
             <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">Simulador de Avaliação</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Valores por grama:
-              <br />
-              <strong>24k</strong>: R$ 460 | <strong>18k</strong>: R$ 300 | <strong>14k</strong>: R$ 190
-              <br />
-              <strong>10k</strong>: R$ 90 | <strong>Dental</strong>: R$ 200
             </p>
+            <div className="mt-2 space-y-1 text-sm text-muted-foreground">
+              <p><strong>24k</strong>: R$ 460,00</p>
+              <p><strong>18k</strong>: R$ 300,00</p>
+              <p><strong>14k</strong>: R$ 190,00</p>
+              <p><strong>10k</strong>: R$ 90,00</p>
+              <p><strong>Dental</strong>: R$ 200,00</p>
+            </div>
           </div>
+
 
           <div className="space-y-2">
             <div>
