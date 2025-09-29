@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,46 +19,20 @@ const GoldSimulator = () => {
   const [weight, setWeight] = useState('');
   const [goldType, setGoldType] = useState('');
   const [estimatedValue, setEstimatedValue] = useState(0);
-  const [cotacao24k, setCotacao24k] = useState<number | null>(null);
-  const [cotacaoDate, setCotacaoDate] = useState<string>('');
-  const [error, setError] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const purityFactors = {
-    '24k': 1.0,
-    '18k': 0.75,
-    '14k': 0.585,
-    '10k': 0.416,
-    'dental': 0.83
+  const goldPrices = {
+    '24k': 460.00,
+    '18k': 300.00,
+    '14k': 190.00,
+    '10k': 90.00,
+    'dental': 200.00
   };
-
-  const fetchCotacao = () => {
-    fetch('https://economia.awesomeapi.com.br/json/last/XAU-BRL')
-      .then(res => res.json())
-      .then(data => {
-        const valor = parseFloat(data.XAUBRL.bid);
-        const dataFormatada = new Date(data.XAUBRL.create_date).toLocaleString('pt-BR');
-        setCotacao24k(valor);
-        setCotacaoDate(dataFormatada);
-        setError(false);
-      })
-      .catch(() => {
-        setError(true);
-        setCotacao24k(null);
-        setCotacaoDate('');
-      });
-  };
-
-  useEffect(() => {
-    fetchCotacao();
-    const interval = setInterval(fetchCotacao, 600000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleCalculate = () => {
-    if (weight && goldType && cotacao24k) {
-      const fator = purityFactors[goldType as keyof typeof purityFactors];
-      const valor = parseFloat(weight) * cotacao24k * fator;
+    if (weight && goldType) {
+      const valorPorGrama = goldPrices[goldType as keyof typeof goldPrices];
+      const valor = parseFloat(weight) * valorPorGrama;
       setEstimatedValue(valor);
       setIsModalOpen(true);
     }
@@ -75,22 +49,25 @@ const GoldSimulator = () => {
 
   return (
     <>
-      <section id="gold-simulator" className="py-16 px-4 sm:px-6 bg-background">
-        <Card className="max-w-md sm:max-w-2xl mx-auto p-6 sm:p-8 rounded-xl shadow-lg border border-muted overflow-visible">
+      <section
+        id="gold-simulator"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-background"
+      >
+        <Card className="max-w-md sm:max-w-2xl w-full p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
+
           <div className="text-center mb-6">
             <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
             <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">Simulador de Avaliação</h2>
-            {error ? (
-              <p className="text-red-500 text-sm">Erro ao carregar cotação. Tente novamente mais tarde.</p>
-            ) : (
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Cotação do ouro 24k: <strong>R$ {cotacao24k?.toFixed(2) || 'Carregando...'}</strong><br />
-                Atualizado em: {cotacaoDate}
-              </p>
-            )}
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Valores por grama:
+              <br />
+              <strong>24k</strong>: R$ 460 | <strong>18k</strong>: R$ 300 | <strong>14k</strong>: R$ 190
+              <br />
+              <strong>10k</strong>: R$ 90 | <strong>Dental</strong>: R$ 200
+            </p>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-2">
             <div>
               <Label htmlFor="weight" className="text-sm font-medium text-secondary">
                 Peso (gramas)
@@ -113,7 +90,7 @@ const GoldSimulator = () => {
                 <SelectTrigger className="mt-2">
                   <SelectValue placeholder="Selecione o tipo" />
                 </SelectTrigger>
-                <SelectContent className="max-h-[200px] overflow-y-auto z-50 sm:absolute sm:left-0 sm:right-0 sm:mx-auto sm:w-[90%]">
+                <SelectContent className="max-h-[250px] overflow-y-auto z-50 w-full sm:w-[90%] sm:mx-auto sm:absolute left-0 right-0 bg-background rounded-lg shadow-lg border border-muted">
                   <SelectItem value="24k">Ouro 24k</SelectItem>
                   <SelectItem value="18k">Ouro 18k</SelectItem>
                   <SelectItem value="14k">Ouro 14k</SelectItem>
@@ -126,7 +103,7 @@ const GoldSimulator = () => {
             <Button
               onClick={handleCalculate}
               className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
-              disabled={!weight || !goldType || !cotacao24k}
+              disabled={!weight || !goldType}
             >
               <TrendingUp className="w-4 h-4 mr-2" />
               Calcular Valor
@@ -136,7 +113,7 @@ const GoldSimulator = () => {
       </section>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="z-[9999] max-w-sm sm:max-w-md mx-auto text-center">
+        <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] max-w-sm sm:max-w-md text-center">
           <DialogHeader className="flex flex-col items-center justify-center">
             <img
               src={tatugoldLogo}
@@ -145,15 +122,19 @@ const GoldSimulator = () => {
             />
             <DialogTitle className="text-3xl font-bold text-primary">Valor Estimado</DialogTitle>
             <DialogDescription className="text-muted-foreground text-sm">
-              Cotação atual: R$ {cotacao24k?.toFixed(2)} <br />
-              Atualizado em: {cotacaoDate}
+              Baseado nos valores fixos por tipo de ouro
             </DialogDescription>
           </DialogHeader>
 
-          <p className="text-2xl font-bold text-secondary mt-4 mb-2">{formattedValue}</p>
+          <p className="text-lg text-muted-foreground font-semibold mt-4">
+            Valor estimado para <span className="text-primary font-bold">ouro {goldType}</span>:
+          </p>
+          <p className="text-xl text-secondary font-bold mb-2">
+            {weight}g → {formattedValue}
+          </p>
 
           <p className="text-xs text-muted-foreground font-bold mb-4">
-            *Valor aproximado com base na cotação atual. Avaliação final será feita presencialmente.
+            *Valor aproximado. Avaliação final será feita presencialmente.
           </p>
 
           <a
