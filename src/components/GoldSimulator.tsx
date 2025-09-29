@@ -51,10 +51,9 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-background"
+        className="pt-4 pb-12 px-4 sm:px-6 bg-background"
       >
         <Card className="max-w-md sm:max-w-2xl w-full p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
-
           <div className="text-center mb-6">
             <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
             <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">Simulador de Avaliação</h2>
@@ -69,7 +68,6 @@ const GoldSimulator = () => {
               <p><strong>Dental</strong>: R$ 200,00</p>
             </div>
           </div>
-
 
           <div className="space-y-2">
             <div>
