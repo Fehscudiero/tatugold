@@ -38,16 +38,17 @@ const ContactSection = () => {
 
         {/* Endereço */}
         <Card
-          className="card-elegant p-6 rounded-xl shadow-xl border border-muted mb-8 max-w-3xl mx-auto"
+          className="card-elegant p-3 max-w-md mx-auto rounded-lg shadow-md border border-muted mb-6"
           data-aos="fade-up"
         >
+
           <div className="flex items-start space-x-4">
             <MapPin className="w-8 h-8 text-primary animate-pulse mt-1" />
             <div>
               <h3 className="text-xl font-semibold text-secondary dark:text-white mb-1">
                 Endereço
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-">
                 Rua Soriano de Souza, 190 - Tatuapé<br />
                 <span className="text-sm">
                   (Próximo ao Shopping Metrô Boulevard Tatuapé)
@@ -56,7 +57,6 @@ const ContactSection = () => {
             </div>
           </div>
         </Card>
-
         {/* Mapa */}
         <div
           className="rounded-xl overflow-hidden shadow-lg border border-muted mb-16 max-w-6xl mx-auto"
@@ -112,6 +112,7 @@ const ContactSection = () => {
               </Card>
             </div>
 
+            {/* Horarios */}
             <Card
               className="card-elegant p-6 rounded-xl shadow-xl hover:shadow-2xl transition"
               data-aos="fade-up"
