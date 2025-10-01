@@ -9,8 +9,8 @@ const HeroSection = () => {
     const handleMouseMove = (e: MouseEvent) => {
       const bg = document.getElementById('hero-bg');
       if (bg) {
-        const x = (e.clientX / window.innerWidth) * 10;
-        const y = (e.clientY / window.innerHeight) * 10;
+        const x = (e.clientX / window.innerWidth) * 50;
+        const y = (e.clientY / window.innerHeight) * 50;
         bg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
       }
     };
@@ -19,64 +19,61 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-10 md:pt-0 bg-black">
-      {/* Background Image with parallax */}
+    <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-black">
+      {/* Background Image */}
       <div
         id="hero-bg"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 ease-out will-change-transform"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black" />
-
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-6 max-w-6xl mx-auto animate-fade-in">
-        {/* Logo fixo com brilho ao hover */}
-        <div className="flex items-center justify-center mb-6 md:mb-12">
-          <img
-            src={logoImage}
-            alt="Tatugold - Mais que ouro. É identidade."
-            className="w-[280px] md:w-[600px] h-auto hover:brightness-125 transition duration-500"
-          />
-        </div>
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center text-center text-white px-6 max-w-5xl mx-auto pt-0 pb-20">
+        {/* Logo */}
+        <img
+          src={logoImage}
+          alt="Tatugold - Mais que ouro. É identidade."
+          className="w-[360px] md:w-[720px] h-auto hover:brightness-125 transition duration-500 mt-4 md:mt-0"
+        />
 
-        {/* Institutional text com efeito de escrita */}
-        <p className="text-lg md:text-3xl mb-6 md:mb-8 font-light text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-300 animate-text-glow">
+        {/* Frase institucional logo abaixo do logo */}
+        <p className="mt-[-3rem] md:mt-[-1rem] text-xl md:text-3xl font-light text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-300 animate-text-glow max-w-3xl">
           Vendendo ouro? Aqui você recebe mais. Avaliação gratuita e pagamento na hora.
         </p>
 
-        {/* Botão com diamante flutuante e brilho */}
-        <a
-          href="#gold-simulator"
-          onClick={(e) => {
-            e.preventDefault();
-            const section = document.getElementById("gold-simulator");
-            if (section) {
-              section.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-          className="relative inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold shadow-lg hover:shadow-yellow-400 transition-all duration-300 hover:scale-105 active:scale-95"
-        >
-          {/* Diamante flutuante */}
-          <div className="absolute -left-5 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-yellow-600 rounded-full shadow-md flex items-center justify-center transition-transform duration-300 hover:scale-110">
-            <img
-              src={iconeImage}
-              alt="Diamante"
-              className="w-7 h-7"
-            />
-          </div>
+        {/* CTA Button */}
+        <div className="mt-40 md:mt-10">  {/* O PRIMEIRO MUDA A POSIÇÃO*/}
+          <a
+            href="#gold-simulator"
+            onClick={(e) => {
+              e.preventDefault();
+              const section = document.getElementById("gold-simulator");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold shadow-lg hover:shadow-yellow-400 transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            {/* Icon */}
+            <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-white border border-yellow-600 rounded-full shadow-md flex items-center justify-center transition-transform duration-300 hover:scale-110">
+              <img src={iconeImage} alt="Diamante" className="w-8 h-8" />
+            </div>
 
-          <span className="text-base md:text-lg tracking-wide">Simule o valor da sua joia</span>
-          <span className="absolute inset-0 rounded-full bg-white opacity-5 blur-sm pointer-events-none" />
-        </a>
-
-
-
+            <span className="text-base md:text-lg tracking-wide">Simule o valor da sua joia</span>
+            <span className="absolute inset-0 rounded-full bg-white opacity-5 blur-sm pointer-events-none" />
+          </a>
+        </div>
       </div>
 
-      {/* Scroll indicator com aura */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white">
+      {/* Contact Info fixado acima da seta */}
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
+        <p>📍 Rua Soriano de Souza, 190  Tatuapé, SP</p>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white z-10">
         <ChevronDown className="w-6 h-6 animate-bounce text-yellow-300 drop-shadow-md" />
       </div>
     </section>
