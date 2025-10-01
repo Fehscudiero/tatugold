@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import {
   DollarSign,
@@ -12,7 +12,15 @@ import lunetaImage from '@/assets/luneta.png';
 
 const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const whatsappNumber = "5511972801984";
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const services = [
     {
@@ -56,7 +64,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="service" className="py-24 px-6 bg-card bg-[#f5f5f5]">
+    <section id="service" className="py-24 px-6 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
@@ -75,10 +83,13 @@ const ServicesSection = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Imagem de fundo com degradê no hover */}
-              {hoveredIndex === index && (
+              {/* Imagem de fundo com degradê no hover ou sempre no mobile */}
+              {(hoveredIndex === index || isMobile) && (
                 <div
-                  className="absolute inset-0 z-0 transition-all duration-1000 ease-out opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100"
+                  className={`absolute inset-0 z-0 transition-all duration-1000 ease-out ${isMobile
+                      ? 'opacity-70 scale-100'
+                      : 'opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100'
+                    }`}
                   style={{
                     backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.8), rgba(255,215,0,0.3)), url(${lunetaImage})`,
                     backgroundSize: 'cover',
