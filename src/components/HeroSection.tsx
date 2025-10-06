@@ -6,6 +6,10 @@ import { ChevronDown } from 'lucide-react';
 
 const HeroSection = () => {
   useEffect(() => {
+    const isMobile = window.innerWidth < 768; // desativa parallax no mobile
+
+    if (isMobile) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       const bg = document.getElementById('hero-bg');
       if (bg) {
@@ -14,6 +18,7 @@ const HeroSection = () => {
         bg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
       }
     };
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
@@ -44,7 +49,7 @@ const HeroSection = () => {
         </p>
 
         {/* CTA Button */}
-        <div className="mt-40 md:mt-10">  {/* O PRIMEIRO MUDA A POSIÇÃO*/}
+        <div className="mt-40 md:mt-10">
           <a
             href="#gold-simulator"
             onClick={(e) => {

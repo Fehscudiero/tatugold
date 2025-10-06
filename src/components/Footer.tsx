@@ -21,8 +21,8 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground py-6">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Conteúdo principal em linha com espaçamento uniforme */}
-        <div className="flex flex-col lg:flex-row justify-between items-start mb-6 text-left flex-wrap gap-6">
+        {/* Conteúdo principal centralizado */}
+        <div className="flex flex-col lg:flex-row justify-center items-center text-center flex-wrap gap-6 mb-6">
           {/* Logo */}
           <div className="flex-1 flex justify-center">
             <img
@@ -32,7 +32,7 @@ const Footer = () => {
             />
           </div>
 
-          {/* Institucional - centralizado no bloco */}
+          {/* Institucional */}
           <div className="flex-1 flex items-center justify-center text-center h-[120px]">
             <p className="text-secondary-foreground/80 leading-relaxed text-sm max-w-md mx-auto">
               Há 20 anos transformando ouro em histórias e criando joias que marcam momentos especiais. Sua joia, sua identidade.
@@ -80,9 +80,9 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Rodapé inferior */}
+        {/* Rodapé inferior centralizado */}
         <div className="border-t border-secondary-foreground/20 pt-4">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 text-center md:text-left text-xs">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 text-center text-xs gap-4">
             <div className="text-secondary-foreground/60">
               © 2025 Tatugold. Todos os direitos reservados.
             </div>
