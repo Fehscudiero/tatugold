@@ -76,6 +76,7 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {services.map((service, index) => (
             <Card
               key={index}
@@ -87,8 +88,8 @@ const ServicesSection = () => {
               {(hoveredIndex === index || isMobile) && (
                 <div
                   className={`absolute inset-0 z-0 transition-all duration-1000 ease-out ${isMobile
-                      ? 'opacity-70 scale-100'
-                      : 'opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100'
+                    ? 'opacity-70 scale-100'
+                    : 'opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100'
                     }`}
                   style={{
                     backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.8), rgba(255,215,0,0.3)), url(${lunetaImage})`,
