@@ -61,7 +61,7 @@ const GoldSimulator = () => {
               Valores por grama:
             </p>
             <div className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <p><strong>24k</strong>: R$ 460,00</p>
+              <p><strong>24k</strong>: R$ 500,00</p>
               <p><strong>18k</strong>: R$ 300,00</p>
               <p><strong>14k</strong>: R$ 190,00</p>
               <p><strong>10k</strong>: R$ 90,00</p>
