@@ -51,8 +51,7 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="flex justify-center items-start min-h-[80vh] pt-4 pb-4 px-4 sm:px-6 bg-background"
-      >
+        className="flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background"      >
         <Card className="max-w-md sm:max-w-2xl w-full p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
           <div className="text-center mb-6">
             <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
