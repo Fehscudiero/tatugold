@@ -145,7 +145,7 @@ const ContactSection = () => {
               </h3>
               <div className="space-y-6">
                 {[
-                  { icon: '20', title: 'Anos de Tradição', desc: 'Duas décadas servindo o Tatuapé com excelência' },
+                  { icon: '20', title: 'Anos de Tradição', desc: 'Mais de 20 anos de experiência no mercado de ouro' },
                   { icon: '💰', title: 'Melhor Preço Garantido', desc: 'Avaliação justa e pagamento imediato' },
                   { icon: '💎', title: 'Criações Exclusivas', desc: 'Joias personalizadas feitas especialmente para você' },
                   { icon: '🏆', title: 'Atendimento Local', desc: 'Compromisso e confiança com a comunidade' }
