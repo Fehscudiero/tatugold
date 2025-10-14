@@ -26,39 +26,63 @@ const ServicesSection = () => {
     {
       icon: DollarSign,
       title: "Compra de Ouro",
-      description: "Avaliação justa e pagamento imediato",
+      description: (
+        <span>
+          Avaliação justa e pagamento imediato com total transparência
+        </span>
+      ),
       popular: true,
       message: "Olá, tenho interesse na Compra de Ouro. Gostaria de saber mais sobre avaliação justa e pagamento imediato."
     },
     {
       icon: Gem,
       title: "Joias Personalizadas",
-      description: "Criações exclusivas sob medida",
+      description: (
+        <span>
+          Criações exclusivas sob medida para refletir sua identidade
+        </span>
+      ),
       popular: true,
       message: "Olá, gostaria de saber mais sobre Joias Personalizadas e como funcionam as criações sob medida."
     },
     {
       icon: Search,
       title: "Avaliação Gratuita",
-      description: "Descubra o valor real das suas peças",
+      description: (
+        <span>
+          Descubra o valor real das suas joias sem compromisso
+        </span>
+      ),
       message: "Olá, quero fazer uma Avaliação Gratuita das minhas peças. Como funciona?"
     },
     {
       icon: RefreshCw,
       title: "Resgate de Penhor",
-      description: "Recupere suas joias com facilidade",
+      description: (
+        <span>
+          Recupere suas joias com facilidade, segurança e agilidade
+        </span>
+      ),
       message: "Olá, tenho interesse em Resgate de Penhor. Como posso recuperar minhas joias?"
     },
     {
       icon: TrendingUp,
-      title: "Melhor Oferta",
-      description: "Garantimos o melhor preço do mercado",
-      message: "Olá, gostaria de saber mais sobre a Melhor Oferta que vocês garantem no mercado."
+      title: "Oferta Imbatível",
+      description: (
+        <span>
+          Garantimos a melhor proposta do mercado com confiança
+        </span>
+      ),
+      message: "Olá, gostaria de saber mais sobre a Oferta Imbatível que vocês garantem no mercado."
     },
     {
       icon: Sparkles,
-      title: "Transformação",
-      description: "Transforme peças antigas em novas criações",
+      title: "Transformação de Joias",
+      description: (
+        <span>
+          Renove suas peças antigas em novas criações exclusivas
+        </span>
+      ),
       message: "Olá, quero transformar minhas peças antigas em novas criações. Como funciona esse serviço?"
     }
   ];
@@ -76,7 +100,6 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
           {services.map((service, index) => (
             <Card
               key={index}
@@ -84,7 +107,6 @@ const ServicesSection = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Imagem de fundo com degradê no hover ou sempre no mobile */}
               {(hoveredIndex === index || isMobile) && (
                 <div
                   className={`absolute inset-0 z-0 transition-all duration-1000 ease-out ${isMobile
@@ -92,7 +114,7 @@ const ServicesSection = () => {
                     : 'opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100'
                     }`}
                   style={{
-                    backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.8), rgba(255,215,0,0.3)), url(${lunetaImage})`,
+                    backgroundImage: `url(${lunetaImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
@@ -107,20 +129,17 @@ const ServicesSection = () => {
                 </div>
               )}
 
-              {/* Conteúdo com texto preto */}
               <div className="relative z-10 text-black">
-                <service.icon className="w-12 h-12 text-primary mb-6" />
-                <h3 className="text-2xl font-semibold mb-4">
-                  {service.title}
-                </h3>
-                <p className="mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                <service.icon className="w-12 h-12 text-primary mb-6 mx-auto" />
+                <div className="mb-6 p-4 bg-black/60 rounded-lg text-center text-white">
+                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                  <div className="text-lg font-bold">{service.description}</div>
+                </div>
                 <a
                   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.message)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline-gold w-full inline-block text-center py-2 px-4 border border-gold rounded text-gold hover:bg-gold hover:text-white transition-colors duration-200"
+                  className="w-full inline-block text-center py-2 px-4 rounded bg-yellow-400 text-black font-semibold shadow-md hover:bg-yellow-500 transition-colors duration-200"
                 >
                   Saiba mais
                 </a>
