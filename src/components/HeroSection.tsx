@@ -9,19 +9,16 @@ const HeroSection = () => {
     const bg = document.getElementById('hero-bg');
     const isMobile = window.innerWidth < 768;
 
-    if (isMobile && bg) {
-      // Remove qualquer transformação no mobile
-      bg.style.transform = 'none';
-      return;
-    }
-
     const handleMouseMove = (e: MouseEvent) => {
-      if (bg) {
-        const x = (e.clientX / window.innerWidth) * 50;
-        const y = (e.clientY / window.innerHeight) * 50;
-        bg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
-      }
+      if (!bg || isMobile) return; // ignora no mobile
+      const x = (e.clientX / window.innerWidth) * 50;
+      const y = (e.clientY / window.innerHeight) * 50;
+      bg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
     };
+
+    if (bg && isMobile) {
+      bg.style.transform = 'none'; // remove qualquer efeito residual
+    }
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
