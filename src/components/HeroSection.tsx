@@ -6,12 +6,16 @@ import { ChevronDown } from 'lucide-react';
 
 const HeroSection = () => {
   useEffect(() => {
-    const isMobile = window.innerWidth < 768; // desativa parallax no mobile
+    const bg = document.getElementById('hero-bg');
+    const isMobile = window.innerWidth < 768;
 
-    if (isMobile) return;
+    if (isMobile && bg) {
+      // Remove qualquer transformação no mobile
+      bg.style.transform = 'none';
+      return;
+    }
 
     const handleMouseMove = (e: MouseEvent) => {
-      const bg = document.getElementById('hero-bg');
       if (bg) {
         const x = (e.clientX / window.innerWidth) * 50;
         const y = (e.clientY / window.innerHeight) * 50;
@@ -56,7 +60,9 @@ const HeroSection = () => {
               e.preventDefault();
               const section = document.getElementById("gold-simulator");
               if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
+                const yOffset = -80;
+                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
               }
             }}
             className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold shadow-lg hover:shadow-yellow-400 transition-all duration-300 hover:scale-105 active:scale-95"
