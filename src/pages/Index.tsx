@@ -13,6 +13,7 @@ import ScrollToTopButton from '@/components/ScrollToTopButton';
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <WhatsAppFloat />
       <ScrollToTopButton />
       <Navbar />
       <HeroSection />
