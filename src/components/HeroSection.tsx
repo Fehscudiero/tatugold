@@ -73,7 +73,7 @@ const HeroSection = () => {
             <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-white border border-yellow-600 rounded-full shadow-md flex items-center justify-center transition-transform duration-300 hover:scale-110">
               <img src={iconeImage} alt="Diamante" className="w-8 h-8" />
             </div>
-            <span className="text-base md:text-lg tracking-wide">Simule o valor da sua joia</span>
+            <span className="text-base md:text-lg tracking-wide text-simulador-fodaa">Simule o valor da sua joia</span>
             <span className="absolute inset-0 rounded-full bg-white opacity-5 blur-sm pointer-events-none" />
           </a>
         </div>
