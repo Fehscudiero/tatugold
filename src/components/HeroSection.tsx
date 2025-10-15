@@ -49,7 +49,7 @@ const HeroSection = () => {
         <img
           src={logoImage}
           alt="Tatugold - Mais que ouro. É identidade."
-          className="w-[360px] md:w-[690px] h-auto hover:brightness-125 transition duration-500 mt-4 md:mt-0"
+          className="w-[360px] md:w-[650px] h-auto hover:brightness-125 transition duration-500 mt-4 md:mt-0"
         />
 
         <p className="mt-[-3rem] md:mt-[-6rem] text-xl md:text-3xl font-light text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-300 animate-text-glow max-w-3xl">
