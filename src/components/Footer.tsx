@@ -5,8 +5,6 @@ import tatugoldLogo from '@/assets/tatugold-logo.png';
 const Footer = () => {
   const quickLinks = [
     { name: "Sobre Nós", href: "#about" },
-    { name: "Catálogo", href: "#catalog" },
-    { name: "Avaliação", href: "#services" },
     { name: "Contato", href: "#contact" },
     { name: "Serviços", href: "#service" },
     { name: "Simulador", href: "gold-simulator" },
@@ -15,7 +13,7 @@ const Footer = () => {
   const features = [
     { icon: "💰", title: "Compra de Ouro", description: "Melhor preço garantido" },
     { icon: "💎", title: "Joias Personalizadas", description: "Criações exclusivas" },
-    { icon: "🏆", title: "Atendimento Local", description: "20 anos no Tatuapé" }
+    { icon: "🏆", title: "Atendimento Local", description: "Experiência e tradição no mercado de ouro há 20 anos" }
   ];
 
   return (
