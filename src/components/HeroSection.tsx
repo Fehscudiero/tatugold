@@ -80,7 +80,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contact Info */}
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
+      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
         <p>📍 Rua Soriano de Souza, 190  Tatuapé, SP</p>
       </div>
 
