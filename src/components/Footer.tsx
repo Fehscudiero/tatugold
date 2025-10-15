@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Heart } from 'lucide-react';
 import tatugoldLogo from '@/assets/tatugold-logo.png';
 
@@ -7,39 +6,41 @@ const Footer = () => {
     { name: "Sobre Nós", href: "#about" },
     { name: "Contato", href: "#contact" },
     { name: "Serviços", href: "#service" },
-    { name: "Simulador", href: "gold-simulator" },
-  ];
-
-  const features = [
-    { icon: "💰", title: "Compra de Ouro", description: "Melhor preço garantido" },
-    { icon: "💎", title: "Joias Personalizadas", description: "Criações exclusivas" },
-    { icon: "🏆", title: "Atendimento Local", description: "Experiência e tradição no mercado de ouro há 20 anos" }
+    { name: "Simulador", href: "#gold-simulator" },
   ];
 
   return (
-    <footer className="bg-secondary text-secondary-foreground py-6">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Conteúdo principal centralizado */}
-        <div className="flex flex-col lg:flex-row justify-center items-center text-center flex-wrap gap-6 mb-6">
-          {/* Logo */}
-          <div className="flex-1 flex justify-center">
-            <img
-              src={tatugoldLogo}
-              alt="Tatugold - Mais que ouro. É identidade."
-              className="w-[160px] md:w-[200px] h-auto"
-            />
-          </div>
+    <footer className="bg-secondary text-secondary-foreground py-4">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Layout com ordem responsiva */}
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between text-center md:text-left gap-y-6 md:gap-y-0 mb-4">
 
-          {/* Institucional */}
-          <div className="flex-1 flex items-center justify-center text-center h-[120px]">
-            <p className="text-secondary-foreground/80 leading-relaxed text-sm max-w-md mx-auto">
-              Há 20 anos transformando ouro em histórias e criando joias que marcam momentos especiais. Sua joia, sua identidade.
+          {/* Frase institucional — mobile primeiro */}
+          <div className="md:w-1/3 order-1 md:order-3">
+            {/* MOBILE */}
+            <p className="block md:hidden text-secondary-foreground/80 leading-snug text-sm max-w-sm mx-auto">
+              Há mais de 20 anos no mercado de ouro, oferecendo <span className="font-semibold">pagamento à vista</span>,
+              <span className="font-semibold"> avaliação justa</span> e total transparência.
+              Resgatamos cautelas da <span className="font-semibold">Caixa Econômica Federal</span>,
+              fabricamos <span className="font-semibold">joias e alianças sob medida</span> e
+              <span className="text-gold-gradient font-semibold"> atendemos em domicílio</span> com segurança e discrição.
+              Garantimos a melhor proposta do mercado — <span className="text-gold-gradient font-semibold">cobrimos qualquer oferta</span>.
+            </p>
+
+            {/* DESKTOP */}
+            <p className="hidden md:block text-secondary-foreground/80 leading-snug text-sm max-w-sm mx-auto md:mx-0">
+              Há mais de 20 anos no mercado de ouro, oferecendo <span className="font-semibold">pagamento à vista</span>,
+              <span className="font-semibold"> avaliação justa</span> e total transparência.
+              Resgatamos cautelas da <span className="font-semibold">Caixa Econômica Federal</span>,
+              <span className="hidden md:inline">ㅤ</span>Fabricamos <span className="font-semibold">joias e alianças sob medida</span>
+              <span className="hidden md:inline">ㅤㅤㅤㅤㅤ</span><span className="text-gold-gradient font-semibold">Atendemos em domicílio</span> com segurança e discrição.
+              Garantimos a melhor proposta do mercado.<span className="hidden md:inline">ㅤㅤㅤㅤㅤ</span> <span className="text-gold-gradient font-semibold">Cobrimos qualquer oferta</span>.
             </p>
           </div>
 
-          {/* Links rápidos */}
-          <div className="flex-1">
-            <h4 className="text-lg font-semibold mb-2 text-primary">Links Rápidos</h4>
+          {/* Links rápidos — mobile segundo */}
+          <div className="md:w-1/3 order-2 md:order-2">
+            <h4 className="text-medium font-semibold mb-2 text-primary">Links Rápidos</h4>
             <ul className="space-y-1">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -61,33 +62,31 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Serviços */}
-          <div className="flex-1">
-            <h4 className="text-lg font-semibold mb-2 text-primary">Nossos Serviços</h4>
-            <div className="space-y-1">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-2">
-                  <span className="text-xl">{feature.icon}</span>
-                  <div>
-                    <h5 className="font-medium text-secondary-foreground text-sm">{feature.title}</h5>
-                    <p className="text-xs text-secondary-foreground/70">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          {/* Logo — mobile por último */}
+          <div className="md:w-1/3 flex justify-center md:justify-start order-3 md:order-1">
+            <img
+              src={tatugoldLogo}
+              alt="Tatugold - Mais que ouro. É identidade."
+              className="w-[120px] h-auto"
+            />
           </div>
         </div>
 
-        {/* Rodapé inferior centralizado */}
-        <div className="border-t border-secondary-foreground/20 pt-4">
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 text-center text-xs gap-4">
+        {/* Rodapé inferior */}
+        <div className="border-t border-secondary-foreground/20 pt-2">
+          <div className="flex flex-col md:flex-row justify-center items-center text-center text-xs gap-y-1 md:gap-y-0">
             <div className="text-secondary-foreground/60">
               © 2025 Tatugold. Todos os direitos reservados.
             </div>
-            <div className="flex items-center space-x-1 text-secondary-foreground/80">
-              <span>Feito com</span>
-              <Heart className="w-3 h-3 text-red-500 fill-current" />
-              <span>para nossos clientes.</span>
+            <div className="text-secondary-foreground/80 font-medium md:ml-4">
+              Desenvolvido por <a
+                href="https://devscud.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline transition"
+              >
+                DevScud
+              </a> — Soluções digitais com identidade e propósito.
             </div>
           </div>
         </div>

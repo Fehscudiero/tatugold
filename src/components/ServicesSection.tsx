@@ -88,8 +88,13 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="service" className="py-24 px-6 bg-[#f5f5f5]">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="service"
+      className="min-h-screen px-6 pt-0 pb-0 bg-[#f5f5f5] flex flex-col justify-start">
+
+
+
+      <div className="max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
             Nossos <span className="text-gold-gradient">Serviços</span>
