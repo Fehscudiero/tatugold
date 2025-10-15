@@ -23,7 +23,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="pt-0 pb-0 px-4 sm:px-6 bg-gradient-subtle dark:bg-background transition-colors duration-500"
+      className="pt-0 pb-4 px-4 sm:px-6 bg-gradient-subtle dark:bg-background transition-colors duration-500"
     >
 
       <div className="max-w-7xl mx-auto">
