@@ -46,10 +46,10 @@ const Navbar = () => {
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-md shadow-sm" : "bg-transparent"
                 }`}
         >
-            <div className="container mx-auto px-4 py-2 flex items-center justify-between h-[56px] gap-4">
+            <div className="container mx-auto px-4 py-1 flex items-center justify-between h-[58px] gap-4">
                 {/* Menu Hamburguer */}
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-white "
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Abrir menu"
                 >
@@ -64,7 +64,7 @@ const Navbar = () => {
                             onClick={(e) => handleLinkClick(e, "#hero-bg")}
                             className="transition-all duration-300 opacity-100 scale-100"
                         >
-                            <img src={logoImage} alt="Tatugold" className="w-20 md:w-28 h-auto" />
+                            <img src={logoImage} alt="Tatugold" className="w-20 md:w-28 h-auto ml-8" />
                         </a>
                     </div>
                 )}
