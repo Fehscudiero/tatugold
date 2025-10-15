@@ -49,7 +49,7 @@ const Navbar = () => {
             <div className="container mx-auto px-4 py-1 flex items-center justify-between h-[58px] gap-4">
                 {/* Menu Hamburguer */}
                 <button
-                    className="md:hidden text-white "
+                    className="md:hidden text-white"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Abrir menu"
                 >
@@ -74,12 +74,14 @@ const Navbar = () => {
                     <div className="md:hidden transition-all duration-300">
                         <button
                             onClick={() => scrollToSection("#gold-simulator")}
-                            className="px-4 py-2 text-sm font-semibold text-black bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-full shadow-md transition-all duration-300 animate-pulse"
+                            className="relative inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-black rounded-full shadow-md transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden isolate bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 btn-simulador-fodaa"
                         >
-                            Simulador
+                            <span className="relative z-10">Simulador</span>
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[goldSweep_2.5s_infinite]"></span>
                         </button>
                     </div>
                 )}
+
 
                 {/* Desktop Menu */}
                 <nav className="hidden md:flex gap-6 ml-auto">
