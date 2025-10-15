@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="bg-background py-24 px-6">
+    <section className="bg-background py-24 px-6 mt-[-120px] sm:mt-0">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Título fixo */}
         <div className="text-left" data-aos="fade-right " >

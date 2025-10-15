@@ -3,12 +3,13 @@ import { Menu, X } from "lucide-react";
 import logoImage from "@/assets/icone.png";
 
 const menuItems = [
-    { label: "Início", href: "#home" },
+    { label: "Início", href: "#hero-bg" },
     { label: "Sobre", href: "#about" },
+    { label: "Serviços", href: "#service" },
     { label: "Simulador", href: "#gold-simulator" },
-    { label: "Serviços", href: "#services" },
     { label: "Contato", href: "#contact" },
 ];
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
