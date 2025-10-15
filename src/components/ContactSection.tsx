@@ -23,17 +23,19 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-24 px-4 sm:px-6 bg-gradient-subtle dark:bg-background transition-colors duration-500"
+      className="pt-0 pb-0 px-4 sm:px-6 bg-gradient-subtle dark:bg-background transition-colors duration-500"
     >
+
       <div className="max-w-7xl mx-auto">
         {/* Título */}
         <div className="text-center mb-16" data-aos="fade-down">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-secondary dark:text-white">
             <span className="text-gold-gradient">Localização</span> e Contato
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl font-semibold text-secondary max-w-3xl mx-auto leading-relaxed">
             Venha nos visitar ou entre em contato conosco
           </p>
+
         </div>
 
         {/* Endereço */}
