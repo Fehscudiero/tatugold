@@ -3,7 +3,13 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select';
 import { Calculator, TrendingUp } from 'lucide-react';
 import {
   Dialog,
@@ -22,11 +28,11 @@ const GoldSimulator = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const goldPrices = {
-    '24k': 460.00,
-    '18k': 300.00,
-    '14k': 190.00,
-    '10k': 90.00,
-    'dental': 200.00
+    '24k': 460.0,
+    '18k': 300.0,
+    '14k': 190.0,
+    '10k': 90.0,
+    'dental': 200.0
   };
 
   const handleCalculate = () => {
@@ -51,24 +57,40 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background"      >
-        <Card className="max-w-md sm:max-w-2xl w-full p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
+        className="flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background mt-[-120px] sm:mt-0"
+      >
+
+
+
+        <Card className="w-full max-w-md sm:max-w-2xl p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
           <div className="text-center mb-6">
             <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">Simulador de Avaliação</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">
+              Simulador de Avaliação
+            </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Valores por grama:
             </p>
             <div className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <p><strong>24k</strong>: R$ 500,00</p>
-              <p><strong>18k</strong>: R$ 300,00</p>
-              <p><strong>14k</strong>: R$ 190,00</p>
-              <p><strong>10k</strong>: R$ 90,00</p>
-              <p><strong>Dental</strong>: R$ 200,00</p>
+              <p>
+                <strong>24k</strong>: R$ 500,00
+              </p>
+              <p>
+                <strong>18k</strong>: R$ 300,00
+              </p>
+              <p>
+                <strong>14k</strong>: R$ 190,00
+              </p>
+              <p>
+                <strong>10k</strong>: R$ 90,00
+              </p>
+              <p>
+                <strong>Dental</strong>: R$ 200,00
+              </p>
             </div>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-4">
             <div>
               <Label htmlFor="weight" className="text-sm font-medium text-secondary">
                 Peso (gramas)
