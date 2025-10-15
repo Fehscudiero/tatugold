@@ -10,7 +10,6 @@ const menuItems = [
     { label: "Contato", href: "#contact" },
 ];
 
-
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -20,7 +19,7 @@ const Navbar = () => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             setScrolled(scrollY > 50);
-            setShowMobileSimButton(scrollY > 100); // aparece após 100px
+            setShowMobileSimButton(scrollY > 100);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -35,7 +34,6 @@ const Navbar = () => {
             window.scrollTo({ top: y, behavior: "smooth" });
         }
     };
-
 
     const handleLinkClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
@@ -58,19 +56,20 @@ const Navbar = () => {
                     {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
 
-                {/* Logo com espaço reservado e transição interna */}
-                <div className="flex items-center" style={{ height: "40px", minWidth: "120px" }}>
-                    <a
-                        href="#home"
-                        onClick={(e) => handleLinkClick(e, "#home")}
-                        className={`transition-all duration-300 ${scrolled ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                            }`}
-                    >
-                        <img src={logoImage} alt="Tatugold" className="w-20 md:w-28 h-auto" />
-                    </a>
-                </div>
+                {/* Logo — aparece junto com botão simulador */}
+                {showMobileSimButton && (
+                    <div className="flex items-center" style={{ height: "40px", minWidth: "120px" }}>
+                        <a
+                            href="#hero-bg"
+                            onClick={(e) => handleLinkClick(e, "#hero-bg")}
+                            className="transition-all duration-300 opacity-100 scale-100"
+                        >
+                            <img src={logoImage} alt="Tatugold" className="w-20 md:w-28 h-auto" />
+                        </a>
+                    </div>
+                )}
 
-                {/* Botão Simulador - só mobile e com scroll */}
+                {/* Botão Simulador — só mobile e com scroll */}
                 {showMobileSimButton && (
                     <div className="md:hidden transition-all duration-300">
                         <button
