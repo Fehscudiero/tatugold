@@ -322,6 +322,69 @@
   }
 }
 
+@keyframes tatugoldPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+  }
+
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 24px rgba(251, 191, 36, 0.6);
+  }
+}
+
+@keyframes tatugoldShine {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-simulador-fodaa {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #000;
+  border-radius: 9999px;
+  background: linear-gradient(120deg, #facc15, #fbbf24, #f59e0b);
+  background-size: 300% 100%;
+  animation: tatugoldPulse 2s infinite ease-in-out;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-simulador-fodaa::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: tatugoldShine 3s infinite linear;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.btn-simulador-fodaa span {
+  position: relative;
+  z-index: 10;
+}
+
+
+
+
+
 .sparkle {
   animation: sparkle 1.5s infinite ease-in-out;
 }
