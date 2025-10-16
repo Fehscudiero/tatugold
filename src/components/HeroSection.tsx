@@ -74,14 +74,15 @@ const HeroSection = () => {
       </div>
 
       {/* Endereço */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
+      <div className="absolute bottom-28 md:bottom-20 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
         <p>📍 Rua Soriano de Souza, 190 Tatuapé, SP</p>
       </div>
+
 
       {/* Indicador de scroll */}
       <button
         onClick={() => scrollTo('about')}
-        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white z-10 hover:scale-110 transition"
+        className="absolute bottom-11 left-1/2 transform -translate-x-1/2 text-white z-10 hover:scale-110 transition"
         aria-label="Ir para a seção Sobre"
       >
         <ChevronDown className="w-6 h-6 animate-bounce text-yellow-300 drop-shadow-md" />
