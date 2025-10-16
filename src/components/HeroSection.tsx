@@ -16,26 +16,24 @@ const HeroSection = () => {
       bg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
     };
 
-    if (bg && isMobile) {
-      bg.style.transform = 'none';
-    }
+    if (bg && isMobile) bg.style.transform = 'none';
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const scrollToAbout = () => {
-    const section = document.getElementById("about");
+  const scrollTo = (id: string) => {
+    const section = document.getElementById(id);
     if (section) {
       const yOffset = -80;
       const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-black">
-      {/* Background Image */}
+      {/* Background */}
       <div
         id="hero-bg"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 ease-out will-change-transform"
@@ -44,7 +42,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
       </div>
 
-      {/* Main Content */}
+      {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center text-white px-6 max-w-5xl mx-auto pt-0 pb-20">
         <img
           src={logoImage}
@@ -56,17 +54,13 @@ const HeroSection = () => {
           Vendendo ouro? Aqui você recebe mais. Avaliação gratuita e pagamento na hora.
         </p>
 
-        <div className="mt-20 md:mt-10">
+        {/* Botão ajustado para mobile */}
+        <div className="mt-10 md:mt-20">
           <a
             href="#gold-simulator"
             onClick={(e) => {
               e.preventDefault();
-              const section = document.getElementById("gold-simulator");
-              if (section) {
-                const yOffset = -80;
-                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }
+              scrollTo('gold-simulator');
             }}
             className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold shadow-lg hover:shadow-yellow-400 transition-all duration-300 hover:scale-105 active:scale-95"
           >
@@ -79,14 +73,14 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Contact Info */}
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
-        <p>📍 Rua Soriano de Souza, 190  Tatuapé, SP</p>
+      {/* Endereço */}
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
+        <p>📍 Rua Soriano de Souza, 190 Tatuapé, SP</p>
       </div>
 
-      {/* Scroll Indicator - agora clicável */}
+      {/* Indicador de scroll */}
       <button
-        onClick={scrollToAbout}
+        onClick={() => scrollTo('about')}
         className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white z-10 hover:scale-110 transition"
         aria-label="Ir para a seção Sobre"
       >
