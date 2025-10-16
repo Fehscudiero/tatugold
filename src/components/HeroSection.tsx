@@ -56,7 +56,7 @@ const HeroSection = () => {
           Vendendo ouro? Aqui você recebe mais. Avaliação gratuita e pagamento na hora.
         </p>
 
-        <div className="mt-40 md:mt-10">
+        <div className="mt-20 md:mt-10">
           <a
             href="#gold-simulator"
             onClick={(e) => {
@@ -80,7 +80,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contact Info */}
-      <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
         <p>📍 Rua Soriano de Souza, 190  Tatuapé, SP</p>
       </div>
 
