@@ -57,7 +57,7 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background mt-[-120px] sm:mt-0"
+        className="pb-10 pt-10 flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background mt-[-120px] sm:mt-0"
       >
 
 
