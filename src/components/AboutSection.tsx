@@ -39,8 +39,9 @@ const AboutSection = () => {
   const cardsRef = useScrollAnimation();
 
   return (
-    <section id="about" className="pt-6 pb-0 sm:pt-40 sm:pb-40 px-6 bg-[#f5f5f5] text-secondary overflow-hidden">
-
+    <section
+      id="about"
+      className="pt-4 pb-4 sm:pt-40 sm:pb-40 px-6 bg-[#f5f5f5] text-secondary overflow-hidden">
 
       <div className="max-w-7xl mx-auto">
         {/* Título com animação ao entrar na tela */}

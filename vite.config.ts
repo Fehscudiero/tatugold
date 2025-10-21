@@ -10,14 +10,16 @@ export default defineConfig(({ mode }) => ({
     port: 8080, // Porta padrão do seu dev server
   },
   plugins: [
-    react(), // Usa React com SWC (compilação mais rápida que Babel)
-    visualizer({ // Gera um gráfico interativo do bundle após build
+    react({
+      fastRefresh: false, // 🔧 Corrige erro de Fast Refresh
+    }),
+    visualizer({
       filename: "bundle-report.html",
-      open: mode === "production", // Abre automaticamente só em produção
+      open: mode === "production",
       gzipSize: true,
       brotliSize: true,
     }),
-    viteCompression({ // Ativa compressão Brotli/Gzip nos arquivos gerados
+    viteCompression({
       algorithm: "brotliCompress",
       ext: ".br",
       deleteOriginFile: false,
@@ -25,11 +27,11 @@ export default defineConfig(({ mode }) => ({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"), // Permite usar @/ para importar da pasta src
+      "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
-    sourcemap: mode === "development", // Gera sourcemaps só em dev
-    chunkSizeWarningLimit: 1000, // Avisa se algum chunk passar de 1MB
+    sourcemap: mode === "development",
+    chunkSizeWarningLimit: 1000,
   },
 }));
