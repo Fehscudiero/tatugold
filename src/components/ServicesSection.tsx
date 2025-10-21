@@ -90,25 +90,23 @@ const ServicesSection = () => {
   return (
     <section
       id="service"
-      className="min-h-screen px-6 pt-0 pb-0 bg-[#f5f5f5] flex flex-col justify-start">
-
-
-
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary">
+      className="w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-[#f5f5f5] flex flex-col items-center"
+    >
+      <div className="max-w-7xl w-full mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-secondary">
             Nossos <span className="text-gold-gradient">Serviços</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Oferecemos soluções completas para suas necessidades em ouro e joias
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="card-elegant p-8 relative overflow-hidden hover-lift group"
+              className="card-elegant p-6 sm:p-8 relative overflow-hidden hover-lift group"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -135,10 +133,10 @@ const ServicesSection = () => {
               )}
 
               <div className="relative z-10 text-black">
-                <service.icon className="w-12 h-12 text-primary mb-6 mx-auto" />
-                <div className="mb-6 p-4 bg-black/60 rounded-lg text-center text-white">
-                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                  <div className="text-lg font-bold">{service.description}</div>
+                <service.icon className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4 sm:mb-6 mx-auto" />
+                <div className="mb-4 sm:mb-6 p-4 bg-black/60 rounded-lg text-center text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">{service.title}</h3>
+                  <div className="text-sm sm:text-base font-bold">{service.description}</div>
                 </div>
                 <a
                   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.message)}`}
