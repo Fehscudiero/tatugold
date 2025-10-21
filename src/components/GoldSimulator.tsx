@@ -28,7 +28,7 @@ const GoldSimulator = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const goldPrices = {
-    '24k': 460.0,
+    '24k': 500.0,
     '18k': 300.0,
     '14k': 190.0,
     '10k': 90.0,
