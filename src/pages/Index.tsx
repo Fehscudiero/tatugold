@@ -5,7 +5,8 @@ import ServicesSection from '@/components/ServicesSection';
 import CatalogSection from '@/components/CatalogSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import GoldSimulator from '@/components/GoldSimulator'; // ← importado aqui
-import ContactSection from '@/components/ContactSection';
+import ContactDetails from '@/components/ContactDetails;';
+import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/NavBar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
@@ -22,7 +23,8 @@ const Index = () => {
       {/* <CatalogSection/> */}
       <GoldSimulator />
       <TestimonialsSection />
-      <ContactSection />
+      <LocationSection />
+      <ContactDetails />
       <Footer />
 
     </div>

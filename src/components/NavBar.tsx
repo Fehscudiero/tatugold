@@ -7,7 +7,9 @@ const menuItems = [
     { label: "Sobre", href: "#about" },
     { label: "Serviços", href: "#service" },
     { label: "Simulador", href: "#gold-simulator" },
-    { label: "Contato", href: "#contact" },
+    { label: "Localização", href: "#contact" },
+    { label: "Contato", href: "#footer" },
+
 ];
 
 const Navbar = () => {

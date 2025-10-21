@@ -10,7 +10,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary text-secondary-foreground py-4">
+    <footer
+      id="footer"
+      className="bg-secondary text-secondary-foreground py-4">
       <div className="max-w-6xl mx-auto px-6">
         {/* Layout com ordem responsiva */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between text-center md:text-left gap-y-6 md:gap-y-0 mb-4">
