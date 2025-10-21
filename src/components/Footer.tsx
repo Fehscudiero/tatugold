@@ -18,16 +18,19 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between text-center md:text-left gap-y-6 md:gap-y-0 mb-4">
 
           {/* Frase institucional — mobile primeiro */}
+          {/* MOBILE */}
           <div className="md:w-1/3 order-1 md:order-3">
-            {/* MOBILE */}
-            <p className="block md:hidden text-secondary-foreground/80 leading-snug text-sm max-w-sm mx-auto">
-              Há mais de 20 anos no mercado de ouro, oferecendo <span className="font-semibold">pagamento à vista</span>,
-              <span className="font-semibold"> avaliação justa</span> e total transparência.
-              Resgatamos cautelas da <span className="font-semibold">Caixa Econômica Federal</span>,
+            <p className="text-center text-secondary-foreground/80 leading-snug text-sm max-w-sm mx-auto">
+              <span className="text-gold-gradient font-semibold">Há mais de 20 anos no mercado de ouro, oferecendo</span> <span className="font-semibold">pagamento à vista</span>,
+              <span className="font-semibold"> avaliação justa</span> e total transparência.<br />
+              <span className="text-gold-gradient font-semibold">Resgatamos cautelas da Caixa Econômica Federal</span>,
               fabricamos <span className="font-semibold">joias e alianças sob medida</span> e
               <span className="text-gold-gradient font-semibold"> atendemos em domicílio</span> com segurança e discrição.
               Garantimos a melhor proposta do mercado — <span className="text-gold-gradient font-semibold">cobrimos qualquer oferta</span>.
             </p>
+
+
+
 
             {/* DESKTOP */}
             <p className="hidden md:block text-secondary-foreground/80 leading-snug text-sm max-w-sm mx-auto md:mx-0">
