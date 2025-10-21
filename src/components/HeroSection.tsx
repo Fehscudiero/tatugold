@@ -64,13 +64,12 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center text-center text-white px-6 max-w-5xl mx-auto pt-0 pb-20">
         <img
           src={logoImage}
-          srcSet="/assets/tatugold-logo-240.webp 240w, /assets/tatugold-logo-360.webp 360w, /assets/tatugold-logo-650.webp 650w"
-          sizes="(max-width: 768px) 360px, 650px"
           alt="Tatugold - Mais que ouro. É identidade."
           loading="eager"
+          width={360}
+          height="auto"
           className="w-[360px] md:w-[650px] h-auto transition duration-300 mt-4 md:mt-0"
         />
-
 
         <p className="mt-[-3rem] md:mt-[-6rem] text-xl md:text-3xl font-light text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-yellow-300 max-w-3xl">
           Vendendo ouro? Aqui você recebe mais. Avaliação gratuita e pagamento na hora.
