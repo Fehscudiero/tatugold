@@ -7,8 +7,8 @@ const menuItems = [
     { label: "Sobre", href: "#about" },
     { label: "Serviços", href: "#service" },
     { label: "Simulador", href: "#gold-simulator" },
-    { label: "Localização", href: "#contact" },
-    { label: "Contato", href: "#footer" },
+    { label: "Localização", href: "#location" },
+    { label: "Contato", href: "#contact" },
 
 ];
 

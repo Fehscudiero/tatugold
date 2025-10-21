@@ -21,7 +21,9 @@ const ContactDetails = () => {
     };
 
     return (
-        <section className="w-full px-4 sm:px-8 py-12 bg-background dark:bg-background transition-colors duration-500">
+        <section
+            id="contact"
+            className="w-full px-4 sm:px-8 py-12 bg-background dark:bg-background transition-colors duration-500">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 {/* Contatos */}
                 <div className="space-y-10">
