@@ -10,7 +10,7 @@ const LocationSection = () => {
 
     return (
         <section
-            id="Locatização"
+            id="location"
             className="w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-gradient-subtle dark:bg-background transition-colors duration-500"
         >
             <div className="max-w-7xl mx-auto">
