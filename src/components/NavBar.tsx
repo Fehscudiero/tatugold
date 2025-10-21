@@ -29,11 +29,12 @@ const Navbar = () => {
     const scrollToSection = (href: string) => {
         const section = document.querySelector(href);
         if (section) {
-            const customOffset = href === "#service" ? -160 : -80;
-            const y = section.getBoundingClientRect().top + window.pageYOffset + customOffset;
+            const offset = href === "#service" ? 0 : -80; // sem offset para serviços
+            const y = section.getBoundingClientRect().top + window.pageYOffset + offset;
             window.scrollTo({ top: y, behavior: "smooth" });
         }
     };
+
 
     const handleLinkClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
