@@ -97,7 +97,7 @@ const ServicesSection = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-secondary">
             Nossos <span className="text-gold-gradient">Serviços</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-secondary max-w-3xl mx-auto">
             Oferecemos soluções completas para suas necessidades em ouro e joias
           </p>
         </div>
