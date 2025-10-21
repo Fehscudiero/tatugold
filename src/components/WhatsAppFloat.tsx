@@ -8,10 +8,10 @@ const WhatsAppFloat = () => {
   };
 
   return (
-    <div className="fixed bottom-20 right-2 z-50">
+    <div className="fixed bottom-20 right-4 z-50">
       <button
         onClick={handleWhatsAppClick}
-        className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
         aria-label="Contato via WhatsApp"
       >
         <FaWhatsapp size={36} className="pulse-scale opacity-100" />
