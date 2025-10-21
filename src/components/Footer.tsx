@@ -31,9 +31,9 @@ const Footer = () => {
 
             {/* DESKTOP */}
             <p className="hidden md:block text-secondary-foreground/80 leading-snug text-sm max-w-sm mx-auto md:mx-0">
-              Há mais de 20 anos no mercado de ouro, oferecendo <span className="font-semibold">pagamento à vista</span>,
+              <span className="text-gold-gradient font-semibold">Há mais de 20 anos no mercado de ouro, oferecendo</span> <span className="font-semibold">pagamento à vista</span>,
               <span className="font-semibold"> avaliação justa</span> e total transparência.
-              Resgatamos cautelas da <span className="font-semibold">Caixa Econômica Federal</span>,
+              Resgatamos cautelas da <span className="text-gold-gradient font-semibold">Caixa Econômica Federal</span>,
               <span className="hidden md:inline">ㅤ</span>Fabricamos <span className="font-semibold">joias e alianças sob medida</span>
               <span className="hidden md:inline">ㅤㅤㅤㅤㅤ</span><span className="text-gold-gradient font-semibold">Atendemos em domicílio</span> com segurança e discrição.
               Garantimos a melhor proposta do mercado.<span className="hidden md:inline">ㅤㅤㅤㅤㅤ</span> <span className="text-gold-gradient font-semibold">Cobrimos qualquer oferta</span>.
