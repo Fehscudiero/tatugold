@@ -41,7 +41,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="pt-4 pb-4 sm:pt-40 sm:pb-40 px-6 bg-[#f5f5f5] text-secondary overflow-hidden"
+      className="pt-4 pb-4 sm:pt-40 sm:pb-40 px-6 bg-background text-foreground transition-colors duration-300 overflow-hidden"
       aria-labelledby="about-title"
     >
       <div className="max-w-7xl mx-auto">
@@ -65,10 +65,10 @@ const AboutSection = () => {
             {highlights.map((item, index) => (
               <li key={index}>
                 <Card
-                  className="p-8 text-center bg-white rounded-xl shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-yellow-400/40 group"
+                  className="p-8 text-center bg-card text-card-foreground rounded-xl shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-yellow-400/40 group"
                 >
                   <item.icon className="w-12 h-12 text-yellow-500 mx-auto mb-4 drop-shadow-md transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="text-xl font-semibold mb-2 text-secondary">{item.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="text-muted-foreground">{item.description}</p>
                 </Card>
               </li>
