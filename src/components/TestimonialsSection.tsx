@@ -50,20 +50,26 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="bg-background py-24 px-6 mt-[-120px] sm:mt-0">
+    <section
+      className="bg-background py-24 px-6 mt-[-120px] sm:mt-0"
+      aria-labelledby="testimonials-title"
+    >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Título fixo */}
-        <div className="text-left" data-aos="fade-right " >
-          <h4 className="uppercase  text-sm tracking-wide text-muted-foreground mb-2 font-bold">
+        <header className="text-left" data-aos="fade-right">
+          <h4 className="uppercase text-sm tracking-wide text-muted-foreground mb-2 font-bold">
             DEPOIMENTOS
           </h4>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary leading-tight">
+          <h2
+            id="testimonials-title"
+            className="text-4xl md:text-5xl font-bold text-secondary leading-tight"
+          >
             Leia Depoimentos De Clientes
           </h2>
           <p className="text-muted-foreground mt-4 text-base max-w-md">
             Histórias reais que refletem confiança, qualidade e atendimento personalizado.
           </p>
-        </div>
+        </header>
 
         {/* Depoimento rotativo */}
         <div
@@ -82,15 +88,15 @@ const TestimonialsSection = () => {
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="flex flex-col justify-center items-start">
-                  <p className="text-lg leading-relaxed italic font-bold text-card-foreground mb-4">
+                <figure className="flex flex-col justify-center items-start">
+                  <blockquote className="text-lg leading-relaxed italic font-bold text-card-foreground mb-4">
                     “{item.text}”
-                  </p>
-                  <div className="font-bold text-card-foreground text-base">
+                  </blockquote>
+                  <figcaption className="font-bold text-card-foreground text-base">
                     {item.name}
-                  </div>
+                  </figcaption>
                   <div className="text-muted-foreground font-semibold text-sm">CLIENTE</div>
-                </div>
+                </figure>
               </SwiperSlide>
             ))}
           </Swiper>
