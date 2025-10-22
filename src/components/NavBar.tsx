@@ -9,7 +9,6 @@ const menuItems = [
     { label: "Simulador", href: "#gold-simulator" },
     { label: "Localização", href: "#location" },
     { label: "Contato", href: "#contact" },
-
 ];
 
 const Navbar = () => {
@@ -31,12 +30,11 @@ const Navbar = () => {
     const scrollToSection = (href: string) => {
         const section = document.querySelector(href);
         if (section) {
-            const offset = href === "#service" ? 0 : -80; // sem offset para serviços
+            const offset = href === "#service" ? 0 : -80;
             const y = section.getBoundingClientRect().top + window.pageYOffset + offset;
             window.scrollTo({ top: y, behavior: "smooth" });
         }
     };
-
 
     const handleLinkClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
@@ -54,12 +52,12 @@ const Navbar = () => {
                 <button
                     className="md:hidden text-white"
                     onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Abrir menu"
+                    aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
                 >
                     {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
 
-                {/* Logo — aparece junto com botão simulador */}
+                {/* Logo */}
                 {showMobileSimButton && (
                     <div className="flex items-center" style={{ height: "40px", minWidth: "120px" }}>
                         <a
@@ -72,7 +70,7 @@ const Navbar = () => {
                     </div>
                 )}
 
-                {/* Botão Simulador — só mobile e com scroll */}
+                {/* Botão Simulador — mobile */}
                 {showMobileSimButton && (
                     <div className="md:hidden transition-all duration-300">
                         <button
@@ -80,14 +78,13 @@ const Navbar = () => {
                             className="relative inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-black rounded-full shadow-md transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden isolate bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 btn-simulador-fodaa"
                         >
                             <span className="relative z-10">Simulador</span>
-                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[goldSweep_2.5s_infinite]"></span>
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[goldSweep_2.5s_infinite]" />
                         </button>
                     </div>
                 )}
 
-
-                {/* Desktop Menu */}
-                <nav className="hidden md:flex gap-6 ml-auto">
+                {/* Menu Desktop */}
+                <nav className="hidden md:flex gap-6 ml-auto" aria-label="Menu principal">
                     {menuItems.map((item) => (
                         <a
                             key={item.href}
@@ -101,10 +98,11 @@ const Navbar = () => {
                 </nav>
             </div>
 
-            {/* Mobile Menu */}
-            <div
+            {/* Menu Mobile */}
+            <nav
                 className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
                     }`}
+                aria-label="Menu mobile"
             >
                 <div className="bg-black/90 backdrop-blur-md px-6 py-4 space-y-3">
                     {menuItems.map((item) => (
@@ -118,7 +116,7 @@ const Navbar = () => {
                         </a>
                     ))}
                 </div>
-            </div>
+            </nav>
         </header>
     );
 };
