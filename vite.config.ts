@@ -1,16 +1,16 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react"; // ← trocado aqui
 import path from "path";
 import { visualizer } from "rollup-plugin-visualizer";
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::", // Aceita conexões externas (ex: mobile na mesma rede)
-    port: 8080, // Porta padrão do dev server
+    host: "::",
+    port: 8080,
   },
   plugins: [
-    react(),
+    react(), // ← usando o plugin padrão do React
     visualizer({
       filename: "bundle-report.html",
       open: mode === "production",
@@ -29,7 +29,9 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    sourcemap: mode === "development",
+
+    sourcemap: true,
     chunkSizeWarningLimit: 1000,
+
   },
 }));
