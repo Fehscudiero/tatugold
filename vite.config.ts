@@ -7,12 +7,10 @@ import viteCompression from "vite-plugin-compression";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::", // Aceita conexões externas (ex: mobile na mesma rede)
-    port: 8080, // Porta padrão do seu dev server
+    port: 8080, // Porta padrão do dev server
   },
   plugins: [
-    react({
-      fastRefresh: false, // 🔧 Corrige erro de Fast Refresh
-    }),
+    react(),
     visualizer({
       filename: "bundle-report.html",
       open: mode === "production",
