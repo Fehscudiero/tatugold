@@ -25,7 +25,7 @@ const HeroSection = () => {
       });
     };
 
-    // ✅ Aplica paralaxe apenas em dispositivos não móveis
+    // Aplica paralaxe apenas em dispositivos não móveis
     if (!isMobile && bg) {
       window.addEventListener('mousemove', handleMouseMove, { passive: true });
     } else if (bg) {
