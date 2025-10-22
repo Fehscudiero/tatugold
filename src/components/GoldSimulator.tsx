@@ -58,85 +58,77 @@ const GoldSimulator = () => {
       <section
         id="gold-simulator"
         className="pb-10 pt-10 flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background mt-[-120px] sm:mt-0"
+        aria-labelledby="simulator-title"
       >
-
-
-
         <Card className="w-full max-w-md sm:max-w-2xl p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
-          <div className="text-center mb-6">
+          <header className="text-center mb-6">
             <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-1">
+            <h2 id="simulator-title" className="text-2xl sm:text-3xl font-bold text-secondary mb-1">
               Simulador de Avaliação
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Valores por grama:
             </p>
             <div className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <p>
-                <strong>24k</strong>: R$ 500,00
-              </p>
-              <p>
-                <strong>18k</strong>: R$ 300,00
-              </p>
-              <p>
-                <strong>14k</strong>: R$ 190,00
-              </p>
-              <p>
-                <strong>10k</strong>: R$ 90,00
-              </p>
-              <p>
-                <strong>Dental</strong>: R$ 200,00
-              </p>
+              <p><strong>24k</strong>: R$ 500,00</p>
+              <p><strong>18k</strong>: R$ 300,00</p>
+              <p><strong>14k</strong>: R$ 190,00</p>
+              <p><strong>10k</strong>: R$ 90,00</p>
+              <p><strong>Dental</strong>: R$ 200,00</p>
             </div>
-          </div>
+          </header>
 
-          <div className="space-y-4">
-            <div>
-              <Label htmlFor="weight" className="text-sm font-medium text-secondary">
-                Peso (gramas)
-              </Label>
-              <Input
-                id="weight"
-                type="number"
-                placeholder="Ex: 10.5"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                className="mt-2"
-              />
-            </div>
+          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); handleCalculate(); }}>
+            <fieldset>
+              <legend className="sr-only">Simulação de valor</legend>
 
-            <div>
-              <Label htmlFor="gold-type" className="text-sm font-medium text-secondary">
-                Tipo de Ouro
-              </Label>
-              <Select value={goldType} onValueChange={setGoldType}>
-                <SelectTrigger className="mt-2">
-                  <SelectValue placeholder="Selecione o tipo" />
-                </SelectTrigger>
-                <SelectContent
-                  side="top"
-                  align="center"
-                  position="popper"
-                  className="max-h-[250px] overflow-y-auto z-[9999] w-full sm:w-[90%] sm:mx-auto bg-background rounded-lg shadow-lg border border-muted"
-                >
-                  <SelectItem value="24k">Ouro 24k</SelectItem>
-                  <SelectItem value="18k">Ouro 18k</SelectItem>
-                  <SelectItem value="14k">Ouro 14k</SelectItem>
-                  <SelectItem value="10k">Ouro 10k</SelectItem>
-                  <SelectItem value="dental">Ouro Dental</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+              <div>
+                <Label htmlFor="weight" className="text-sm font-medium text-secondary">
+                  Peso (gramas)
+                </Label>
+                <Input
+                  id="weight"
+                  type="number"
+                  placeholder="Ex: 10.5"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  className="mt-2"
+                />
+              </div>
 
-            <Button
-              onClick={handleCalculate}
-              className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
-              disabled={!weight || !goldType}
-            >
-              <TrendingUp className="w-4 h-4 mr-2" />
-              Calcular Valor
-            </Button>
-          </div>
+              <div>
+                <Label htmlFor="gold-type" className="text-sm font-medium text-secondary">
+                  Tipo de Ouro
+                </Label>
+                <Select value={goldType} onValueChange={setGoldType}>
+                  <SelectTrigger className="mt-2">
+                    <SelectValue placeholder="Selecione o tipo" />
+                  </SelectTrigger>
+                  <SelectContent
+                    side="top"
+                    align="center"
+                    position="popper"
+                    className="max-h-[250px] overflow-y-auto z-[9999] w-full sm:w-[90%] sm:mx-auto bg-background rounded-lg shadow-lg border border-muted"
+                  >
+                    <SelectItem value="24k">Ouro 24k</SelectItem>
+                    <SelectItem value="18k">Ouro 18k</SelectItem>
+                    <SelectItem value="14k">Ouro 14k</SelectItem>
+                    <SelectItem value="10k">Ouro 10k</SelectItem>
+                    <SelectItem value="dental">Ouro Dental</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <Button
+                type="submit"
+                className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
+                disabled={!weight || !goldType}
+              >
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Calcular Valor
+              </Button>
+            </fieldset>
+          </form>
         </Card>
       </section>
 
