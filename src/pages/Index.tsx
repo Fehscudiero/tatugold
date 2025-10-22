@@ -4,7 +4,7 @@ import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
 import CatalogSection from '@/components/CatalogSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import GoldSimulator from '@/components/GoldSimulator'; // ← importado aqui
+import GoldSimulator from '@/components/GoldSimulator';
 import ContactDetails from '@/components/ContactDetails;';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
@@ -13,20 +13,19 @@ import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <WhatsAppFloat />
       <ScrollToTopButton />
       <Navbar />
       <HeroSection />
       <AboutSection />
       <ServicesSection />
-      {/* <CatalogSection/> */}
+      {/* <CatalogSection /> */}
       <GoldSimulator />
       <TestimonialsSection />
       <LocationSection />
       <ContactDetails />
       <Footer />
-
     </div>
   );
 };

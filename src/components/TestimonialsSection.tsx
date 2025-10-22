@@ -51,10 +51,10 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="bg-background py-24 px-6 mt-[-120px] sm:mt-0"
+      className="bg-background text-foreground py-24 px-6 mt-[-120px] sm:mt-0 transition-colors duration-300"
       aria-labelledby="testimonials-title"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="bg-card text-card-foreground rounded-xl p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.1)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.2)] transition-colors duration-300">
         {/* Título fixo */}
         <header className="text-left" data-aos="fade-right">
           <h4 className="uppercase text-sm tracking-wide text-muted-foreground mb-2 font-bold">
@@ -62,9 +62,9 @@ const TestimonialsSection = () => {
           </h4>
           <h2
             id="testimonials-title"
-            className="text-4xl md:text-5xl font-bold text-secondary leading-tight"
+            className="text-4xl md:text-5xl font-bold leading-tight"
           >
-            Depoimentos De Clientes
+            Depoimentos De <span className="text-gold-gradient">Clientes</span>
           </h2>
           <p className="text-muted-foreground mt-4 text-base max-w-md">
             Histórias reais que refletem confiança, qualidade e atendimento personalizado.
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
 
         {/* Depoimento rotativo */}
         <div
-          className="bg-primary text-primary-foreground rounded-xl p-8 shadow-xl transition-all duration-500"
+          className="bg-card text-card-foreground rounded-xl p-8 shadow-xl transition-colors duration-300"
           data-aos="fade-left"
         >
           <Swiper
@@ -89,10 +89,10 @@ const TestimonialsSection = () => {
             {testimonials.map((item, index) => (
               <SwiperSlide key={index}>
                 <figure className="flex flex-col justify-center items-start">
-                  <blockquote className="text-lg leading-relaxed italic font-bold text-card-foreground mb-4">
+                  <blockquote className="text-lg leading-relaxed italic font-bold mb-4">
                     “{item.text}”
                   </blockquote>
-                  <figcaption className="font-bold text-card-foreground text-base">
+                  <figcaption className="font-bold text-base">
                     {item.name}
                   </figcaption>
                   <div className="text-muted-foreground font-semibold text-sm">CLIENTE</div>

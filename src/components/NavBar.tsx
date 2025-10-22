@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logoImage from "@/assets/icone.png";
+import ThemeToggle from "@/components/ThemeToggle"; // ✅ botão de tema
 
 const menuItems = [
     { label: "Início", href: "#hero-bg" },
@@ -83,8 +84,8 @@ const Navbar = () => {
                     </div>
                 )}
 
-                {/* Menu Desktop */}
-                <nav className="hidden md:flex gap-6 ml-auto" aria-label="Menu principal">
+                {/* Menu Desktop + Botão de Tema */}
+                <nav className="hidden md:flex gap-6 ml-auto items-center" aria-label="Menu principal">
                     {menuItems.map((item) => (
                         <a
                             key={item.href}
@@ -95,6 +96,9 @@ const Navbar = () => {
                             {item.label}
                         </a>
                     ))}
+
+                    {/* ✅ Botão de alternância de tema */}
+                    <ThemeToggle />
                 </nav>
             </div>
 
@@ -115,6 +119,11 @@ const Navbar = () => {
                             {item.label}
                         </a>
                     ))}
+
+                    {/* ✅ Botão de tema no menu mobile */}
+                    <div className="pt-2">
+                        <ThemeToggle />
+                    </div>
                 </div>
             </nav>
         </header>

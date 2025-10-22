@@ -66,18 +66,18 @@ const ServicesSection = () => {
   return (
     <section
       id="service"
-      className="w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-[#f5f5f5] flex flex-col items-center"
+      className="w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-background text-foreground transition-colors duration-300 flex flex-col items-center"
       aria-labelledby="services-title"
     >
       <div className="max-w-7xl w-full mx-auto">
         <header className="text-center mb-12 sm:mb-16">
           <h2
             id="services-title"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-secondary"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
             Nossos <span className="text-gold-gradient">Serviços</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-secondary max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Oferecemos soluções completas para suas necessidades em ouro e joias
           </p>
         </header>
@@ -112,11 +112,11 @@ const ServicesSection = () => {
                   </div>
                 )}
 
-                <div className="relative z-10 text-black text-center">
+                <div className="relative z-10 text-center">
                   <service.icon className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4 sm:mb-6 mx-auto" />
-                  <div className="mb-4 sm:mb-6 p-4 bg-black/60 rounded-lg text-white">
+                  <div className="mb-4 sm:mb-6 p-4 bg-card text-card-foreground rounded-lg shadow-sm">
                     <h3 className="text-xl sm:text-2xl font-bold mb-2">{service.title}</h3>
-                    <p className="text-sm sm:text-base font-bold">{service.description}</p>
+                    <p className="text-sm sm:text-base font-medium text-muted-foreground">{service.description}</p>
                   </div>
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.message)}`}
