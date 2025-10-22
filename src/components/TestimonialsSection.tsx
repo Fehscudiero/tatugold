@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
             id="testimonials-title"
             className="text-4xl md:text-5xl font-bold text-secondary leading-tight"
           >
-            Leia Depoimentos De Clientes
+            Depoimentos De Clientes
           </h2>
           <p className="text-muted-foreground mt-4 text-base max-w-md">
             Histórias reais que refletem confiança, qualidade e atendimento personalizado.
