@@ -3,10 +3,12 @@ import tatugoldLogo from '@/assets/tatugold-logo.png';
 
 const Footer = () => {
   const quickLinks = [
+    { name: "Início", href: "#hero-bg" },
     { name: "Sobre Nós", href: "#about" },
-    { name: "Contato", href: "#contact" },
     { name: "Serviços", href: "#service" },
     { name: "Simulador", href: "#gold-simulator" },
+    { name: "Localização", href: "#location" },
+    { name: "Contato", href: "#contact" },
   ];
 
   return (
