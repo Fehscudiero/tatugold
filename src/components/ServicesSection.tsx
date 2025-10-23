@@ -66,7 +66,7 @@ const ServicesSection = () => {
   return (
     <section
       id="service"
-      className="w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-background text-foreground transition-colors duration-300 flex flex-col items-center"
+      className="border-b border-neutral-700 w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-background text-foreground transition-colors duration-300 flex flex-col items-center"
       aria-labelledby="services-title"
     >
       <div className="max-w-7xl w-full mx-auto">
@@ -93,8 +93,8 @@ const ServicesSection = () => {
                 {(hoveredIndex === index || isMobile) && (
                   <div
                     className={`absolute inset-0 z-0 transition-all duration-1000 ease-out ${isMobile
-                        ? 'opacity-70 scale-100'
-                        : 'opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100'
+                      ? 'opacity-70 scale-100'
+                      : 'opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100'
                       }`}
                     style={{
                       backgroundImage: `url(${lunetaImage})`,
