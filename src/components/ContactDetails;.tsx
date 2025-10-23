@@ -27,12 +27,21 @@ const ContactDetails = () => {
             aria-labelledby="contact-title"
         >
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                {/* Título estilizado */}
+                <header className="text-center mb-16 col-span-full" data-aos="fade-down">
+                    <h2
+                        id="contact-title"
+                        className="text-4xl md:text-5xl font-bold mb-4 text-secondary dark:text-white"
+                    >
+                        <span className="text-gold-gradient">Contatos</span>
+                    </h2>
+                    <p className="text-gray-800 dark:text-gray-100 text-lg sm:text-xl font-semibold text-secondary max-w-3xl mx-auto leading-relaxed">
+                        Fale com a Tatugold pelos nossos canais oficiais
+                    </p>
+                </header>
+
                 {/* Contatos */}
                 <article className="space-y-10" aria-label="Canais de contato">
-                    <header className="sr-only">
-                        <h2 id="contact-title">Entre em contato com a Tatugold</h2>
-                    </header>
-
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <li>
                             <Card
