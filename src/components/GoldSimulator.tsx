@@ -57,13 +57,14 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="pb-10 pt-10 flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background mt-[-120px] sm:mt-0"
+        className="border-b border-neutral-700 pb-6 pt-0 flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background mt-[-120px] sm:mt-0"
         aria-labelledby="simulator-title"
       >
         <Card className="w-full max-w-md sm:max-w-2xl p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
           <header className="text-center mb-6">
             <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
-            <h2 id="simulator-title" className="text-2xl sm:text-3xl font-bold text-secondary mb-1">
+            <h2 id="simulator-title"
+              className="text-gray-800 dark:text-gray-100 text-2xl sm:text-3xl font-bold text-secondary mb-1">
               Simulador de Avaliação
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -83,7 +84,7 @@ const GoldSimulator = () => {
               <legend className="sr-only">Simulação de valor</legend>
 
               <div>
-                <Label htmlFor="weight" className="text-sm font-medium text-secondary">
+                <Label htmlFor="weight" className="text-gray-800 dark:text-gray-100 text-sm font-medium text-secondary">
                   Peso (gramas)
                 </Label>
                 <Input
@@ -97,7 +98,7 @@ const GoldSimulator = () => {
               </div>
 
               <div>
-                <Label htmlFor="gold-type" className="text-sm font-medium text-secondary">
+                <Label htmlFor="gold-type" className="text-gray-800 dark:text-gray-100 text-sm font-medium text-secondary">
                   Tipo de Ouro
                 </Label>
                 <Select value={goldType} onValueChange={setGoldType}>
