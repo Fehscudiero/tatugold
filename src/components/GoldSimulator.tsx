@@ -57,34 +57,46 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="border-b border-neutral-700 pb-6 pt-0 flex justify-center items-center min-h-screen px-4 sm:px-6 bg-background mt-[-120px] sm:mt-0"
+        className="border-b border-gray-300 dark:border-neutral-700 pb-12 pt-12 px-4 sm:px-6 bg-background"
         aria-labelledby="simulator-title"
       >
-        <Card className="w-full max-w-md sm:max-w-2xl p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible">
-          <header className="text-center mb-6">
-            <Calculator className="w-10 h-10 text-primary mx-auto mb-3" />
-            <h2 id="simulator-title"
-              className="text-gray-800 dark:text-gray-100 text-2xl sm:text-3xl font-bold text-secondary mb-1">
-              Simulador de Avaliação
-            </h2>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Valores por grama:
-            </p>
-            <div className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <p><strong>24k</strong>: R$ 500,00</p>
-              <p><strong>18k</strong>: R$ 300,00</p>
-              <p><strong>14k</strong>: R$ 190,00</p>
-              <p><strong>10k</strong>: R$ 90,00</p>
-              <p><strong>Dental</strong>: R$ 200,00</p>
-            </div>
-          </header>
+        {/* Título fora do Card */}
+        <header className="text-center mb-10" data-aos="fade-down">
+          <h2
+            id="simulator-title"
+            className="text-gold-gradient text-4xl md:text-5xl font-bold text-secondary dark:text-white"
+          >
+            Simulador de Avaliação
+          </h2>
+          <p className="text-gray-800 dark:text-gray-100 text-lg font-medium mt-2">
+            Calcule o valor estimado do seu ouro em segundos
+          </p>
+        </header>
 
-          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); handleCalculate(); }}>
+        {/* Card com valores e formulário */}
+        <Card
+          className="w-full max-w-md sm:max-w-2xl mx-auto p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible"
+          data-aos="fade-up"
+        >
+          {/* Valores por grama */}
+          <div className="text-center mb-6 text-sm text-muted-foreground">
+            <p className="font-semibold mb-2">Valores por grama:</p>
+            <ul className="space-y-1">
+              <li><strong>24k</strong>: R$ 500,00</li>
+              <li><strong>18k</strong>: R$ 300,00</li>
+              <li><strong>14k</strong>: R$ 190,00</li>
+              <li><strong>10k</strong>: R$ 90,00</li>
+              <li><strong>Dental</strong>: R$ 200,00</li>
+            </ul>
+          </div>
+
+          {/* Formulário */}
+          <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleCalculate(); }}>
             <fieldset>
               <legend className="sr-only">Simulação de valor</legend>
 
-              <div>
-                <Label htmlFor="weight" className="text-gray-800 dark:text-gray-100 text-sm font-medium text-secondary">
+              <div className="mb-18" >
+                <Label htmlFor="weight" className="text-gray-800 dark:text-gray-100 text-sm font-medium">
                   Peso (gramas)
                 </Label>
                 <Input
@@ -93,16 +105,16 @@ const GoldSimulator = () => {
                   placeholder="Ex: 10.5"
                   value={weight}
                   onChange={(e) => setWeight(e.target.value)}
-                  className="mt-2"
+                  className="mt-2 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
 
-              <div>
-                <Label htmlFor="gold-type" className="text-gray-800 dark:text-gray-100 text-sm font-medium text-secondary">
+              <div >
+                <Label htmlFor="gold-type" className=" text-gray-800 dark:text-gray-100 text-sm font-medium">
                   Tipo de Ouro
                 </Label>
                 <Select value={goldType} onValueChange={setGoldType}>
-                  <SelectTrigger className="mt-2">
+                  <SelectTrigger className="mt-2 focus:ring-2 focus:ring-yellow-500">
                     <SelectValue placeholder="Selecione o tipo" />
                   </SelectTrigger>
                   <SelectContent
@@ -122,10 +134,10 @@ const GoldSimulator = () => {
 
               <Button
                 type="submit"
-                className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full"
+                className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full flex items-center justify-center gap-2"
                 disabled={!weight || !goldType}
               >
-                <TrendingUp className="w-4 h-4 mr-2" />
+                <TrendingUp className="w-4 h-4" />
                 Calcular Valor
               </Button>
             </fieldset>
@@ -133,6 +145,7 @@ const GoldSimulator = () => {
         </Card>
       </section>
 
+      {/* Modal de resultado */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] max-w-sm sm:max-w-md text-center">
           <DialogHeader className="flex flex-col items-center justify-center">
