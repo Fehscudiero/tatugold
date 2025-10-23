@@ -11,19 +11,18 @@ const LocationSection = () => {
     return (
         <section
             id="location"
-            className="w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-gradient-subtle dark:bg-background transition-colors duration-500"
+            className="border-b border-neutral-700 w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-gradient-subtle dark:bg-background transition-colors duration-500"
             aria-labelledby="location-title"
         >
             <div className="max-w-7xl mx-auto">
                 <header className="text-center mb-16" data-aos="fade-down">
                     <h2
                         id="location-title"
-                        className="text-4xl md:text-5xl font-bold mb-4 text-secondary dark:text-white"
-                    >
-                        <span className="text-gold-gradient">Localização</span> e Contato
+                        className="text-4xl md:text-5xl font-bold mb-4 text-secondary dark:text-white">
+                        <span className="text-gold-gradient">Localização</span>
                     </h2>
-                    <p className="text-lg sm:text-xl font-semibold text-secondary max-w-3xl mx-auto leading-relaxed">
-                        Venha nos visitar ou entre em contato conosco
+                    <p className="text-gray-800 dark:text-gray-100 text-lg sm:text-xl font-semibold text-secondary max-w-3xl mx-auto leading-relaxed">
+                        Avalie seu ouro com quem entende — atendimento direto, rápido e sem compromisso.
                     </p>
                 </header>
 
