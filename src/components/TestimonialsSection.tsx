@@ -51,23 +51,20 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="bg-background text-foreground py-24 px-6 mt-[-120px] sm:mt-0 transition-colors duration-300"
+      className="border-b border-neutral-700 bg-background text-foreground py-24 px-6 mt-[-120px] sm:mt-0 transition-colors duration-300"
       aria-labelledby="testimonials-title"
     >
       <div className="flex justify-center">
         <div className="bg-card text-card-foreground rounded-xl p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.1)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.2)] transition-colors duration-300 max-w-4xl w-full">
           {/* Título fixo */}
           <header className="text-left" data-aos="fade-right">
-            <h4 className="uppercase text-sm tracking-wide text-muted-foreground mb-2 font-bold">
-              DEPOIMENTOS
-            </h4>
             <h2
               id="testimonials-title"
               className="text-4xl md:text-5xl font-bold leading-tight"
             >
               Depoimentos De <span className="text-gold-gradient">Clientes</span>
             </h2>
-            <p className="text-muted-foreground mt-4 text-base max-w-md">
+            <p className="text-muted-foreground mt-4 text-base max-w-md text-white">
               Histórias reais que refletem confiança, qualidade e atendimento personalizado.
             </p>
           </header>
