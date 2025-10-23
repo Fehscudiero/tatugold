@@ -80,7 +80,7 @@ const GoldSimulator = () => {
         >
           {/* Valores por grama */}
           <div className="text-center mb-6 text-sm text-muted-foreground">
-            <p className="font-semibold mb-2">Valores por grama:</p>
+            <p className="text-xl font-semibold mb-2 text-white">Valores por grama:</p>
             <ul className="space-y-1">
               <li><strong>24k</strong>: R$ 500,00</li>
               <li><strong>18k</strong>: R$ 300,00</li>
@@ -134,7 +134,7 @@ const GoldSimulator = () => {
 
               <Button
                 type="submit"
-                className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full flex items-center justify-center gap-2"
+                className="mt-8 bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:brightness-90 transition w-full flex items-center justify-center gap-2"
                 disabled={!weight || !goldType}
               >
                 <TrendingUp className="w-4 h-4" />
@@ -147,23 +147,25 @@ const GoldSimulator = () => {
 
       {/* Modal de resultado */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] max-w-sm sm:max-w-md text-center">
+        <DialogContent className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] max-w-sm sm:max-w-md text-center bg-background border border-muted rounded-xl shadow-2xl p-6">
           <DialogHeader className="flex flex-col items-center justify-center">
             <img
               src={tatugoldLogo}
               alt="Logo Tatugold"
               className="w-40 sm:w-48 h-auto mb-4 mx-auto drop-shadow-lg"
             />
-            <DialogTitle className="text-3xl font-bold text-primary">Valor Estimado</DialogTitle>
-            <DialogDescription className="text-muted-foreground text-sm">
+            <DialogTitle className="text-4xl font-extrabold text-yellow-500 mb-2">
+              Valor Estimado
+            </DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground mb-4">
               Baseado nos valores fixos por tipo de ouro
             </DialogDescription>
           </DialogHeader>
 
-          <p className="text-lg text-muted-foreground font-semibold mt-4">
+          <p className="text-lg text-muted-foreground font-semibold mt-2">
             Valor estimado para <span className="text-primary font-bold">ouro {goldType}</span>:
           </p>
-          <p className="text-xl text-secondary font-bold mb-2">
+          <p className="text-2xl text-green-600 font-bold mb-2">
             {weight}g → {formattedValue}
           </p>
 
@@ -175,18 +177,19 @@ const GoldSimulator = () => {
             href={`https://wa.me/5511972801984?text=${encodeURIComponent(whatsappMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition"
+            className="inline-block bg-green-500 text-white px-5 py-3 rounded-lg font-semibold hover:bg-green-600 transition"
           >
             Falar com a TATUGOLD
           </a>
 
           <DialogClose asChild>
-            <Button variant="ghost" className="mt-4 w-full">
+            <Button variant="ghost" className="mt-4 w-full text-sm text-muted-foreground hover:text-primary">
               Fechar
             </Button>
           </DialogClose>
         </DialogContent>
       </Dialog>
+
     </>
   );
 };
