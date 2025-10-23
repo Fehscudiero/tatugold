@@ -30,7 +30,7 @@ export default function ThemeToggle() {
 
     return (
         <button onClick={toggleTheme} className="btn-outline-gold px-4 py-2 rounded transition duration-300">
-            {theme === 'light' ? '🌙 Modo Escuro' : '☀️ Modo Claro'}
+            {theme === 'light' ? '🌙' : '☀️'}
         </button>
     );
 }
