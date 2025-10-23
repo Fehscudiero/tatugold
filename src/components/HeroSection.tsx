@@ -50,7 +50,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-black">
+    <section className="border-b border-neutral-700 relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-black">
       {/* Background */}
       <div
         id="hero-bg"
