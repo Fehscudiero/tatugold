@@ -23,7 +23,7 @@ const ContactDetails = () => {
     return (
         <section
             id="contact"
-            className="w-full px-4 sm:px-8 py-12 bg-background dark:bg-background transition-colors duration-500"
+            className="w-full px-4 sm:px-8 py-12 dark:bg-black bg-background dark:bg-background transition-colors duration-500"
             aria-labelledby="contact-title"
         >
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
