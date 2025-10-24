@@ -33,7 +33,7 @@ const ContactDetails = () => {
                         id="contact-title"
                         className="text-4xl md:text-5xl font-bold mb-4 text-secondary dark:text-white"
                     >
-                        <span className="text-gold-gradient">Contatos</span>
+                        <span className="text-gold-gradient">Contato</span>
                     </h2>
                     <p className="text-gray-800 dark:text-gray-100 text-lg sm:text-xl font-semibold text-secondary max-w-3xl mx-auto leading-relaxed">
                         Fale com a Tatugold pelos nossos canais oficiais
