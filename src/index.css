@@ -222,7 +222,43 @@
   .gradient-subtle {
     background: var(--gradient-subtle);
   }
+
+  .tatugoldPulse {
+    animation: tatugoldPulse 2s infinite ease-in-out;
+
+  }
+
+  .link-devscud-epico {
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    background: linear-gradient(120deg, #facc15, #fbbf24, #f59e0b);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: tatugoldPulse 2s infinite ease-in-out;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 6px rgba(251, 191, 36, 0.4);
+  }
+
+  .link-devscud-epico::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 200% 100%;
+    animation: diamond-glint 3s infinite linear;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .link-devscud-epico:hover {
+    transform: scale(1.08);
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.6);
+  }
 }
+
 
 
 
