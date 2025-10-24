@@ -83,16 +83,27 @@ const HeroSection = () => {
               e.preventDefault();
               scrollTo('gold-simulator');
             }}
-            className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold shadow-md hover:shadow-yellow-400 transition duration-200 hover:scale-[1.02] active:scale-95"
+            className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-semibold shadow-lg transition-all duration-300 hover:shadow-yellow-400 hover:scale-[1.03] active:scale-95 animate-fade-in"
           >
-            <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-white border border-yellow-600 rounded-full shadow-sm flex items-center justify-center">
+            {/* Ícone lateral */}
+            <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-white border border-yellow-600 rounded-full shadow-md flex items-center justify-center">
               <img src={iconeImage} alt="Diamante" loading="lazy" className="w-8 h-8" />
             </div>
-            <span className="text-base md:text-lg tracking-wide text-simulador-fodaa">Simule o valor da sua joia</span>
+
+            {/* Texto */}
+            <span className="text-base md:text-lg tracking-wide text-simulador-fodaa z-10">
+              Simule o valor da sua joia
+            </span>
+
+            {/* Reflexo interno */}
             <span className="absolute inset-0 rounded-full bg-white opacity-5 blur-sm pointer-events-none" />
+
+            {/* Brilho cruzando */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[goldSweep_2.5s_infinite]" />
           </a>
         </div>
       </div>
+
 
       {/* Endereço */}
       <div className="absolute bottom-28 md:bottom-20 left-1/2 transform -translate-x-1/2 text-white text-center md:text-base leading-relaxed z-10">
