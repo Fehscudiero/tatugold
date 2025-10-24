@@ -66,7 +66,7 @@ const ServicesSection = () => {
   return (
     <section
       id="service"
-      className="border-b border-neutral-700 w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-background text-foreground transition-colors duration-300 flex flex-col items-center"
+      className="border-b border-neutral-700 w-full scroll-mt-20 px-4 sm:px-8 py-12 dark:bg-black bg-background text-foreground transition-colors duration-300 flex flex-col items-center"
       aria-labelledby="services-title"
     >
       <div className="max-w-7xl w-full mx-auto">
