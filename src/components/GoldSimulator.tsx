@@ -57,9 +57,7 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="border-b border-gray-300 dark:border-neutral-700 pb-12 pt-12 px-4 sm:px-6 bg-background"
-        aria-labelledby="simulator-title"
-      >
+        className="border-b border-gray-300 dark:border-neutral-700 pb-12 pt-12 px-4 sm:px-6 bg-background mt-0">
         {/* Título fora do Card */}
         <header className="text-center mb-10" data-aos="fade-down">
           <h2
@@ -75,7 +73,7 @@ const GoldSimulator = () => {
 
         {/* Card com valores e formulário */}
         <Card
-          className="w-full max-w-md sm:max-w-2xl mx-auto p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-visible"
+          className="w-full max-w-md sm:max-w-2xl mx-auto p-4 sm:p-6 rounded-xl shadow-lg border border-muted overflow-hidden"
           data-aos="fade-up"
         >
           {/* Valores por grama */}
