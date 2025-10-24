@@ -57,7 +57,7 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className=" dark:border-neutral-700 pb-12 pt-12 px-4 sm:px-6 bg-background mt-0"
+        className="border-b border-gray-300 dark:border-neutral-700 pb-12 pt-12 px-4 sm:px-6 bg-background"
         aria-labelledby="simulator-title"
       >
         {/* Título fora do Card */}
