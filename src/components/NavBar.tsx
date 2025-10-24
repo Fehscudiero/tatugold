@@ -90,7 +90,7 @@ const Navbar = () => {
                     </div>
                 )}
 
-                {/* Menu Desktop */}
+                {/* Menu Desktop + Botão de Tema */}
                 <nav className="hidden md:flex gap-6 ml-auto items-center" aria-label="Menu principal">
                     {menuItems.map((item) => (
                         <a
@@ -102,11 +102,13 @@ const Navbar = () => {
                             {item.label}
                         </a>
                     ))}
+                    {/* Botão de tema — último item no desktop */}
+                    <ThemeToggle />
                 </nav>
 
-                {/* Botão de tema fixo no topo */}
+                {/* Botão de tema — mobile no canto direito, visível no topo */}
                 {!scrolled && (
-                    <div className="absolute right-4 top-2 md:right-6 md:top-3 z-40">
+                    <div className="md:hidden ml-auto">
                         <ThemeToggle />
                     </div>
                 )}
