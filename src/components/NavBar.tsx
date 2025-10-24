@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logoImage from "@/assets/icone.png";
-import ThemeToggle from "@/components/ThemeToggle"; // ✅ botão de tema
+import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "next-themes";
 
 const menuItems = [
     { label: "Início", href: "#hero-bg" },
@@ -16,6 +17,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [showMobileSimButton, setShowMobileSimButton] = useState(false);
+    const { theme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -45,10 +47,14 @@ const Navbar = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
+                    ? theme === "light"
+                        ? "bg-white/80 backdrop-blur-md shadow-sm"
+                        : "bg-black/80 backdrop-blur-md shadow-sm"
+                    : "bg-transparent"
                 }`}
         >
-            <div className="container mx-auto px-4 py-1 flex items-center justify-between h-[58px] gap-4">
+            <div className="container mx-auto px-4 py-1 flex items-center justify-between h-[58px] gap-4 relative">
                 {/* Menu Hamburguer */}
                 <button
                     className="md:hidden text-white"
@@ -84,7 +90,7 @@ const Navbar = () => {
                     </div>
                 )}
 
-                {/* Menu Desktop + Botão de Tema */}
+                {/* Menu Desktop */}
                 <nav className="hidden md:flex gap-6 ml-auto items-center" aria-label="Menu principal">
                     {menuItems.map((item) => (
                         <a
@@ -96,33 +102,39 @@ const Navbar = () => {
                             {item.label}
                         </a>
                     ))}
-
-                    {/* ✅ Botão de alternância de tema */}
-                    <ThemeToggle />
                 </nav>
+
+                {/* Botão de tema fixo no topo */}
+                {!scrolled && (
+                    <div className="absolute right-4 top-2 md:right-6 md:top-3 z-40">
+                        <ThemeToggle />
+                    </div>
+                )}
             </div>
 
-            {/* Menu Mobile */}
+            {/* Menu Mobile moderno e lateral */}
             <nav
-                className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+                className={`md:hidden absolute top-[58px] left-0 w-[280px] z-40 transition-all duration-500 ease-in-out transform ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                     }`}
                 aria-label="Menu mobile"
             >
-                <div className="bg-black/90 backdrop-blur-md px-6 py-4 space-y-3">
+                <div
+                    className={`px-6 py-6 space-y-4 shadow-xl rounded-r-xl backdrop-blur-md transition-all duration-500 overflow-auto max-h-[400px] ${theme === "light" ? "bg-white/90 text-black" : "bg-black/90 text-white"
+                        }`}
+                >
                     {menuItems.map((item) => (
                         <a
                             key={item.href}
                             href={item.href}
                             onClick={(e) => handleLinkClick(e, item.href)}
-                            className="block text-white text-base font-medium hover:text-yellow-400 transition"
+                            className="block text-base font-medium hover:text-yellow-400 transition"
                         >
                             {item.label}
                         </a>
                     ))}
 
-                    {/* ✅ Botão de tema no menu mobile */}
                     <div className="pt-2">
-                        <ThemeToggle />
+                        <ThemeToggle onToggle={() => setIsOpen(false)} />
                     </div>
                 </div>
             </nav>
