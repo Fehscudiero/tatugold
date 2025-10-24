@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="border-b border-neutral-700 bg-background text-foreground py-24 px-6 mt-[-120px] sm:mt-0 transition-colors duration-300"
+      className="border-b border-neutral-700 bg-background dark:bg-black text-foreground py-24 px-6 mt-[-120px] sm:mt-0 transition-colors duration-300"
       aria-labelledby="testimonials-title"
     >
       <div className="flex justify-center">
