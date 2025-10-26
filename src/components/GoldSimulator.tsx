@@ -19,7 +19,7 @@ import {
   DialogDescription,
   DialogClose
 } from '@/components/ui/dialog';
-import tatugoldLogo from '@/assets/tatugold-logo.png';
+import tatugoldLogo from '@/assets/tatugold-logo.webp';
 
 const GoldSimulator = () => {
   const [weight, setWeight] = useState('');

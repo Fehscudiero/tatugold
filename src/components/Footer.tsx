@@ -1,5 +1,5 @@
 import { Heart } from 'lucide-react';
-import tatugoldLogo from '@/assets/tatugold-logo.png';
+import tatugoldLogo from '@/assets/tatugold-logo.webp';
 
 const Footer = () => {
   const quickLinks = [
