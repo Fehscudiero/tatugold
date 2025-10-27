@@ -158,7 +158,7 @@ const GoldSimulator = () => {
               Valor Estimado
             </DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground mb-4">
-              Baseado nos valores fixos por tipo de ouro
+              Baseado nos valores fixos por tipo de ouro.
             </DialogDescription>
           </DialogHeader>
 
