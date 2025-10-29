@@ -16,6 +16,15 @@ body {
 }
 
 
+.card-elegant {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-elegant:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

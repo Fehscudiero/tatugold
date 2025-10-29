@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import {
   DollarSign,
@@ -84,25 +85,32 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
-            <article key={index}>
+            <motion.article
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
               <Card
                 className="card-elegant p-6 sm:p-8 relative overflow-hidden hover-lift group"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                {(hoveredIndex === index || isMobile) && (
-                  <div
-                    className={`absolute inset-0 z-0 transition-all duration-1000 ease-out ${isMobile
-                      ? 'opacity-70 scale-100'
-                      : 'opacity-0 group-hover:opacity-70 scale-95 group-hover:scale-100'
-                      }`}
-                    style={{
-                      backgroundImage: `url(${lunetaImage})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                  />
-                )}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{
+                    opacity: hoveredIndex === index || isMobile ? 0.7 : 0,
+                    scale: hoveredIndex === index || isMobile ? 1 : 0.95
+                  }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0 z-0"
+                  style={{
+                    backgroundImage: `url(${lunetaImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
 
                 {service.popular && (
                   <div className="absolute top-4 right-4 z-10">
@@ -128,7 +136,7 @@ const ServicesSection = () => {
                   </a>
                 </div>
               </Card>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
