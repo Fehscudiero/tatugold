@@ -99,7 +99,9 @@ const HeroSection = () => {
             <span className="absolute inset-0 rounded-full bg-white opacity-5 blur-sm pointer-events-none" />
 
             {/* Brilho cruzando */}
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[goldSweep_2.5s_infinite]" />
+            {/* Brilho cruzando */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-yellow-300/40 to-transparent animate-[goldSweep_2.5s_infinite] h-[80%] w-[80%] left-[10%] top-[10%]" />
+
           </a>
         </div>
       </div>
