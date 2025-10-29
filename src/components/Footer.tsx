@@ -82,7 +82,7 @@ const Footer = () => {
                 href="https://devscud.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-devscud-epico"
+                className="text-gold-gradient"
               >
                 DevScud
               </a> — Soluções digitais com identidade e propósito.
