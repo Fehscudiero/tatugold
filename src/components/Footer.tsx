@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="bg-secondary text-secondary-foreground py-4"
+      className="bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white py-4"
       aria-labelledby="footer-title"
     >
       <div className="max-w-6xl mx-auto px-6">
