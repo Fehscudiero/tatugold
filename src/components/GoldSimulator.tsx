@@ -58,7 +58,7 @@ const GoldSimulator = () => {
     <>
       <section
         id="gold-simulator"
-        className="pb-12 pt-12 px-4 sm:px-6 bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white"
+        className="w-full scroll-mt-20 px-4 sm:px-6 py-12 bg-background dark:bg-gradient-to-br dark:from-zinc-900 dark:via-black dark:to-zinc-800 text-foreground dark:text-white transition-colors duration-300"
         aria-labelledby="simulator-title"
       >
         <header className="text-center mb-10" data-aos="fade-down">
@@ -68,16 +68,16 @@ const GoldSimulator = () => {
           >
             Simulador de Avaliação
           </h2>
-          <p className="text-gray-300 text-lg mt-2">
+          <p className="text-muted-foreground text-lg mt-2">
             Calcule o valor estimado do seu ouro em segundos
           </p>
         </header>
 
         <Card
-          className="w-full max-w-xl mx-auto p-6 rounded-2xl shadow-2xl border border-yellow-500 bg-white/10 backdrop-blur-xl"
+          className="w-full max-w-xl mx-auto p-6 rounded-2xl shadow-2xl border border-yellow-500 bg-white dark:bg-white/10 backdrop-blur-xl transition-colors"
           data-aos="fade-up"
         >
-          <div className="text-center mb-6 text-sm text-yellow-100">
+          <div className="text-center mb-6 text-sm text-yellow-600 dark:text-yellow-100">
             <p className="text-xl font-semibold mb-2">Valores por grama:</p>
             <ul className="space-y-1">
               <li><strong>24k</strong>: R$ 500,00</li>
@@ -90,24 +90,24 @@ const GoldSimulator = () => {
 
           <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleCalculate(); }}>
             <div>
-              <Label htmlFor="weight" className="text-yellow-100">Peso (gramas)</Label>
+              <Label htmlFor="weight" className="text-yellow-600 dark:text-yellow-100">Peso (gramas)</Label>
               <Input
                 id="weight"
                 type="number"
                 placeholder="Ex: 10.5"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
-                className="mt-2 bg-black/30 text-white border-yellow-500 focus:ring-yellow-500"
+                className="mt-2 bg-white dark:bg-black/30 text-black dark:text-white border-yellow-500 focus:ring-yellow-500"
               />
             </div>
 
             <div>
-              <Label htmlFor="gold-type" className="text-yellow-100">Tipo de Ouro</Label>
+              <Label htmlFor="gold-type" className="text-yellow-600 dark:text-yellow-100">Tipo de Ouro</Label>
               <Select value={goldType} onValueChange={setGoldType}>
-                <SelectTrigger className="mt-2 bg-black/30 text-white border-yellow-500 focus:ring-yellow-500">
+                <SelectTrigger className="mt-2 bg-white dark:bg-black/30 text-black dark:text-white border-yellow-500 focus:ring-yellow-500">
                   <SelectValue placeholder="Selecione o tipo" />
                 </SelectTrigger>
-                <SelectContent className="bg-zinc-900 border-yellow-500 text-white">
+                <SelectContent className="bg-white dark:bg-zinc-900 border-yellow-500 text-black dark:text-white">
                   <SelectItem value="24k">Ouro 24k</SelectItem>
                   <SelectItem value="18k">Ouro 18k</SelectItem>
                   <SelectItem value="14k">Ouro 14k</SelectItem>
@@ -130,25 +130,25 @@ const GoldSimulator = () => {
       </section>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="bg-white/10 backdrop-blur-xl border border-yellow-500 shadow-2xl rounded-2xl p-8 text-center text-white">
+        <DialogContent className="bg-white dark:bg-white/10 backdrop-blur-xl border border-yellow-500 shadow-2xl rounded-2xl p-8 text-center text-black dark:text-white transition-colors">
           <DialogHeader className="flex flex-col items-center justify-center">
             <img src={tatugoldLogo} alt="Logo Tatugold" className="w-40 h-auto mb-4 drop-shadow-lg" />
-            <DialogTitle className="text-4xl font-extrabold text-yellow-400 mb-2">
+            <DialogTitle className="text-4xl font-extrabold text-yellow-500 dark:text-yellow-400 mb-2">
               Valor Estimado
             </DialogTitle>
-            <DialogDescription className="text-sm text-yellow-100 mb-4">
+            <DialogDescription className="text-sm text-yellow-600 dark:text-yellow-100 mb-4">
               Baseado nos valores fixos por tipo de ouro.
             </DialogDescription>
           </DialogHeader>
 
           <p className="text-lg font-semibold mt-2">
-            Valor estimado para <span className="text-yellow-300 font-bold">ouro {goldType}</span>:
+            Valor estimado para <span className="text-yellow-600 dark:text-yellow-300 font-bold">ouro {goldType}</span>:
           </p>
-          <p className="text-3xl text-green-400 font-bold mb-2">
+          <p className="text-3xl text-green-600 dark:text-green-400 font-bold mb-2">
             <CountUp end={estimatedValue} duration={2} decimals={2} prefix="R$ " separator="." decimal="," />
           </p>
 
-          <p className="text-xs text-yellow-100 font-bold mb-4">
+          <p className="text-xs text-yellow-600 dark:text-yellow-100 font-bold mb-4">
             *Valor aproximado. Avaliação final será feita presencialmente.
           </p>
 
@@ -162,7 +162,7 @@ const GoldSimulator = () => {
           </a>
 
           <DialogClose asChild>
-            <Button variant="ghost" className="mt-4 w-full text-sm text-yellow-100 hover:text-yellow-400">
+            <Button variant="ghost" className="mt-4 w-full text-sm text-yellow-600 dark:text-yellow-100 hover:text-yellow-400">
               Fechar
             </Button>
           </DialogClose>
