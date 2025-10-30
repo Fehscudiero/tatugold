@@ -10,6 +10,7 @@ import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/NavBar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import CookieBanner from '@/components/CookieBanner';
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
       <LocationSection />
       <ContactDetails />
       <Footer />
+      <CookieBanner />
     </div>
   );
 };
