@@ -11,9 +11,10 @@ const LocationSection = () => {
     return (
         <section
             id="location"
-            className="border-b border-neutral-700 w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-gradient-subtle dark:bg-background transition-colors duration-500"
+            className="border-b border-neutral-700 w-full scroll-mt-20 px-4 sm:px-8 py-12 bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white transition-colors duration-500"
             aria-labelledby="location-title"
         >
+
             <div className="max-w-7xl mx-auto">
                 <header className="text-center mb-16" data-aos="fade-down">
                     <h2
