@@ -13,9 +13,10 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="border-b border-neutral-700 pt-4 pb-4 sm:pt-40 sm:pb-40 px-6 bg-background text-foreground transition-colors duration-300 overflow-hidden"
+      className="border-b border-neutral-700 pt-4 pb-4 sm:pt-40 sm:pb-40 px-6 bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white transition-colors duration-300 overflow-hidden"
       aria-labelledby="about-title"
     >
+
       <div className="max-w-7xl mx-auto">
         {/* Cabeçalho da seção com flip horizontal */}
         <motion.header
