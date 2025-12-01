@@ -79,7 +79,7 @@ const Footer = () => {
           <small className="flex flex-col md:flex-row justify-center items-center text-center text-xs gap-y-1 md:gap-y-0">
             <span className="text-secondary-foreground/80 font-medium md:ml-4">
               Desenvolvido por <a
-                href="https://devscud.vercel.app/"
+                href="https://www.scudiero.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gold-gradient"
