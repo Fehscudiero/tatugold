@@ -37,7 +37,7 @@ const GoldSimulator = () => {
 
   const goldPrices = {
     '24k': 500.0,
-    '18k': 300.0,
+    '18k': 330.0,
     '14k': 190.0,
     '10k': 90.0,
     'dental': 200.0
@@ -81,7 +81,7 @@ const GoldSimulator = () => {
             <p className="text-xl font-semibold mb-2">Valores por grama:</p>
             <ul className="space-y-1">
               <li><strong>24k</strong>: R$ 500,00</li>
-              <li><strong>18k</strong>: R$ 300,00</li>
+              <li><strong>18k</strong>: R$ 330,00</li>
               <li><strong>14k</strong>: R$ 190,00</li>
               <li><strong>10k</strong>: R$ 90,00</li>
               <li><strong>Dental</strong>: R$ 200,00</li>
