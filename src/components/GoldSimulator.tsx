@@ -133,7 +133,7 @@ const GoldSimulator = () => {
                   <SelectItem value="24k">Ouro 24k</SelectItem>
                   <SelectItem value="18k">Ouro 18k</SelectItem>
                   <SelectItem value="14k">Ouro 14k</SelectItem>
-                  <SelectItem value="Ouro Dental">Ouro Dental</SelectItem>
+                  <SelectItem value="dental">Ouro Dental</SelectItem>
                 </SelectContent>
               </Select>
             </div>
