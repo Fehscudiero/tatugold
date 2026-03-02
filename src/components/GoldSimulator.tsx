@@ -38,8 +38,7 @@ const GoldSimulator = () => {
   const goldPrices = {
     "24k": 600.0,
     "18k": 400.0,
-    "14k": 190.0,
-    "10k": 90.0,
+    "14k": 250.0,
     dental: 200.0,
   };
 
@@ -87,10 +86,7 @@ const GoldSimulator = () => {
                 <strong>18k</strong>: R$ 400,00
               </li>
               <li>
-                <strong>14k</strong>: R$ 190,00
-              </li>
-              <li>
-                <strong>10k</strong>: R$ 90,00
+                <strong>14k</strong>: R$ 250,00
               </li>
               <li>
                 <strong>Dental</strong>: R$ 200,00
@@ -137,7 +133,6 @@ const GoldSimulator = () => {
                   <SelectItem value="24k">Ouro 24k</SelectItem>
                   <SelectItem value="18k">Ouro 18k</SelectItem>
                   <SelectItem value="14k">Ouro 14k</SelectItem>
-                  <SelectItem value="10k">Ouro 10k</SelectItem>
                   <SelectItem value="dental">Ouro Dental</SelectItem>
                 </SelectContent>
               </Select>
