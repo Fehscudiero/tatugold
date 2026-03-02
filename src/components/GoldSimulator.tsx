@@ -1,33 +1,33 @@
-import { useState, useEffect } from 'react';
-import CountUp from 'react-countup';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useState, useEffect } from "react";
+import CountUp from "react-countup";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogClose
-} from '@/components/ui/dialog';
-import { TrendingUp } from 'lucide-react';
-import tatugoldLogo from '@/assets/tatugold-logo.webp';
+  DialogClose,
+} from "@/components/ui/dialog";
+import { TrendingUp } from "lucide-react";
+import tatugoldLogo from "@/assets/tatugold-logo.webp";
 
 const GoldSimulator = () => {
-  const [weight, setWeight] = useState('');
-  const [goldType, setGoldType] = useState('');
+  const [weight, setWeight] = useState("");
+  const [goldType, setGoldType] = useState("");
   const [estimatedValue, setEstimatedValue] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,11 +36,11 @@ const GoldSimulator = () => {
   }, []);
 
   const goldPrices = {
-    '24k': 500.0,
-    '18k': 330.0,
-    '14k': 190.0,
-    '10k': 90.0,
-    'dental': 200.0
+    "24k": 600.0,
+    "18k": 400.0,
+    "14k": 190.0,
+    "10k": 90.0,
+    dental: 200.0,
   };
 
   const handleCalculate = () => {
@@ -80,17 +80,38 @@ const GoldSimulator = () => {
           <div className="text-center mb-6 text-sm text-yellow-600 dark:text-yellow-100">
             <p className="text-xl font-semibold mb-2">Valores por grama:</p>
             <ul className="space-y-1">
-              <li><strong>24k</strong>: R$ 500,00</li>
-              <li><strong>18k</strong>: R$ 330,00</li>
-              <li><strong>14k</strong>: R$ 190,00</li>
-              <li><strong>10k</strong>: R$ 90,00</li>
-              <li><strong>Dental</strong>: R$ 200,00</li>
+              <li>
+                <strong>24k</strong>: R$ 600,00
+              </li>
+              <li>
+                <strong>18k</strong>: R$ 400,00
+              </li>
+              <li>
+                <strong>14k</strong>: R$ 190,00
+              </li>
+              <li>
+                <strong>10k</strong>: R$ 90,00
+              </li>
+              <li>
+                <strong>Dental</strong>: R$ 200,00
+              </li>
             </ul>
           </div>
 
-          <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleCalculate(); }}>
+          <form
+            className="space-y-6"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleCalculate();
+            }}
+          >
             <div>
-              <Label htmlFor="weight" className="text-yellow-600 dark:text-yellow-100">Peso (gramas)</Label>
+              <Label
+                htmlFor="weight"
+                className="text-yellow-600 dark:text-yellow-100"
+              >
+                Peso (gramas)
+              </Label>
               <Input
                 id="weight"
                 type="number"
@@ -102,7 +123,12 @@ const GoldSimulator = () => {
             </div>
 
             <div>
-              <Label htmlFor="gold-type" className="text-yellow-600 dark:text-yellow-100">Tipo de Ouro</Label>
+              <Label
+                htmlFor="gold-type"
+                className="text-yellow-600 dark:text-yellow-100"
+              >
+                Tipo de Ouro
+              </Label>
               <Select value={goldType} onValueChange={setGoldType}>
                 <SelectTrigger className="mt-2 bg-white dark:bg-black/30 text-black dark:text-white border-yellow-500 focus:ring-yellow-500">
                   <SelectValue placeholder="Selecione o tipo" />
@@ -132,7 +158,11 @@ const GoldSimulator = () => {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="bg-white dark:bg-white/10 backdrop-blur-xl border border-yellow-500 shadow-2xl rounded-2xl p-8 text-center text-black dark:text-white transition-colors">
           <DialogHeader className="flex flex-col items-center justify-center">
-            <img src={tatugoldLogo} alt="Logo Tatugold" className="w-40 h-auto mb-4 drop-shadow-lg" />
+            <img
+              src={tatugoldLogo}
+              alt="Logo Tatugold"
+              className="w-40 h-auto mb-4 drop-shadow-lg"
+            />
             <DialogTitle className="text-4xl font-extrabold text-yellow-500 dark:text-yellow-400 mb-2">
               Valor Estimado
             </DialogTitle>
@@ -142,10 +172,21 @@ const GoldSimulator = () => {
           </DialogHeader>
 
           <p className="text-lg font-semibold mt-2">
-            Valor estimado para <span className="text-yellow-600 dark:text-yellow-300 font-bold">ouro {goldType}</span>:
+            Valor estimado para{" "}
+            <span className="text-yellow-600 dark:text-yellow-300 font-bold">
+              ouro {goldType}
+            </span>
+            :
           </p>
           <p className="text-3xl text-green-600 dark:text-green-400 font-bold mb-2">
-            <CountUp end={estimatedValue} duration={2} decimals={2} prefix="R$ " separator="." decimal="," />
+            <CountUp
+              end={estimatedValue}
+              duration={2}
+              decimals={2}
+              prefix="R$ "
+              separator="."
+              decimal=","
+            />
           </p>
 
           <p className="text-xs text-yellow-600 dark:text-yellow-100 font-bold mb-4">
@@ -162,7 +203,10 @@ const GoldSimulator = () => {
           </a>
 
           <DialogClose asChild>
-            <Button variant="ghost" className="mt-4 w-full text-sm text-yellow-600 dark:text-yellow-100 hover:text-yellow-400">
+            <Button
+              variant="ghost"
+              className="mt-4 w-full text-sm text-yellow-600 dark:text-yellow-100 hover:text-yellow-400"
+            >
               Fechar
             </Button>
           </DialogClose>
