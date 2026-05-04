@@ -2,7 +2,7 @@
 
 Site desenvolvido por Felipe para a joalheria Tatugold, com foco em experiência fluida, integração com WhatsApp e navegação elegante. 
 
----
+---  
 
 ## 🚀 Tecnologias utilizadas
 
