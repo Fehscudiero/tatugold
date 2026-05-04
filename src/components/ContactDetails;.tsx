@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import AOS from 'aos';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
+import FloatingParticles from './FloatingParticles';
 
 const ContactDetails = () => {
     useEffect(() => {
@@ -23,38 +24,39 @@ const ContactDetails = () => {
     return (
         <section
             id="contact"
-            className="w-full px-4 sm:px-8 py-12 dark:bg-black bg-background dark:bg-background transition-colors duration-500"
+            className="w-full px-3 sm:px-6 lg:px-8 py-10 sm:py-12 dark:bg-black bg-background dark:bg-background transition-colors duration-500 relative overflow-hidden"
             aria-labelledby="contact-title"
         >
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <FloatingParticles count={5} />
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                 {/* Título estilizado */}
-                <header className="text-center mb-16 col-span-full" data-aos="fade-down">
+                <header className="text-center mb-8 lg:mb-16 col-span-full" data-aos="fade-down">
                     <h2
                         id="contact-title"
-                        className="text-4xl md:text-5xl font-bold mb-4 text-secondary dark:text-white"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-secondary dark:text-white"
                     >
                         <span className="text-gold-gradient">Contato</span>
                     </h2>
-                    <p className="text-gray-800 dark:text-gray-100 text-lg sm:text-xl font-semibold text-secondary max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-gray-800 dark:text-gray-100 text-sm sm:text-lg md:text-xl font-semibold text-secondary max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
                         Fale com a Tatugold pelos nossos canais oficiais
                     </p>
                 </header>
 
                 {/* Contatos */}
-                <article className="space-y-10" aria-label="Canais de contato">
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <article className="space-y-6 lg:space-y-10" aria-label="Canais de contato">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <li>
                             <Card
-                                className="card-elegant p-6 text-center rounded-xl shadow-xl hover:shadow-2xl transition"
+                                className="card-elegant p-4 sm:p-6 text-center rounded-xl shadow-xl hover:shadow-2xl transition"
                                 data-aos="fade-up"
                             >
-                                <FaWhatsapp className="w-8 h-8 text-green-500 mx-auto mb-4 animate-bounce" />
-                                <h3 className="font-semibold text-secondary dark:text-white mb-2">WhatsApp</h3>
-                                <p className="text-muted-foreground mb-4">(11) 97280-1984</p>
+                                <FaWhatsapp className="w-6 sm:w-8 h-6 sm:h-8 text-green-500 mx-auto mb-3 sm:mb-4 animate-bounce" />
+                                <h3 className="font-semibold text-secondary dark:text-white mb-1 sm:mb-2">WhatsApp</h3>
+                                <p className="text-muted-foreground mb-3 sm:mb-4 text-sm">(11) 97280-1984</p>
                                 <Button
                                     onClick={handleWhatsApp}
                                     size="sm"
-                                    className="btn-outline-gold w-full hover:scale-[1.02] transition"
+                                    className="btn-outline-gold w-full hover:scale-[1.02] transition text-xs sm:text-sm"
                                 >
                                     Enviar Mensagem
                                 </Button>

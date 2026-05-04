@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import FloatingParticles from './FloatingParticles';
 
 const LocationSection = () => {
     useEffect(() => {
@@ -11,29 +12,30 @@ const LocationSection = () => {
     return (
         <section
             id="location"
-            className="w-full scroll-mt-20 px-4 sm:px-8 py-12 border-b border-neutral-200 dark:border-neutral-700 bg-background dark:bg-gradient-to-br dark:from-zinc-900 dark:via-black dark:to-zinc-800 text-foreground dark:text-white transition-colors duration-500"
+            className="w-full scroll-mt-20 px-3 sm:px-6 lg:px-8 py-10 sm:py-12 border-b border-neutral-200 dark:border-neutral-700 bg-background dark:bg-gradient-to-br dark:from-zinc-900 dark:via-black dark:to-zinc-800 text-foreground dark:text-white transition-colors duration-500 relative overflow-hidden"
             aria-labelledby="location-title"
         >
+            <FloatingParticles count={5} />
             <div className="max-w-7xl mx-auto">
-                <header className="text-center mb-16" data-aos="fade-down">
+                <header className="text-center mb-8 sm:mb-16" data-aos="fade-down">
                     <h2
                         id="location-title"
-                        className="text-4xl md:text-5xl font-bold mb-4 text-secondary dark:text-white">
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-secondary dark:text-white">
                         <span className="text-gold-gradient">Localização</span>
                     </h2>
-                    <p className="text-gray-800 dark:text-gray-100 text-lg sm:text-xl font-semibold text-secondary max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-gray-800 dark:text-gray-100 text-sm sm:text-lg md:text-xl font-semibold text-secondary max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
                         Avalie seu ouro com quem entende — atendimento direto, rápido e sem compromisso.
                     </p>
                 </header>
 
                 <address className="not-italic" aria-label="Endereço da Tatugold">
                     <Card
-                        className="card-elegant p-3 max-w-md mx-auto rounded-lg shadow-md border border-muted mb-6"
+                        className="card-elegant p-3 sm:p-4 max-w-md mx-auto rounded-lg shadow-md border border-muted mb-6"
                         data-aos="fade-up"
                     >
-                        <div className="flex items-start space-x-4">
+                        <div className="flex items-start gap-3 sm:space-x-4">
                             <svg
-                                className="w-8 h-8 text-primary animate-pulse mt-1"
+                                className="w-6 sm:w-8 h-6 sm:h-8 text-primary animate-pulse mt-1 shrink-0"
                                 fill="none"
                                 stroke="currentColor"
                                 strokeWidth="2"
@@ -43,10 +45,10 @@ const LocationSection = () => {
                                 <circle cx="12" cy="9" r="2.5" />
                             </svg>
                             <div>
-                                <h3 className="text-xl font-semibold text-secondary dark:text-white mb-1">Endereço</h3>
-                                <p className="text-muted-foreground leading-relaxed">
+                                <h3 className="text-lg sm:text-xl font-semibold text-secondary dark:text-white mb-1">Endereço</h3>
+                                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                                     Rua Soriano de Souza, 190 - Tatuapé<br />
-                                    <span className="text-sm">(Próximo ao Shopping Metrô Boulevard Tatuapé)</span>
+                                    <span className="text-xs sm:text-sm">(Próximo ao Shopping Metrô Boulevard Tatuapé)</span>
                                 </p>
                             </div>
                         </div>
@@ -54,14 +56,14 @@ const LocationSection = () => {
                 </address>
 
                 <figure
-                    className="rounded-xl overflow-hidden shadow-lg border border-muted mb-16 max-w-6xl mx-auto"
+                    className="rounded-xl overflow-hidden shadow-lg border border-muted mb-8 sm:mb-16 max-w-6xl mx-auto"
                     data-aos="zoom-in"
                     aria-label="Mapa de localização"
                 >
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.781739285376!2d-46.574893!3d-23.577563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5edb3f9e2b2f%3A0x2b1f2a1b5b6f9b2f!2sRua%20Soriano%20de%20Souza%2C%20190%20-%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1695840000000"
                         width="100%"
-                        height="300"
+                        height="200 sm:300"
                         style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"

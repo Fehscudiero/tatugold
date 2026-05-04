@@ -4,6 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import FloatingParticles from './FloatingParticles';
 
 const testimonials = [
   {
@@ -51,8 +52,10 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="border-b border-neutral-700 bg-background dark:bg-black text-foreground pt-32 pb-32 px-6 mt-0 sm:mt-0"
-      aria-labelledby="testimonials-title"    >
+      className="border-b border-neutral-700 bg-background dark:bg-black text-foreground pt-32 pb-32 px-6 mt-0 sm:mt-0 relative overflow-hidden"
+      aria-labelledby="testimonials-title"
+    >
+      <FloatingParticles count={5} />
       <div className="flex justify-center">
         <div className="bg-card text-card-foreground rounded-xl p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.1)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.2)] transition-colors duration-300 max-w-4xl w-full">
           {/* Título fixo */}

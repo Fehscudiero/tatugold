@@ -1,5 +1,6 @@
 import { Heart } from 'lucide-react';
 import tatugoldLogo from '@/assets/tatugold-logo.webp';
+import FloatingParticles from './FloatingParticles';
 
 const Footer = () => {
   const quickLinks = [
@@ -14,9 +15,10 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white py-4"
+      className="bg-gradient-to-br from-zinc-900 via-black to-zinc-800 text-white py-4 relative overflow-hidden"
       aria-labelledby="footer-title"
     >
+      <FloatingParticles count={4} />
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between text-center md:text-left gap-y-6 md:gap-y-0 mb-4">
           {/* Logo */}
