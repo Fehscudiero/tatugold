@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Shield, Award, Star, Heart, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import CountUp from 'react-countup';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FloatingParticles from './FloatingParticles';
@@ -9,7 +10,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [startCount, setStartCount] = useState(false);
+
+  const stats = [
+    { value: 20, suffix: '+', label: 'Anos' },
+    { value: 50, suffix: 'k+', label: 'Clientes' },
+    { value: 98, suffix: '%', label: 'Satisfação' },
+  ];
 
   const highlights = [
     { icon: Shield, title: 'Confiança', description: '20 anos de tradição no mercado' },
@@ -35,6 +44,12 @@ const AboutSection = () => {
           }
         }
       );
+
+      ScrollTrigger.create({
+        trigger: '.stats-container',
+        start: 'top 80%',
+        onEnter: () => setStartCount(true)
+      });
 
       cardsRef.current.forEach((card, i) => {
         gsap.fromTo(card,
@@ -168,30 +183,27 @@ const AboutSection = () => {
           </ul>
         </motion.article>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+        <div
+          ref={statsRef}
           className="stats-container mt-10 sm:mt-16 text-center px-4 sm:px-0"
         >
           <div className="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 rounded-xl sm:rounded-2xl bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10">
-            <div className="text-center stats-item">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-shimmer">20+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Anos</div>
-            </div>
-            <div className="hidden sm:block w-px h-8 lg:h-12 bg-gradient-to-b from-transparent via-yellow-500/50 to-transparent" />
-            <div className="text-center stats-item">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-shimmer">50k+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Clientes</div>
-            </div>
-            <div className="hidden sm:block w-px h-8 lg:h-12 bg-gradient-to-b from-transparent via-yellow-500/50 to-transparent" />
-            <div className="text-center stats-item">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-shimmer">98%</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Satisfação</div>
-            </div>
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-shimmer">
+                  <CountUp
+                    end={stat.value}
+                    duration={2}
+                    suffix={stat.suffix}
+                    enableScrollSpy
+                    scrollSpyOnce
+                  />
+                </div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

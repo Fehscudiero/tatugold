@@ -23,6 +23,7 @@ const ServicesSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Título com animação premium
       gsap.fromTo('.services-title',
         { y: 60, opacity: 0, rotateX: -20 },
         {
@@ -39,29 +40,92 @@ const ServicesSection = () => {
         }
       );
 
-      cardsRef.current.forEach((card, i) => {
-        gsap.fromTo(card,
-          { y: 100, opacity: 0, scale: 0.9, rotateY: -15 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            rotateY: 0,
-            duration: 0.8,
-            delay: i * 0.1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
+      // Animação premium para desktop - cards vêm de posições aleatórias
+      if (!isMobile && cardsRef.current.length > 0) {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        cardsRef.current.forEach((card, i) => {
+          // Gerar posições aleatórias fora da tela para cada card
+          // Cada card vem de uma direção diferente para criar efeito de "convergência"
+          const angle = (i / cardsRef.current.length) * Math.PI * 2; // Distribuir em círculo
+          const distance = viewportWidth * 0.8 + Math.random() * 200;
+          
+          // Posição inicial aleatória fora da tela
+          const startX = Math.cos(angle + Math.random() * 0.5) * distance;
+          const startY = Math.sin(angle + Math.random() * 0.5) * distance * 0.5;
+          
+          // Rotação inicial aleatória para efeito de "tumbling"
+          const startRotation = (Math.random() - 0.5) * 60;
+          
+          // Escala inicial menor
+          const startScale = 0.3 + Math.random() * 0.3;
+          
+          // Duração variável para cada card (efeito orgânico)
+          const duration = 1.2 + Math.random() * 0.4;
+          
+          // Delay escalonado mas com variação aleatória
+          const delay = i * 0.08 + Math.random() * 0.1;
+
+          gsap.fromTo(card,
+            { 
+              x: startX, 
+              y: startY, 
+              opacity: 0, 
+              scale: startScale, 
+              rotation: startRotation,
+              filter: 'blur(10px)'
+            },
+            {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              rotation: 0,
+              filter: 'blur(0px)',
+              duration: duration,
+              delay: delay,
+              ease: 'power4.out', // Easing premium para movimento suave
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse'
+              }
             }
-          }
-        );
-      });
+          );
+        });
+      } 
+      
+      // Animação otimizada para mobile - efeito elegante mas leve
+      if (isMobile && cardsRef.current.length > 0) {
+        cardsRef.current.forEach((card, i) => {
+          // Usar apenas transformações simples para melhor performance
+          gsap.fromTo(card,
+            { 
+              y: 60 + i * 20, // Offset escalonado vertical
+              opacity: 0, 
+              scale: 0.95
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              delay: i * 0.08,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+      }
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
   const services = [
     {
