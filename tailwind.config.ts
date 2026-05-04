@@ -120,6 +120,26 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        pulseGlow: {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(251, 191, 36, 0.4)" },
+          "50%": { boxShadow: "0 0 40px rgba(251, 191, 36, 0.6)" },
+        },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        bounce: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         fadeInUp: "fadeInUp 0.8s ease-out forwards",
@@ -128,6 +148,10 @@ export default {
         tiltIn: "tiltIn 0.6s ease-out forwards",
         accordionDown: "accordionDown 0.2s ease-out",
         accordionUp: "accordionUp 0.2s ease-out",
+        float: "float 6s ease-in-out infinite",
+        "pulse-glow": "pulseGlow 2s ease-in-out infinite",
+        shimmer: "shimmer 2s infinite linear",
+        spin: "spin 20s linear infinite",
       },
     },
   },

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Sparkles } from "lucide-react";
 import logoImage from "@/assets/icone.png";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "next-themes";
@@ -47,66 +48,77 @@ const Navbar = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+                scrolled
                     ? theme === "light"
-                        ? "bg-white/80 backdrop-blur-md shadow-sm"
-                        : "bg-black/80 backdrop-blur-md shadow-sm"
+                        ? "bg-white/70 backdrop-blur-xl shadow-lg shadow-black/5"
+                        : "bg-black/70 backdrop-blur-xl shadow-lg shadow-yellow-500/5"
                     : "bg-transparent"
-                }`}
+            }`}
         >
-            <div className="container mx-auto px-4 py-1 flex items-center justify-between h-[58px] gap-4 relative">
-                {/* Menu Hamburguer */}
+            <div className="container mx-auto px-4 py-1 flex items-center justify-between h-[70px] gap-4 relative">
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-white relative z-50"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
                 >
-                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    <motion.div
+                        animate={isOpen ? { rotate: 90 } : { rotate: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+                    </motion.div>
                 </button>
 
-                {/* Logo */}
                 {showMobileSimButton && (
-                    <div className="flex items-center" style={{ height: "40px", minWidth: "120px" }}>
-                        <a
-                            href="#hero-bg"
-                            onClick={(e) => handleLinkClick(e, "#hero-bg")}
-                            className="transition-all duration-300 opacity-100 scale-100"
-                        >
-                            <img src={logoImage} alt="Tatugold" className="w-20 md:w-28 h-auto ml-8" />
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="flex items-center"
+                    >
+                        <a href="#hero-bg" onClick={(e) => handleLinkClick(e, "#hero-bg")}>
+                            <img src={logoImage} alt="Tatugold" className="w-20 md:w-28 h-auto" />
                         </a>
-                    </div>
+                    </motion.div>
                 )}
 
-                {/* Botão Simulador — mobile */}
                 {showMobileSimButton && (
-                    <div className="md:hidden transition-all duration-300">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="md:hidden"
+                    >
                         <button
                             onClick={() => scrollToSection("#gold-simulator")}
-                            className="relative inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-black rounded-full shadow-md transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden isolate bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 btn-simulador-fodaa"
+                            className="relative inline-flex items-center justify-center px-4 py-2 text-sm font-bold text-black rounded-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 shadow-lg hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] transition-all duration-300 hover:scale-105 active:scale-95"
                         >
-                            <span className="relative z-10">Simulador</span>
-                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[goldSweep_2.5s_infinite]" />
+                            <Sparkles className="w-4 h-4 mr-1" />
+                            <span>Simulador</span>
                         </button>
-                    </div>
+                    </motion.div>
                 )}
 
-                {/* Menu Desktop + Botão de Tema */}
-                <nav className="hidden md:flex gap-6 ml-auto items-center" aria-label="Menu principal">
-                    {menuItems.map((item) => (
-                        <a
+                <nav className="hidden md:flex gap-2 ml-auto items-center" aria-label="Menu principal">
+                    {menuItems.map((item, index) => (
+                        <motion.a
                             key={item.href}
                             href={item.href}
                             onClick={(e) => handleLinkClick(e, item.href)}
-                            className="text-sm font-medium text-white hover:text-yellow-400 transition duration-200"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="relative px-4 py-2 text-sm font-medium text-white/90 hover:text-yellow-400 transition-all duration-300 group"
                         >
                             {item.label}
-                        </a>
+                            <span className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 via-yellow-400/10 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg blur-sm" />
+                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 group-hover:w-full transition-all duration-300 rounded-full" />
+                        </motion.a>
                     ))}
-                    {/* Botão de tema — último item no desktop */}
-                    <ThemeToggle />
+                    <div className="ml-2">
+                        <ThemeToggle />
+                    </div>
                 </nav>
 
-                {/* Botão de tema — mobile no canto direito, visível no topo */}
                 {!scrolled && (
                     <div className="md:hidden ml-auto">
                         <ThemeToggle />
@@ -114,32 +126,40 @@ const Navbar = () => {
                 )}
             </div>
 
-            {/* Menu Mobile moderno e lateral */}
-            <nav
-                className={`md:hidden absolute top-[58px] left-0 w-[280px] z-40 transition-all duration-500 ease-in-out transform ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-                    }`}
-                aria-label="Menu mobile"
-            >
-                <div
-                    className={`px-6 py-6 space-y-4 shadow-xl rounded-r-xl backdrop-blur-md transition-all duration-500 overflow-auto max-h-[400px] ${theme === "light" ? "bg-white/90 text-black" : "bg-black/90 text-white"
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: "-100%" }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: "-100%" }}
+                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                        className={`md:hidden absolute top-[70px] left-0 w-full h-screen z-40 ${
+                            theme === "light"
+                                ? "bg-white/95 backdrop-blur-xl"
+                                : "bg-black/95 backdrop-blur-xl"
                         }`}
-                >
-                    {menuItems.map((item) => (
-                        <a
-                            key={item.href}
-                            href={item.href}
-                            onClick={(e) => handleLinkClick(e, item.href)}
-                            className="block text-base font-medium hover:text-yellow-400 transition"
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-
-                    <div className="pt-2">
-                        <ThemeToggle onToggle={() => setIsOpen(false)} />
-                    </div>
-                </div>
-            </nav>
+                    >
+                        <nav className="flex flex-col p-8 space-y-4" aria-label="Menu mobile">
+                            {menuItems.map((item, index) => (
+                                <motion.a
+                                    key={item.href}
+                                    href={item.href}
+                                    onClick={(e) => handleLinkClick(e, item.href)}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="text-xl font-semibold text-foreground hover:text-yellow-500 transition-colors"
+                                >
+                                    {item.label}
+                                </motion.a>
+                            ))}
+                            <div className="pt-6">
+                                <ThemeToggle onToggle={() => setIsOpen(false)} />
+                            </div>
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 };
