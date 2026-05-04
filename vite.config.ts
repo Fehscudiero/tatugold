@@ -28,6 +28,11 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, './src'),
       },
     },
+    server: {
+      open: true,
+      host: true,
+      port: 5173,
+    },
     build: {
       sourcemap: true,
       chunkSizeWarningLimit: 1000,
