@@ -23,14 +23,14 @@ const ServicesSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Título com animação premium (Estilo Apple Reveal)
+      // Título com Reveal mais rápido
       gsap.fromTo('.services-title',
         { y: 40, opacity: 0, filter: 'blur(10px)' },
         {
           y: 0,
           opacity: 1,
           filter: 'blur(0px)',
-          duration: 1.2,
+          duration: 0.8,
           ease: 'power4.out',
           scrollTrigger: {
             trigger: '.services-title',
@@ -40,38 +40,42 @@ const ServicesSection = () => {
         }
       );
 
-      // Animação Desktop (Convergência)
+      // ANIMAÇÃO DESKTOP: TORNADO VELOZ (PREENCHENDO A TELA)
       if (!isMobile && cardsRef.current.length > 0) {
-        const viewportWidth = window.innerWidth;
-        
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
         cardsRef.current.forEach((card, i) => {
-          const angle = (i / cardsRef.current.length) * Math.PI * 2;
-          const distance = viewportWidth * 0.8 + Math.random() * 200;
-          const startX = Math.cos(angle) * distance;
-          const startY = Math.sin(angle) * distance * 0.5;
+          // Ângulos e raios maiores para cobrir toda a área externa da tela
+          const angle = (i / cardsRef.current.length) * Math.PI * 4; 
+          const radius = Math.max(vw, vh) * 0.8; // Garante que venha de fora da tela
+          
+          const startX = Math.cos(angle) * radius;
+          const startY = Math.sin(angle) * radius;
 
           gsap.fromTo(card,
             { 
               x: startX, 
               y: startY, 
               opacity: 0, 
-              scale: 0.5, 
-              rotation: (Math.random() - 0.5) * 40,
-              filter: 'blur(15px)'
+              scale: 0, 
+              rotationZ: 1080, // Giro triplo ultra veloz
+              filter: 'blur(20px)',
+              transformOrigin: "center center"
             },
             {
               x: 0,
               y: 0,
               opacity: 1,
               scale: 1,
-              rotation: 0,
+              rotationZ: 0,
               filter: 'blur(0px)',
-              duration: 1.5,
-              delay: i * 0.1,
-              ease: 'power4.out',
+              duration: 1.2, // Mais rápido para impacto imediato
+              delay: i * 0.05, // Stagger mais curto para fluidez contínua
+              ease: 'power4.out', // Snappy entry
               scrollTrigger: {
-                trigger: card,
-                start: 'top 90%',
+                trigger: sectionRef.current,
+                start: 'top 75%',
                 toggleActions: 'play none none reverse'
               }
             }
@@ -79,28 +83,27 @@ const ServicesSection = () => {
         });
       } 
       
-      // ANIMAÇÃO MOBILE REFEITA (ESTILO APPLE)
+      // ANIMAÇÃO MOBILE: ESTILO APPLE REFINED
       if (isMobile && cardsRef.current.length > 0) {
         cardsRef.current.forEach((card, i) => {
           gsap.fromTo(card,
             { 
-              y: 30, // Movimento mais curto = mais elegante
+              y: 20, 
               opacity: 0, 
-              scale: 0.98, // Inicia levemente menor
-              filter: 'blur(4px)' // Leve desfoque na entrada
+              scale: 0.98,
+              filter: 'blur(4px)'
             },
             {
               y: 0,
               opacity: 1,
               scale: 1,
               filter: 'blur(0px)',
-              duration: 1.1, // Duração maior para suavidade
-              ease: 'power4.out', // Curva de aceleração Apple
+              duration: 0.9,
+              ease: 'power3.out',
               scrollTrigger: {
                 trigger: card,
-                start: 'top 92%', // Aciona um pouco antes para fluidez
-                toggleActions: 'play none none reverse',
-                // scrub: 0.5 // Opcional: descomente se quiser que a animação acompanhe o dedo
+                start: 'top 94%',
+                toggleActions: 'play none none reverse'
               }
             }
           );
@@ -156,8 +159,7 @@ const ServicesSection = () => {
     <section
       ref={sectionRef}
       id="service"
-      className="w-full scroll-mt-20 px-4 sm:px-8 py-20 dark:bg-gradient-to-b dark:from-black dark:via-zinc-900 dark:to-black bg-gradient-to-b from-gray-50 via-white to-gray-50 text-foreground transition-colors duration-300 flex flex-col items-center relative overflow-hidden"
-      aria-labelledby="services-title"
+      className="w-full scroll-mt-20 px-4 sm:px-8 py-20 dark:bg-gradient-to-b dark:from-black dark:via-zinc-900 dark:to-black bg-gradient-to-b from-gray-50 via-white to-gray-50 text-foreground flex flex-col items-center relative overflow-hidden"
     >
       <FloatingParticles count={6} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(251,191,36,0.1)_0%,transparent_50%)]" />
@@ -169,10 +171,7 @@ const ServicesSection = () => {
             <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-yellow-500" />
             <span className="text-xs sm:text-sm font-medium text-yellow-600 dark:text-yellow-400">Serviços Premium</span>
           </div>
-          <h2
-            id="services-title"
-            className="services-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
-          >
+          <h2 className="services-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Nossos <span className="text-shimmer">Serviços</span>
           </h2>
           <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
@@ -185,7 +184,7 @@ const ServicesSection = () => {
             <article key={index} className="h-full">
               <div 
                 ref={(el) => { if (el) cardsRef.current[index] = el }}
-                className={`card-glass h-full p-4 sm:p-6 lg:p-8 group cursor-pointer relative overflow-hidden will-change-transform ${isMobile ? 'active:scale-95 transition-transform' : ''}`}
+                className={`card-glass h-full p-4 sm:p-6 lg:p-8 group cursor-pointer relative overflow-hidden will-change-transform ${isMobile ? 'active:scale-95 transition-transform' : 'hover:scale-[1.03] hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500'}`}
               >
                 <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-2xl group-hover:bg-yellow-400/20 transition-all duration-500" />
 
