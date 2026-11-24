@@ -62,8 +62,7 @@ const LocationSection = () => {
                 >
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.781739285376!2d-46.574893!3d-23.577563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5edb3f9e2b2f%3A0x2b1f2a1b5b6f9b2f!2sRua%20Soriano%20de%20Souza%2C%20190%20-%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1695840000000"
-                        width="100%"
-                        height="200 sm:300"
+                        className="w-full h-[250px] sm:h-[350px]"
                         style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"

@@ -46,6 +46,7 @@ const ServicesSection = () => {
         const vh = window.innerHeight;
 
         cardsRef.current.forEach((card, i) => {
+          if (!card) return;
           // Ângulos e raios maiores para cobrir toda a área externa da tela
           const angle = (i / cardsRef.current.length) * Math.PI * 4; 
           const radius = Math.max(vw, vh) * 0.8; // Garante que venha de fora da tela
@@ -86,6 +87,7 @@ const ServicesSection = () => {
       // ANIMAÇÃO MOBILE: ESTILO APPLE REFINED
       if (isMobile && cardsRef.current.length > 0) {
         cardsRef.current.forEach((card, i) => {
+          if (!card) return;
           gsap.fromTo(card,
             { 
               y: 20, 

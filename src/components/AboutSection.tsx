@@ -52,6 +52,7 @@ const AboutSection = () => {
       });
 
       cardsRef.current.forEach((card, i) => {
+        if (!card) return;
         gsap.fromTo(card,
           { y: 80, opacity: 0, scale: 0.8, rotateX: -20 },
           {
@@ -189,7 +190,7 @@ const AboutSection = () => {
         >
           <div className="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 rounded-xl sm:rounded-2xl bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="stats-item text-center">
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-shimmer">
                   <CountUp
                     end={stat.value}

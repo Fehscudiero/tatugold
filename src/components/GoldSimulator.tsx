@@ -191,6 +191,7 @@ const GoldSimulator = () => {
                       <Label htmlFor="weight" className="text-xs font-black uppercase tracking-widest ml-1">Peso da Peça (g)</Label>
                       <Input
                         id="weight"
+                        name="weight"
                         type="number"
                         step="0.01"
                         placeholder="0.00"
@@ -202,8 +203,8 @@ const GoldSimulator = () => {
 
                     <div className="space-y-2">
                       <Label htmlFor="gold-type" className="text-xs font-black uppercase tracking-widest ml-1">Pureza Selecionada</Label>
-                      <Select value={goldType} onValueChange={setGoldType}>
-                        <SelectTrigger className="h-16 text-lg bg-slate-100 dark:bg-black/40 border-none rounded-2xl focus:ring-2 focus:ring-yellow-500 font-bold uppercase">
+                      <Select name="gold-type" value={goldType} onValueChange={setGoldType}>
+                        <SelectTrigger id="gold-type" aria-label="Pureza Selecionada" className="h-16 text-lg bg-slate-100 dark:bg-black/40 border-none rounded-2xl focus:ring-2 focus:ring-yellow-500 font-bold uppercase">
                           <SelectValue placeholder="Selecione a pureza" />
                         </SelectTrigger>
                         <SelectContent className="rounded-2xl border-yellow-500/20 shadow-2xl">

@@ -17,38 +17,46 @@
   </script>
 
 
-  <!-- SEO -->
+  <!-- Canonical & SEO -->
+  <link rel="canonical" href="https://www.tatugold.com.br/" />
   <meta name="description"
     content="Venda seu ouro com segurança no Tatuapé. Avaliação gratuita, pagamento na hora e joias exclusivas. Tatugold — +20 anos de confiança." />
   <meta name="keywords"
     content="compro ouro Tatuapé, vender ouro SP, joalheria São Paulo, ouro 18k, joias personalizadas, penhor ouro, ouro usado, Tatugold" />
   <meta name="author" content="Tatugold Joalheria" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- Geo Meta Tags (Local SEO & AI Maps) -->
+  <meta name="geo.region" content="BR-SP" />
+  <meta name="geo.placename" content="São Paulo - Tatuapé" />
+  <meta name="geo.position" content="-23.577563;-46.574893" />
+  <meta name="ICBM" content="-23.577563, -46.574893" />
 
   <!-- PWA / App -->
-  <link rel="manifest" href="/manifest.json" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Tatugold" />
   <link rel="apple-touch-icon" href="/icone.webp" />
 
   <!-- Open Graph -->
+  <meta property="og:site_name" content="Tatugold Joalheria" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Compro Ouro no Tatuapé | Tatugold Joalheria" />
   <meta property="og:description"
-    content="Tatugold — há 20 anos comprando ouro e criando joias exclusivas. Avaliação gratuita e pagamento imediato." />
-  <!-- Imagem com extensão .webp -->
-  <meta property="og:image" content="https://tatugold.com.br/tatugold-logo.webp" />
-  <meta property="og:url" content="https://tatugold.com.br" />
+    content="Tatugold — há 20 anos comprando ouro e criando joias exclusivas no Tatuapé. Avaliação gratuita e pagamento imediato via Pix." />
+  <meta property="og:image" content="https://www.tatugold.com.br/tatugold-logo.webp" />
+  <meta property="og:url" content="https://www.tatugold.com.br/" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tatugold — Joalheria no Tatuapé" />
   <meta name="twitter:description"
     content="Venda de ouro com confiança. Avaliação grátis e pagamento imediato. Tatugold — 20 anos de tradição." />
-  <!-- Imagem com extensão .webp -->
-  <meta name="twitter:image" content="https://tatugold.com.br/tatugold-logo.webp" />
+  <meta name="twitter:image" content="https://www.tatugold.com.br/tatugold-logo.webp" />
 
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="2xvXKOLiConfxV9qg7ohkBsK2rkRhoM6djMEPPuIhKU" />
@@ -61,22 +69,86 @@
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- Structured Data (Schema.org) -->
+  <!-- Structured Data (Schema.org / GEO & Local SEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "JewelryStore",
-    "name": "Tatugold Joalheria",
-    "url": "https://tatugold.com.br",
-    "logo": "https://tatugold.com.br/tatugold-logo.webp",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "São Paulo",
-      "addressRegion": "SP",
-      "streetAddress": "Rua Soriano de Souza, 190",
-      "postalCode": "04891-230"
-    },
-    "telephone": "+55 11 97280-1984"
+    "@graph": [
+      {
+        "@type": "JewelryStore",
+        "@id": "https://www.tatugold.com.br/#jewelrystore",
+        "name": "Tatugold Joalheria",
+        "alternateName": "Compro Ouro no Tatuapé",
+        "url": "https://www.tatugold.com.br/",
+        "logo": "https://www.tatugold.com.br/tatugold-logo.webp",
+        "image": "https://www.tatugold.com.br/tatugold-logo.webp",
+        "description": "Joalheria especialista em compra de ouro 18k e 24k, joias personalizadas, avaliação gratuita e pagamento na hora no Tatuapé, São Paulo.",
+        "telephone": "+55 11 97280-1984",
+        "priceRange": "$$",
+        "currenciesAccepted": "BRL",
+        "paymentAccepted": "Cash, Credit Card, Debit Card, PIX",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Soriano de Souza, 190",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "04891-230",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -23.577563,
+          "longitude": -46.574893
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday"],
+            "opens": "09:00",
+            "closes": "14:00"
+          }
+        ],
+        "sameAs": [
+          "https://instagram.com/tatugold.joias"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.tatugold.com.br/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Como vender ouro com segurança na Tatugold no Tatuapé?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A avaliação é realizada presencialmente na nossa loja no Tatuapé. Testamos o teor do ouro (18k, 24k) e pesamos em balança de precisão certificada na frente do cliente, com pagamento imediato via PIX."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A Tatugold compra cautelas de penhor da Caixa Econômica Federal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim, compramos e resgatamos cautelas de penhor da Caixa Econômica Federal com total transparência, pagando a diferença na hora."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Onde fica a loja da Tatugold?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Estamos na Rua Soriano de Souza, 190 - Tatuapé, São Paulo - SP, muito próximos ao Shopping Metrô Boulevard Tatuapé."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -95,7 +167,28 @@
     <p>Este site requer JavaScript para funcionar corretamente. Por favor, habilite o JavaScript no seu navegador.</p>
   </noscript>
 
-  <div id="root"></div>
+  <div id="root">
+    <header style="padding: 2rem 1rem; text-align: center;">
+      <h1 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Tatugold Joalheria — Compro Ouro no Tatuapé</h1>
+      <p style="font-size: 1rem; max-width: 600px; margin: 0 auto;">Avaliação gratuita, pagamento imediato na hora via PIX e mais de 20 anos de tradição em joalheria e compra de ouro em São Paulo.</p>
+    </header>
+    <main style="max-width: 800px; margin: 0 auto; padding: 1rem;">
+      <section style="margin-bottom: 1.5rem;">
+        <h2>Nossos Serviços</h2>
+        <ul>
+          <li><strong>Compra de Ouro:</strong> Compramos ouro 18k e 24k, moedas, barras e joias usadas com pagamento imediato.</li>
+          <li><strong>Avaliação Gratuita:</strong> Avaliação técnica presencial transparente com balança de precisão certificada.</li>
+          <li><strong>Resgate de Penhor:</strong> Liquidação e resgate de cautelas de penhor da Caixa Econômica Federal.</li>
+          <li><strong>Joias Personalizadas:</strong> Criação sob medida e reforma de joias.</li>
+        </ul>
+      </section>
+      <section style="margin-bottom: 1.5rem;">
+        <h2>Endereço e Contato</h2>
+        <p><strong>Endereço:</strong> Rua Soriano de Souza, 190 - Tatuapé, São Paulo - SP (Próximo ao Shopping Metrô Boulevard Tatuapé)</p>
+        <p><strong>WhatsApp:</strong> (11) 97280-1984 | <strong>Horário:</strong> Seg a Sex das 9h às 18h, Sáb das 9h às 14h</p>
+      </section>
+    </main>
+  </div>
 
   <!-- Scripts otimizados -->
   <script type="module" src="/src/main.tsx?v=20260504" defer></script>

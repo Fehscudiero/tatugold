@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Página principal com todas as seções internas -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://tatugold.com.br/</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.tatugold.com.br/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.tatugold.com.br/tatugold-logo.webp</image:loc>
+      <image:title>Tatugold Joalheria — Compro Ouro no Tatuapé</image:title>
+      <image:caption>Tatugold — Mais de 20 anos de tradição em compra de ouro e joalheria no Tatuapé</image:caption>
+    </image:image>
   </url>
-
 </urlset>
